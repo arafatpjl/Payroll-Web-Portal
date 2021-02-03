@@ -1,0 +1,77 @@
+<div ng-repeat="image in images" >
+           {{image}}
+            <img  ng-src="{{image}}"  > 
+     
+            </div>
+       <div>
+        <h4 ng-show="nextLoad">{{ nextLoad }}</h4>
+      </div>
+      <div>
+        <h4>Log <small ng-show="results" style="color: green;">done loading</small></h4>
+        <span ng-repeat="stmt in log">{{ stmt }}<br/></span>
+      </div>
+      <div>
+        <h4>Results</h4>
+        <div bind-image-results="results"></div>
+      </div>
+
+
+
+
+    $scope.log = [];
+    $scope.nextLoad = "Waiting for preLoad...";
+    $scope.images = [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/LARGE_elevation.jpg/800px-LARGE_elevation.jpg",
+      "http://www.clker.com/cliparts/0/0/b/6/13845398822090716857butterfly2_large.jpg",
+      "http://www.flag-directory.com/flags/Barbados.png",
+      "http://www.flag-directory.com/flags/Belize.png",
+      "http://www.flag-directory.com/flags/Cuba.png",
+      "http://www.flag-directory.com/flags/Dominica.png",
+      "http://www.flag-directory.com/flags/Grenada.png"
+    ]
+
+    function preLoad() {
+
+        var promises = [];
+
+        function loadImage(src) {
+            return $q(function (resolve, reject) {
+                var image = new Image();
+                image.src = src;
+                image.onload = function () {
+                    $scope.log.push("loaded image: " + src);
+                    resolve(image);
+                };
+                image.onerror = function (e) {
+                    reject(e);
+                };
+            })
+        }
+
+        $scope.images.forEach(function (src) {
+            promises.push(loadImage(src));
+        })
+
+        return $q.all(promises).then(function (results) {
+            console.log('promises array all resolved');
+            $scope.results = results;
+        });
+    }
+
+    preLoad().then(function () {
+        $scope.nextLoad = "Starting the next load activity..."
+    });
+
+
+  app.directive("bindImageResults", function($compile) {
+      return {
+          restrict: 'A',
+          link: function(scope, ele) {
+              scope.$watch('results', function(newVal, oldVal) {
+                  console.log(newVal,oldVal);
+                  if (!newVal) return;
+                  ele.append(newVal)
+              })
+          }
+      }
+    })

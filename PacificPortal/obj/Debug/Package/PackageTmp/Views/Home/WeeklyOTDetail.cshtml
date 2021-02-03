@@ -1,0 +1,205 @@
+﻿@{
+    ViewBag.Title = "Weekly OT Detail";
+}
+
+
+
+<style>
+    html {
+        /*width: 21cm;
+        height: 29.7cm;
+        overflow: scroll;*/
+        }
+
+      body {
+            background: rgb(204,204,204);
+            }
+
+page[size="A4"] {
+  background: white;
+  width: 21cm;
+  height: 29.7cm;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+   padding-left:10px;
+}
+@@media print {
+  body, page[size="A4"] {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+
+
+    #Report_table {
+        font-size: 11px;
+/*text-align:center;*/
+/*white-space: nowrap;*/ 
+    }
+
+#Report_table >tbody>tr>td{
+  height:20px;
+  padding:0px;
+  border-top: 0px;
+
+  padding-left:5px;
+}
+
+
+
+
+.row.vdivide [class*='col-']:not(:last-child):after {
+  background: #e0e0e0;
+  width: 1px;
+  content: "";
+  display:block;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  right: 0;
+  min-height: 70px;
+ 
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+    display: none !important;
+}
+
+</style>
+
+
+
+    <div ng-controller="WeeklyOTDetailController" style="height:23cm; width:100%; overflow:auto;"  ng-cloak>
+               
+          <page size="A4">
+
+                
+           <div class="row vdivide" >
+                    <div class="text-center" >
+
+                  <h4> Weekly OT Report </h4>
+                         <h6>  Date Between {{WeeklyOTParameter.FromDate |date:'dd-MM-yyyy'}} To {{WeeklyOTParameter.ToDate |date:'dd-MM-yyyy'}} </h6>
+                        @*<h6> {{WeeklyOTParameter.CompID}}</h6>*@
+                    </div>
+          </div>
+
+        <hr>
+
+
+
+
+
+
+
+  <div class="row vdivide">
+    
+       <div class="col-sm-12" >
+            <span class="label label-info">Weekly OT Report</span>
+                          
+
+
+        <table  id="Report_table" class="table table-striped">
+
+           <thead>
+                <tr>
+                    <th>
+                        Department
+                    </th>
+
+                    <th>
+                        Emp
+                    </th>
+                    <th>
+                        Emp(60)
+                    </th>
+                    <th>
+                        Emp(66)
+                    </th>
+                    <th>
+                        Emp(72)
+                    </th>
+                    <th>
+                        Emp(80)
+                    </th>
+                    <th>
+                        Emp(100)
+                    </th>
+                    <th>
+                        Emp(100+)
+                    </th>
+                    <th>
+                        Emp(Friday)
+                    </th>
+                    <th>
+                        AVGBuyerwork
+                    </th>
+                     <th>
+                        AVGwork
+                    </th>
+                    <th>
+                        MaxWork
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+              
+                <tr ng-repeat="r in GetOTCardDetail" >
+                     <td>{{r.DEPARTMENT}}</td>
+                     <td>{{r.EMP}}</td>
+                     <td>{{r.EMP60}}</td>
+                     @*<td>{{r.Percantage60}}</td>*@
+                     <td>{{r.EMP66}}</td>
+                     @*<td>{{r.Percantage66}}</td>*@
+                     <td>{{r.EMP72}}</td>
+                     @*<td>{{r.Percantage72}}</td>*@
+                     <td>{{r.EMP80}}</td>
+                     @*<td>{{r.Percantage80}}</td>*@
+                     <td>{{r.EMP100}}</td>
+                     @*<td>{{r.Percantage100}}</td>*@
+                     <td>{{r.EMP100Plus}}</td>
+                     @*<td>{{r.Percantage100Plus}}</td>*@
+                     <td>{{r.Friday_Work}}</td>
+                     @*<td>{{r.PercantageFwork}}</td>*@
+                     <td>{{r.AVGBuyerWorkHr}}</td>
+                     <td>{{r.AVGWorkHr}}</td>
+                     <td>{{r.MaxWorkHr}}</td>
+                </tr>
+            </tbody>
+        </table>
+  </div>
+        </div>
+<hr>
+
+
+
+                
+                  <div role="separator" class="divider"></div>
+                    <div class="col-xs-3">
+
+                    </div>
+
+    </div>
+
+
+                    
+
+            
+
+
+
+
+           
+          
+
+
+        </page>
+
+
+    </div>
+    
+      
+
+@section Scripts{
+<script src="~/Scripts/Controllers/WeeklyOTDetailController.js"></script>
+}

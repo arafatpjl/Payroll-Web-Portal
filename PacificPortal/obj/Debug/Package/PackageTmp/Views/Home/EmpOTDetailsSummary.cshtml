@@ -1,0 +1,214 @@
+﻿@{
+    ViewBag.Title = "OT Requisition Summary";
+}
+<style>
+
+
+    body{
+        margin-top:80px;       
+    }
+
+
+    input {
+        /*max-width:400px;*/
+    }
+    .error {
+        color: red;
+    }
+
+
+
+
+</style>
+
+
+    <div ng-controller="EmpOTRequisitionController" class="container">
+
+
+             <div class="panel-footer modal_custom">
+
+
+
+                <div class="row">
+
+
+        <div class="col-md-4 col-sm-6" >
+             
+             <form novalidate name="f1" ng-submit="showOTCard(User)"> 
+
+             <div class="form-group">
+                <div class="input-daterange input-group">
+
+                   <span class="input-group-addon">Date :</span>
+
+                      <div class="input-group date"  id="ScheduleDate" ng-model="ScheduleDate"  ng-blur="Summary_search()" ng-model-options='{ debounce: 1000 }' date-picker>
+                           <input type="text" class="form-control" name="ScheduleDate"  ng-model="ScheduleDate"   ng-blur="Summary_search()" ng-change="Summary_search()" ng-model-options='{ debounce: 1000 }' date-picker-input>
+                             <span class="input-group-addon">
+                             <span class="glyphicon glyphicon-calendar"></span>                             
+                             </span>
+                       </div>
+                </div>
+            </div>
+
+           <div class="form-group">
+                <label class="text text-info">Unit : </label>
+                 <select ng-model="Company" class="form-control"  name="ComID" ng-options="I.Name for I in CompanyList | filter:{ID:ComID}:containsComparator" ng-change="Summary_search()" ng-class="submitted?'ng-dirty':''" required >
+                   <option value="">Select Unit</option>
+                </select>
+            </div>
+
+           <div class="form-group">
+                <label class="text text-info">Department : </label>  
+                 <select ng-model="Department" class="form-control"  name="DepartmentID" ng-options="I.DeptName  for I in DepartmentList | filter: { ComID: Company.ID } : true| unique: 'DeptName' " ng-change="Summary_search()" ng-class="submitted?'ng-dirty':''" required >
+                     <option value="">Select Department</option>
+                 </select>               
+                
+           </div>
+
+
+          <div class="form-group">
+                <label class="text text-info">OT Type : </label>  
+                 <select ng-model="OTReqType" class="form-control"  name="OTReqTypeID" ng-options="I.RequeType  for I in OTtypeList " ng-change="Summary_search()" ng-class="submitted?'ng-dirty':''" required >
+                     <option value="">Select OT Type</option>
+                 </select>               
+                
+           </div>
+
+                 
+           <div class="text-center"> 
+                <input type="submit" class="btn btn-primary"  value="Preview" />
+            </div>
+
+
+                
+               
+
+             @* <div class="text-center"> 
+                <input type="submit" class="btn btn-primary" value="{{submitText}}" />
+            </div>*@
+          
+
+  </form>
+
+            
+   </div>
+
+           <div class="col-md-8 col-sm-6" >
+               
+                      
+              
+               <div class="panel with-nav-tabs panel-info">
+                <div class="panel-body">
+
+                     <div style="overflow-y: scroll;  max-height:400px; ">
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="tab1primary">
+                     
+  <table  id="Report_table" class="table">
+    
+           <thead>
+        <tr>
+            <th>Empcode</th>
+             <th>Name</th>
+            <th>Designation</th> 
+            <th>Wstatus</th>  
+            <th>Department</th> 
+            <th>Section</th>            
+            <th>Actual OT</th>
+            <th>Req OT </th>
+                        
+        </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="r in EmpOTApproveSummaryList| orderBy :['Section','EmpCode', 'Name'] as results_ApproveSummaryList " >
+           
+
+            <td>{{r.EmpCode}}</td>
+             <td>{{r.Name}}</td>
+             <td>{{r.Designation}}</td>
+             <td>{{r.WStatus}}</td>
+            <td>{{r.Department}}</td>
+             <td>{{r.Section}}</td>
+             <td>{{r.OT}}</td>
+             <td>{{r.OTReque}}</td>
+          
+
+             
+
+           
+
+
+         
+          </tr>
+    </tbody>
+</table>
+
+                      
+                        </div>
+                     
+                        
+                    </div>
+                </div>
+       
+         </div>
+
+
+                
+      </div>
+
+               
+          <div class="col-md-4 col-sm-8" >
+                          <span style="color:#3e9617;font-size:12px;font-weight:bold">
+                                                  Emp Wise Summary
+                                                </span> 
+
+                   <table  id="Report_table" class="table table-striped" style="font-family: monospace;">
+
+                                <tr ng-repeat="(key, value) in results_ApproveSummaryList | groupBy: 'WStatus'"  style="font-size:12px;color:#006DCC">
+                               
+                                         <td>
+                                        {{ key }} 
+                                        </td>
+                                 
+                                        <td>
+                                           @*  {{ value}}*@
+                                            <i class="glyphicon glyphicon-user" style="padding-left:20px;color:#b1d1d4"></i> 
+                                           <span style="padding-left:10px">{{("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+getEmpSum(value) ).slice(-6)}} </span>
+
+                                           <i class="glyphicon glyphicon-time" style="padding-left:20px;color:#b1d1d4"></i> 
+                                          <span style="padding-left:10px">{{getHoursSum(value)}} </span> 
+                                           @*{{ longString | limitTo: 20 }} {{longString.length < 20 ? '' : '...'}}*@
+                                        
+                                        </td>
+
+                                </tr>
+                             </table>
+
+
+                    
+
+               <!-- Modal --> <!-- --------------------------Attendence status Update--------------------------------- -->
+      
+
+   
+
+ </div>    
+        
+
+   </div>
+
+ 
+
+
+
+
+ </div>
+       
+     
+    </div>
+      
+
+@section Scripts{
+<script src="~/Scripts/Controllers/EmpOTRequisitionController.js"></script>
+}

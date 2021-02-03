@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabasefileModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="PJL_D_Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employee_Information" EntityType="DatabasefileModel.Employee_Information" />
+    <EntitySet Name="Unit" EntityType="DatabasefileModel.Company_Information" />
+    <EntitySet Name="tblUserInfoes" EntityType="DatabasefileModel.tblUserInfo" />
+  </EntityContainer>
+  <EntityType Name="Employee_Information">
+    <Key>
+      <PropertyRef Name="ComID" />
+      <PropertyRef Name="EmployeeCode" />
+    </Key>
+    <Property Name="RegId" Type="Int64" Nullable="false" />
+    <Property Name="ComID" Type="Byte" Nullable="false" />
+    <Property Name="EmployeeCode" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="FathersName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Age" Type="Byte" />
+    <Property Name="BirthDate" Type="DateTime" Precision="0" />
+    <Property Name="Religion" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="PreAddress" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="PerAddress" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="NID" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="District" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+    <Property Name="JoiningDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Department" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Section" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Designation" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="DesigAddi" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="OpenRate" Type="Int32" Nullable="false" />
+    <Property Name="CurrRate" Type="Int32" Nullable="false" />
+    <Property Name="MothersName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="HusbandName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Sex" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+    <Property Name="Remarks" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="MLeave" Type="Boolean" Nullable="false" />
+    <Property Name="MLeft" Type="Boolean" Nullable="false" />
+    <Property Name="Reason" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="BusStop" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+    <Property Name="BusLine" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+    <Property Name="WStatus" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="BloodGroup" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+    <Property Name="EmpAttID" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="BepzaID" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="BusAvail" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="AttOff" Type="String" Nullable="false" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="ShiftID" Type="Byte" Nullable="false" />
+    <Property Name="BusAvailDate" Type="DateTime" Precision="0" />
+    <Property Name="AppDate" Type="DateTime" Precision="0" />
+    <Property Name="EmpLVID" Type="Byte" />
+    <Property Name="FracPay" Type="Int16" Nullable="false" />
+    <Property Name="FracPayOT" Type="Int16" Nullable="false" />
+    <Property Name="LeftDate" Type="DateTime" Precision="0" />
+    <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="19" Unicode="true" FixedLength="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="LocalAddress" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="Experience" Type="String" Nullable="false" MaxLength="53" Unicode="true" FixedLength="false" />
+    <Property Name="CompName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Process" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="ProcessCat" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DeleteRow" Type="Int16" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UserPass" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ComputerName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="EntryDate" Type="DateTime" Precision="0" />
+    <Property Name="EntryTime" Type="DateTime" Precision="0" />
+    <Property Name="MLDate" Type="DateTime" Precision="0" />
+    <Property Name="DiscDate" Type="DateTime" Precision="0" />
+    <Property Name="Incr_Month" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SP_Actvt" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Company_Information">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Byte" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Password" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="Single" Name="Basic" />
+    <Property Type="Boolean" Name="BasicM" Nullable="false" />
+    <Property Type="Single" Name="HRent" />
+    <Property Type="Single" Name="WBASIC" />
+    <Property Type="Single" Name="WHRent" />
+    <Property Type="Boolean" Name="HRentM" Nullable="false" />
+    <Property Type="Single" Name="FoodPay" />
+    <Property Type="Boolean" Name="FoodPayM" Nullable="false" />
+    <Property Type="Single" Name="Bonus" />
+    <Property Type="Boolean" Name="BonusM" Nullable="false" />
+    <Property Type="Single" Name="PFund" />
+    <Property Type="Boolean" Name="PFundM" Nullable="false" />
+    <Property Type="Boolean" Name="NZN" Nullable="false" />
+    <Property Type="Single" Name="Medical" />
+    <Property Type="Single" Name="WMedical" />
+    <Property Type="String" Name="NameBangla" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AddressBangla" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SignedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EmpImageLocation" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ServerName" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DBName" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DBPrefix" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="IsClose" Nullable="false" />
+    <Property Type="String" Name="ReportPath" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblUserInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="RegID" />
+    <Property Type="String" Name="EmployeeCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ReportSuper" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DateofBirth" Precision="0" />
+    <Property Type="String" Name="BloodGroup" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="EmailID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MobileNoPerson" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MobileNoHome" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PhoneExt" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Binary" Name="Picture" MaxLength="Max" FixedLength="false" />
+    <Property Type="String" Name="Password" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="Boolean" Name="YsnActive" />
+    <Property Type="DateTime" Name="last_login_date" Precision="3" />
+    <Property Type="String" Name="last_login_Mac" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_date" Precision="3" />
+    <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Updated_date" Precision="3" />
+    <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

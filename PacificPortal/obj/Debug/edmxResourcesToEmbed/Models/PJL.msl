@@ -1,0 +1,755 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabasefileModelStoreContainer" CdmEntityContainer="Entities">
+    <FunctionImportMapping FunctionImportName="prc_EmployeeJobCard" FunctionName="DatabasefileModel.Store.prc_EmployeeJobCard" />
+    <FunctionImportMapping FunctionImportName="prc_EmployeeInfoByEmpCode" FunctionName="DatabasefileModel.Store.prc_EmployeeInfoByEmpCode">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.prc_EmployeeInfoByEmpCode_Result">
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+          <ScalarProperty Name="ComID" ColumnName="ComID" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FathersName" ColumnName="FathersName" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="PreAddress" ColumnName="PreAddress" />
+          <ScalarProperty Name="PerAddress" ColumnName="PerAddress" />
+          <ScalarProperty Name="NID" ColumnName="NID" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="prc_GetTeamMember" FunctionName="DatabasefileModel.Store.prc_GetTeamMember">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.prc_GetTeamMember_Result">
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+          <ScalarProperty Name="ComID" ColumnName="ComID" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FathersName" ColumnName="FathersName" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="PreAddress" ColumnName="PreAddress" />
+          <ScalarProperty Name="PerAddress" ColumnName="PerAddress" />
+          <ScalarProperty Name="NID" ColumnName="NID" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Company_Information">
+      <EntityTypeMapping TypeName="DatabasefileModel.Company_Information">
+        <MappingFragment StoreEntitySet="Company_Information">
+          <ScalarProperty Name="ReportPath" ColumnName="ReportPath" />
+          <ScalarProperty Name="IsClose" ColumnName="IsClose" />
+          <ScalarProperty Name="DBPrefix" ColumnName="DBPrefix" />
+          <ScalarProperty Name="DBName" ColumnName="DBName" />
+          <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+          <ScalarProperty Name="EmpImageLocation" ColumnName="EmpImageLocation" />
+          <ScalarProperty Name="SignedBy" ColumnName="SignedBy" />
+          <ScalarProperty Name="AddressBangla" ColumnName="AddressBangla" />
+          <ScalarProperty Name="NameBangla" ColumnName="NameBangla" />
+          <ScalarProperty Name="WMedical" ColumnName="WMedical" />
+          <ScalarProperty Name="Medical" ColumnName="Medical" />
+          <ScalarProperty Name="NZN" ColumnName="NZN" />
+          <ScalarProperty Name="PFundM" ColumnName="PFundM" />
+          <ScalarProperty Name="PFund" ColumnName="PFund" />
+          <ScalarProperty Name="BonusM" ColumnName="BonusM" />
+          <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+          <ScalarProperty Name="FoodPayM" ColumnName="FoodPayM" />
+          <ScalarProperty Name="FoodPay" ColumnName="FoodPay" />
+          <ScalarProperty Name="HRentM" ColumnName="HRentM" />
+          <ScalarProperty Name="WHRent" ColumnName="WHRent" />
+          <ScalarProperty Name="WBASIC" ColumnName="WBASIC" />
+          <ScalarProperty Name="HRent" ColumnName="HRent" />
+          <ScalarProperty Name="BasicM" ColumnName="BasicM" />
+          <ScalarProperty Name="Basic" ColumnName="Basic" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prc_EmployeeLeaveEnjoyDetail" FunctionName="DatabasefileModel.Store.prc_EmployeeLeaveEnjoyDetail" />
+    <FunctionImportMapping FunctionImportName="prc_EmployeeLeaveEnjoySummary" FunctionName="DatabasefileModel.Store.prc_EmployeeLeaveEnjoySummary" />
+    <EntitySetMapping Name="tblUser_Registration">
+      <EntityTypeMapping TypeName="DatabasefileModel.tblUser_Registration">
+        <MappingFragment StoreEntitySet="tblUser_Registration">
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="last_login_Mac" ColumnName="last_login_Mac" />
+          <ScalarProperty Name="last_login_date" ColumnName="last_login_date" />
+          <ScalarProperty Name="YsnActive" ColumnName="YsnActive" />
+          <ScalarProperty Name="Registerd" ColumnName="Registerd" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="PhoneExt" ColumnName="PhoneExt" />
+          <ScalarProperty Name="MobileNoHome" ColumnName="MobileNoHome" />
+          <ScalarProperty Name="MobileNoPerson" ColumnName="MobileNoPerson" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+          <ScalarProperty Name="ReportSuper" ColumnName="ReportSuper" />
+          <ScalarProperty Name="DeptHead" ColumnName="DeptHead" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prc_EmployeeLeaveApplication" FunctionName="DatabasefileModel.Store.prc_EmployeeLeaveApplication" />
+    <EntitySetMapping Name="tblUser_LogInfo">
+      <EntityTypeMapping TypeName="DatabasefileModel.tblUser_LogInfo">
+        <MappingFragment StoreEntitySet="tblUser_LogInfo">
+          <ScalarProperty Name="logout__time" ColumnName="logout__time" />
+          <ScalarProperty Name="login_Mac" ColumnName="login_Mac" />
+          <ScalarProperty Name="login_time" ColumnName="login_time" />
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prc_EmployeeLeaveInsertMainDatabase" FunctionName="DatabasefileModel.Store.prc_EmployeeLeaveInsertMainDatabase" />
+    <FunctionImportMapping FunctionImportName="prc_EmployeeAttenApp" FunctionName="DatabasefileModel.Store.prc_EmployeeAttenApp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.prc_EmployeeAttenApp_Result">
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+          <ScalarProperty Name="AppliedDate" ColumnName="AppliedDate" />
+          <ScalarProperty Name="prDate" ColumnName="prDate" />
+          <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+          <ScalarProperty Name="LateHrs" ColumnName="LateHrs" />
+          <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
+          <ScalarProperty Name="DailyHrs" ColumnName="DailyHrs" />
+          <ScalarProperty Name="ValidOT" ColumnName="ValidOT" />
+          <ScalarProperty Name="RestOT" ColumnName="RestOT" />
+          <ScalarProperty Name="ExtraOT" ColumnName="ExtraOT" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="TransAllow" ColumnName="TransAllow" />
+          <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tblEmpAttenApps">
+      <EntityTypeMapping TypeName="DatabasefileModel.tblEmpAttenApp">
+        <MappingFragment StoreEntitySet="tblEmpAttenApp">
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Process" ColumnName="Process" />
+          <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+          <ScalarProperty Name="TransAllow" ColumnName="TransAllow" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ExtraOT" ColumnName="ExtraOT" />
+          <ScalarProperty Name="RestOT" ColumnName="RestOT" />
+          <ScalarProperty Name="ValidOT" ColumnName="ValidOT" />
+          <ScalarProperty Name="DailyHrs" ColumnName="DailyHrs" />
+          <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
+          <ScalarProperty Name="LateHrs" ColumnName="LateHrs" />
+          <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+          <ScalarProperty Name="prDate" ColumnName="prDate" />
+          <ScalarProperty Name="AppliedDate" ColumnName="AppliedDate" />
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prc_EmployeeBirthDay" FunctionName="DatabasefileModel.Store.prc_EmployeeBirthDay">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.prc_EmployeeBirthDay_Result">
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+          <ScalarProperty Name="ComID" ColumnName="ComID" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FathersName" ColumnName="FathersName" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="DeptHead" ColumnName="DeptHead" />
+          <ScalarProperty Name="ReportSuper" ColumnName="ReportSuper" />
+          <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="MobileNoPerson" ColumnName="MobileNoPerson" />
+          <ScalarProperty Name="MobileNoHome" ColumnName="MobileNoHome" />
+          <ScalarProperty Name="PhoneExt" ColumnName="PhoneExt" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="PreAddress" ColumnName="PreAddress" />
+          <ScalarProperty Name="PerAddress" ColumnName="PerAddress" />
+          <ScalarProperty Name="NID" ColumnName="NID" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="DesigAddi" ColumnName="DesigAddi" />
+          <ScalarProperty Name="Level_No" ColumnName="Level_No" />
+          <ScalarProperty Name="Level_Name" ColumnName="Level_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="prc_UserMenu" FunctionName="DatabasefileModel.Store.prc_UserMenu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.prc_UserMenu_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Main_Menu_Id" ColumnName="Main_Menu_Id" />
+          <ScalarProperty Name="Menu_Name" ColumnName="Menu_Name" />
+          <ScalarProperty Name="Menu_URL" ColumnName="Menu_URL" />
+          <ScalarProperty Name="YsnActive" ColumnName="YsnActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tblMenus">
+      <EntityTypeMapping TypeName="DatabasefileModel.tblMenu">
+        <MappingFragment StoreEntitySet="tblMenu">
+          <ScalarProperty Name="Menu_Icon" ColumnName="Menu_Icon" />
+          <ScalarProperty Name="YsnActive" ColumnName="YsnActive" />
+          <ScalarProperty Name="Menu_URL" ColumnName="Menu_URL" />
+          <ScalarProperty Name="Menu_Name" ColumnName="Menu_Name" />
+          <ScalarProperty Name="Main_Menu_Id" ColumnName="Main_Menu_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBusSchedules">
+      <EntityTypeMapping TypeName="DatabasefileModel.tblBusSchedule">
+        <MappingFragment StoreEntitySet="tblBusSchedule">
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Publish" ColumnName="Publish" />
+          <ScalarProperty Name="Wstatus" ColumnName="Wstatus" />
+          <ScalarProperty Name="PassengerCapacity" ColumnName="PassengerCapacity" />
+          <ScalarProperty Name="Driver" ColumnName="Driver" />
+          <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+          <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="StartingPoint" ColumnName="StartingPoint" />
+          <ScalarProperty Name="RoadDescription" ColumnName="RoadDescription" />
+          <ScalarProperty Name="RoadName" ColumnName="RoadName" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prc_CopyBusSchedule" FunctionName="DatabasefileModel.Store.prc_CopyBusSchedule">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.prc_CopyBusSchedule_Result">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tblNotices">
+      <EntityTypeMapping TypeName="DatabasefileModel.tblNotice">
+        <MappingFragment StoreEntitySet="tblNotice">
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="YSNActive" ColumnName="YSNActive" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAlbums">
+      <EntityTypeMapping TypeName="DatabasefileModel.tblAlbum">
+        <MappingFragment StoreEntitySet="tblAlbum">
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="YSNActive" ColumnName="YSNActive" />
+          <ScalarProperty Name="TemplateImage" ColumnName="TemplateImage" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="SnapDate" ColumnName="SnapDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAlbumGroups">
+      <EntityTypeMapping TypeName="DatabasefileModel.tblAlbumGroup">
+        <MappingFragment StoreEntitySet="tblAlbumGroup">
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="YSNActive" ColumnName="YSNActive" />
+          <ScalarProperty Name="SecurityCode" ColumnName="SecurityCode" />
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prc_GetAlbum" FunctionName="DatabasefileModel.Store.prc_GetAlbum">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.prc_GetAlbum_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SnapDate" ColumnName="SnapDate" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="TemplateImage" ColumnName="TemplateImage" />
+          <ScalarProperty Name="YSNActive" ColumnName="YSNActive" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="prc_GetAlbumByGroupID" FunctionName="DatabasefileModel.Store.prc_GetAlbumByGroupID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.prc_GetAlbumByGroupID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SnapDate" ColumnName="SnapDate" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="TemplateImage" ColumnName="TemplateImage" />
+          <ScalarProperty Name="YSNActive" ColumnName="YSNActive" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Prc_OTRequ_Reset" FunctionName="DatabasefileModel.Store.Prc_OTRequ_Reset">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.Prc_OTRequ_Reset_Result">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tblDeptSecs">
+      <EntityTypeMapping TypeName="DatabasefileModel.tblDeptSec">
+        <MappingFragment StoreEntitySet="tblDeptSec">
+          <ScalarProperty Name="SubDeptName" ColumnName="SubDeptName" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="ComID" ColumnName="ComID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Prc_OTRequ_Approve" FunctionName="DatabasefileModel.Store.Prc_OTRequ_Approve">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.Prc_OTRequ_Approve_Result">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tblUserDeptSecPermissions">
+      <EntityTypeMapping TypeName="DatabasefileModel.tblUserDeptSecPermission">
+        <MappingFragment StoreEntitySet="tblUserDeptSecPermission">
+          <ScalarProperty Name="HRApprove" ColumnName="HRApprove" />
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="YsnActive" ColumnName="YsnActive" />
+          <ScalarProperty Name="OTReq" ColumnName="OTReq" />
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prc_GetEmpDeptSec" FunctionName="DatabasefileModel.Store.prc_GetEmpDeptSec">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.prc_GetEmpDeptSec_Result">
+          <ScalarProperty Name="ComID" ColumnName="ComID" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="SubDeptName" ColumnName="SubDeptName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="prc_EmployeeInfoDetail" FunctionName="DatabasefileModel.Store.prc_EmployeeInfoDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.prc_EmployeeInfoDetail_Result">
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+          <ScalarProperty Name="ComID" ColumnName="ComID" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FathersName" ColumnName="FathersName" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="DeptHead" ColumnName="DeptHead" />
+          <ScalarProperty Name="ReportSuper" ColumnName="ReportSuper" />
+          <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="MobileNoPerson" ColumnName="MobileNoPerson" />
+          <ScalarProperty Name="MobileNoHome" ColumnName="MobileNoHome" />
+          <ScalarProperty Name="PhoneExt" ColumnName="PhoneExt" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="PreAddress" ColumnName="PreAddress" />
+          <ScalarProperty Name="PerAddress" ColumnName="PerAddress" />
+          <ScalarProperty Name="NID" ColumnName="NID" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="DesigAddi" ColumnName="DesigAddi" />
+          <ScalarProperty Name="WStatus" ColumnName="WStatus" />
+          <ScalarProperty Name="Level_No" ColumnName="Level_No" />
+          <ScalarProperty Name="Level_Name" ColumnName="Level_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="prc_EmployeeInfo" FunctionName="DatabasefileModel.Store.prc_EmployeeInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.prc_EmployeeInfo_Result">
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+          <ScalarProperty Name="ComID" ColumnName="ComID" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FathersName" ColumnName="FathersName" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="PreAddress" ColumnName="PreAddress" />
+          <ScalarProperty Name="PerAddress" ColumnName="PerAddress" />
+          <ScalarProperty Name="NID" ColumnName="NID" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="DesigAddi" ColumnName="DesigAddi" />
+          <ScalarProperty Name="WStatus" ColumnName="WStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Prc_Get_OTRequ_Summary" FunctionName="DatabasefileModel.Store.Prc_Get_OTRequ_Summary">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.Prc_Get_OTRequ_Summary_Result">
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="DailyDate" ColumnName="DailyDate" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="OTRequ" ColumnName="OTRequ" />
+          <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+          <ScalarProperty Name="TotalEmp" ColumnName="TotalEmp" />
+          <ScalarProperty Name="TotalOT" ColumnName="TotalOT" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="IsLock" ColumnName="IsLock" />
+          <ScalarProperty Name="Wstatus" ColumnName="Wstatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tblEmpLeaveApps">
+      <EntityTypeMapping TypeName="DatabasefileModel.tblEmpLeaveApp">
+        <MappingFragment StoreEntitySet="tblEmpLeaveApp">
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="StatusReasons" ColumnName="StatusReasons" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="FrDate" ColumnName="FrDate" />
+          <ScalarProperty Name="LDays" ColumnName="LDays" />
+          <ScalarProperty Name="LType" ColumnName="LType" />
+          <ScalarProperty Name="ActingPerson" ColumnName="ActingPerson" />
+          <ScalarProperty Name="RequestTo" ColumnName="RequestTo" />
+          <ScalarProperty Name="AppliedDate" ColumnName="AppliedDate" />
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prc_EmployeeLeaveStatus" FunctionName="DatabasefileModel.Store.prc_EmployeeLeaveStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.prc_EmployeeLeaveStatus_Result">
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RequestTo" ColumnName="RequestTo" />
+          <ScalarProperty Name="RequestToName" ColumnName="RequestToName" />
+          <ScalarProperty Name="ActingPerson" ColumnName="ActingPerson" />
+          <ScalarProperty Name="ActingPersonName" ColumnName="ActingPersonName" />
+          <ScalarProperty Name="AppliedDate" ColumnName="AppliedDate" />
+          <ScalarProperty Name="FrDate" ColumnName="FrDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="LType" ColumnName="LType" />
+          <ScalarProperty Name="LDays" ColumnName="LDays" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+          <ScalarProperty Name="StatusReasons" ColumnName="StatusReasons" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="prc_Get_OTRequEmail" FunctionName="DatabasefileModel.Store.prc_Get_OTRequEmail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.prc_Get_OTRequEmail_Result">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tblOTStatus">
+      <EntityTypeMapping TypeName="DatabasefileModel.tblOTStatus">
+        <MappingFragment StoreEntitySet="tblOTStatus">
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+          <ScalarProperty Name="RequeType" ColumnName="RequeType" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Prc_Get_OTRequ_Info" FunctionName="DatabasefileModel.Store.Prc_Get_OTRequ_Info">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.Prc_Get_OTRequ_Info_Result">
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="DesigAddi" ColumnName="DesigAddi" />
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DailyDate" ColumnName="DailyDate" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="OTStart" ColumnName="OTStart" />
+          <ScalarProperty Name="WeekNo" ColumnName="WeekNo" />
+          <ScalarProperty Name="TotalWeekOT" ColumnName="TotalWeekOT" />
+          <ScalarProperty Name="WeekLimit" ColumnName="WeekLimit" />
+          <ScalarProperty Name="MonthNo" ColumnName="MonthNo" />
+          <ScalarProperty Name="TotalMonthOT" ColumnName="TotalMonthOT" />
+          <ScalarProperty Name="MonthLimit" ColumnName="MonthLimit" />
+          <ScalarProperty Name="OTRequ" ColumnName="OTRequ" />
+          <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+          <ScalarProperty Name="IsOTRequ" ColumnName="IsOTRequ" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="IsLock" ColumnName="IsLock" />
+          <ScalarProperty Name="Wstatus" ColumnName="Wstatus" />
+          <ScalarProperty Name="Empstatus" ColumnName="Empstatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tblEmpOTApprovePermission">
+      <EntityTypeMapping TypeName="DatabasefileModel.tblEmpOTApprovePermission">
+        <MappingFragment StoreEntitySet="tblEmpOTApprovePermission">
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="YsnActive" ColumnName="YsnActive" />
+          <ScalarProperty Name="PublishActive" ColumnName="PublishActive" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="EmpInfo" ColumnName="EmpInfo" />
+          <ScalarProperty Name="ComID" ColumnName="ComID" />
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prc_EmployeeAttenInfo" FunctionName="DatabasefileModel.Store.prc_EmployeeAttenInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.prc_EmployeeAttenInfo_Result">
+          <ScalarProperty Name="ComID" ColumnName="ComID" />
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="DesigAddi" ColumnName="DesigAddi" />
+          <ScalarProperty Name="Wstatus" ColumnName="Wstatus" />
+          <ScalarProperty Name="RequestTo" ColumnName="RequestTo" />
+          <ScalarProperty Name="RequestToName" ColumnName="RequestToName" />
+          <ScalarProperty Name="RequestToEmpCode" ColumnName="RequestToEmpCode" />
+          <ScalarProperty Name="RequestToDepartment" ColumnName="RequestToDepartment" />
+          <ScalarProperty Name="RequestToSection" ColumnName="RequestToSection" />
+          <ScalarProperty Name="RequestToDesigAddi" ColumnName="RequestToDesigAddi" />
+          <ScalarProperty Name="RequestToWstatus" ColumnName="RequestToWstatus" />
+          <ScalarProperty Name="AppliedDate" ColumnName="AppliedDate" />
+          <ScalarProperty Name="prDate" ColumnName="prDate" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+          <ScalarProperty Name="LateHrs" ColumnName="LateHrs" />
+          <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
+          <ScalarProperty Name="DailyHrs" ColumnName="DailyHrs" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Process" ColumnName="Process" />
+          <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="prc_EmployeeLeaveInfo" FunctionName="DatabasefileModel.Store.prc_EmployeeLeaveInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.prc_EmployeeLeaveInfo_Result">
+          <ScalarProperty Name="ComID" ColumnName="ComID" />
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="DesigAddi" ColumnName="DesigAddi" />
+          <ScalarProperty Name="Wstatus" ColumnName="Wstatus" />
+          <ScalarProperty Name="RequestTo" ColumnName="RequestTo" />
+          <ScalarProperty Name="RequestToName" ColumnName="RequestToName" />
+          <ScalarProperty Name="RequestToEmpCode" ColumnName="RequestToEmpCode" />
+          <ScalarProperty Name="RequestToDepartment" ColumnName="RequestToDepartment" />
+          <ScalarProperty Name="RequestToSection" ColumnName="RequestToSection" />
+          <ScalarProperty Name="RequestToDesigAddi" ColumnName="RequestToDesigAddi" />
+          <ScalarProperty Name="RequestToWstatus" ColumnName="RequestToWstatus" />
+          <ScalarProperty Name="ActingPerson" ColumnName="ActingPerson" />
+          <ScalarProperty Name="ActingPersonName" ColumnName="ActingPersonName" />
+          <ScalarProperty Name="AppliedDate" ColumnName="AppliedDate" />
+          <ScalarProperty Name="FrDate" ColumnName="FrDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="LType" ColumnName="LType" />
+          <ScalarProperty Name="LDays" ColumnName="LDays" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+          <ScalarProperty Name="StatusReasons" ColumnName="StatusReasons" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="TblFabricColour">
+      <EntityTypeMapping TypeName="DatabasefileModel.TblFabricColour">
+        <MappingFragment StoreEntitySet="TblFabricColour">
+          <ScalarProperty Name="FabricColour" ColumnName="FabricColour" />
+          <ScalarProperty Name="Idno" ColumnName="Idno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblFabricContent">
+      <EntityTypeMapping TypeName="DatabasefileModel.TblFabricContent">
+        <MappingFragment StoreEntitySet="TblFabricContent">
+          <ScalarProperty Name="FABRICCONTENT" ColumnName="FABRICCONTENT" />
+          <ScalarProperty Name="Idno" ColumnName="Idno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblFabricMill">
+      <EntityTypeMapping TypeName="DatabasefileModel.TblFabricMill">
+        <MappingFragment StoreEntitySet="TblFabricMill">
+          <ScalarProperty Name="FabricMill" ColumnName="FabricMill" />
+          <ScalarProperty Name="Idno" ColumnName="Idno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblFabricType">
+      <EntityTypeMapping TypeName="DatabasefileModel.TblFabricType">
+        <MappingFragment StoreEntitySet="TblFabricType">
+          <ScalarProperty Name="FabricType" ColumnName="FabricType" />
+          <ScalarProperty Name="Idno" ColumnName="Idno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblFabricWave">
+      <EntityTypeMapping TypeName="DatabasefileModel.TblFabricWave">
+        <MappingFragment StoreEntitySet="TblFabricWave">
+          <ScalarProperty Name="FabricWave" ColumnName="FabricWave" />
+          <ScalarProperty Name="Idno" ColumnName="Idno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prc_FabricInfoDetail" FunctionName="DatabasefileModel.Store.prc_FabricInfoDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DatabasefileModel.prc_FabricInfoDetail_Result">
+          <ScalarProperty Name="Slno" ColumnName="Slno" />
+          <ScalarProperty Name="FabricCode" ColumnName="FabricCode" />
+          <ScalarProperty Name="PJLCode" ColumnName="PJLCode" />
+          <ScalarProperty Name="MillID" ColumnName="MillID" />
+          <ScalarProperty Name="FabricMill" ColumnName="FabricMill" />
+          <ScalarProperty Name="ContentID" ColumnName="ContentID" />
+          <ScalarProperty Name="FabricContent" ColumnName="FabricContent" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="WeightUnit" ColumnName="WeightUnit" />
+          <ScalarProperty Name="WeightType" ColumnName="WeightType" />
+          <ScalarProperty Name="FabricConst" ColumnName="FabricConst" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="WidthUnit" ColumnName="WidthUnit" />
+          <ScalarProperty Name="ColourID" ColumnName="ColourID" />
+          <ScalarProperty Name="FabricColour" ColumnName="FabricColour" />
+          <ScalarProperty Name="FabricTypeID" ColumnName="FabricTypeID" />
+          <ScalarProperty Name="FabricType" ColumnName="FabricType" />
+          <ScalarProperty Name="FabricFinish" ColumnName="FabricFinish" />
+          <ScalarProperty Name="WeaveID" ColumnName="WeaveID" />
+          <ScalarProperty Name="FabricWeave" ColumnName="FabricWeave" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PriceUnit" ColumnName="PriceUnit" />
+          <ScalarProperty Name="PriceType" ColumnName="PriceType" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CNFPrice" ColumnName="CNFPrice" />
+          <ScalarProperty Name="Fabricwarp" ColumnName="Fabricwarp" />
+          <ScalarProperty Name="Fabricwaft" ColumnName="Fabricwaft" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tblFabricInfo">
+      <EntityTypeMapping TypeName="DatabasefileModel.tblFabricInfo">
+        <MappingFragment StoreEntitySet="tblFabricInfo">
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Fabricwaft" ColumnName="Fabricwaft" />
+          <ScalarProperty Name="Fabricwarp" ColumnName="Fabricwarp" />
+          <ScalarProperty Name="CNFPrice" ColumnName="CNFPrice" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="PriceType" ColumnName="PriceType" />
+          <ScalarProperty Name="PriceUnit" ColumnName="PriceUnit" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="FabricFinish" ColumnName="FabricFinish" />
+          <ScalarProperty Name="WeaveID" ColumnName="WeaveID" />
+          <ScalarProperty Name="FabricTypeID" ColumnName="FabricTypeID" />
+          <ScalarProperty Name="ColourID" ColumnName="ColourID" />
+          <ScalarProperty Name="WidthUnit" ColumnName="WidthUnit" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="FabricConst" ColumnName="FabricConst" />
+          <ScalarProperty Name="WeightType" ColumnName="WeightType" />
+          <ScalarProperty Name="WeightUnit" ColumnName="WeightUnit" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="ContentID" ColumnName="ContentID" />
+          <ScalarProperty Name="MillID" ColumnName="MillID" />
+          <ScalarProperty Name="PJLCode" ColumnName="PJLCode" />
+          <ScalarProperty Name="FabricCode" ColumnName="FabricCode" />
+          <ScalarProperty Name="Slno" ColumnName="Slno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmpOTRequ">
+      <EntityTypeMapping TypeName="DatabasefileModel.tblEmpOTRequ">
+        <MappingFragment StoreEntitySet="tblEmpOTRequ">
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="EditReason" ColumnName="EditReason" />
+          <ScalarProperty Name="IsLock" ColumnName="IsLock" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+          <ScalarProperty Name="OTRequ" ColumnName="OTRequ" />
+          <ScalarProperty Name="RequestOT" ColumnName="RequestOT" />
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ComID" ColumnName="ComID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

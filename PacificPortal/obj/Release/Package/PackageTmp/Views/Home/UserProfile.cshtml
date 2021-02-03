@@ -1,0 +1,218 @@
+﻿@{
+    ViewBag.Title = "My Profile";
+}
+<style>
+       body{
+        margin-top:80px;       
+    }
+
+
+    input {
+        /*max-width:400px;*/
+    }
+    .error {
+        color: red;
+    }
+
+
+    
+</style>
+
+
+
+
+
+
+  <div ng-controller="UserProfileController"  class="container">
+             
+        <div class="panel-footer modal_custom">
+
+
+           
+
+
+                <div class="row">
+
+
+ <form novalidate name="f1" ng-submit="UpdateProfile(User)"> 
+
+        <div class="col-md-4 col-sm-6" >
+             
+           <div class="form-group">
+                <label class="text text-info">Reporting Boss: </label>       
+               <div custom-select="s as s.Name for s in EmployeeDetail| filter: { Name: $searchTerm }"  name="uRepEmpcode" ng-model="ReportSuper" ng-class="submitted?'ng-dirty':''" required>
+        
+                  <div class="row" id="custom-select">
+                     <div class="col-sm-3">{{s.EmployeeCode}}</div>
+                     <div class="col-sm-5">{{s.Name}}</div>
+                     <div class="col-sm-4">{{s.Designation}}</div>
+                 </div>
+                <span class="error col-md-offset-2" ng-show="(f1.uRepEmpcode.$dirty || submitted) && f1.uRepEmpcode.$error.required">Reporting Boss Required</span>
+
+                </div>
+               </div>
+
+
+         
+              <div class="form-group">
+                <label class="text text-info">Department Head</label>
+               
+                         @*<p>Selected state: {{ UserCode.EmployeeCode }}</p>*@                       
+               <div custom-select="i as i.Name for i in EmployeeDetail| filter: { Name: $searchTerm }"   name="uDepEmpcode" ng-model="DeptHead" ng-class="submitted?'ng-dirty':''" required>
+        
+                  <div class="row" id="custom-select">
+                     <div class="col-sm-3">{{i.EmployeeCode}}</div>
+                     <div class="col-sm-5">{{i.Name}}</div>
+                     <div class="col-sm-4">{{i.Designation}}</div>
+                 </div>
+                                   
+              </div>
+
+                <span class="error col-md-offset-2" ng-show="(f1.uDepEmpcode.$dirty || submitted) && f1.uDepEmpcode.$error.required">Department Head Required</span>
+
+            </div>
+
+        
+         
+            <div class="form-group">
+                <label class="text text-info">Date Of Birth: : </label>
+                
+ <div class="input-group date" id="birthdate"   ng-model="User.DateofBirth" date-picker>
+         <input type="text" name="uDateofBirth" class="form-control   input-sm"  date-picker-input ng-model="User.DateofBirth" data-date-view-mode="years"  ng-class="submitted?'ng-dirty':''" required >
+
+         <span class="input-group-addon">
+           <span class="glyphicon glyphicon-calendar"></span>
+         </span>
+       </div>
+                <span class="error col-md-offset-2" ng-show="(f1.uDateofBirth.$dirty || submitted) && f1.uDateofBirth.$error.required">Birth Date required!</span>
+            
+            </div>
+
+
+
+         <div class="form-group">
+                <label class="text text-info">Mobile No: </label>
+                <input type="text" ng-model="User.MobileNoPerson" class="form-control "  name="uMobileNo" placeholder = "Enter Mobile No" ng-class="submitted?'ng-dirty':''" required autofocus />
+                 <span class="error col-md-offset-2" ng-show="(f1.uMobileNo.$dirty || submitted) && f1.uMobileNo.$error.required">Mobile No required!</span>
+         </div>
+
+
+        <div class="form-group">
+            <label class="text text-info">Office Ext: </label>                
+            <input type="text" ng-model="User.PhoneExt" class="form-control "  name="uPhoneExt" placeholder = "Enter Office Phone No" ng-class="submitted?'ng-dirty':''" required autofocus />
+            <span class="error col-md-offset-2" ng-show="(f1.uPhoneExt.$dirty || submitted) && f1.uPhoneExt.$error.required">Office Phone required!</span>
+        </div>
+          
+
+
+   </div>
+
+           
+
+
+           <div class="col-md-4 col-sm-6" >
+               
+
+              <div class="form-group">
+               <label class="text text-info">Blood Group : </label> 
+                  <select ng-model="BloodGroup"  class="form-control"    ng-options="I.name for I in []| BloodGroupList"  name="uBloodGroup" ng-class="submitted?'ng-dirty':''" required></select>
+
+                    <span class="error col-md-offset-2" ng-show="(f1.uBloodGroup.$dirty || submitted) && f1.uBloodGroup.$error.required">Blood Group required!</span>
+                 
+            </div>
+
+
+
+           
+
+
+            <div class="form-group">
+                     <label class="text text-info">Email ID     : </label>  
+                          <input type="email" class=" form-control"  name="uEmailID" ng-model="User.EmailID" ng-pattern="/^[A-Za-z0-9._%+-]+@("@")pacificjeans.com$/"  placeholder = "email (Group mail only)" ng-class="submitted?'ng-dirty':''" required />
+                           
+                          <span class="error col-md-offset-2" ng-show="(f1.uEmailID.$dirty || submitted)  && (f1.uEmailID.$error.pattern || f1.uEmailID.$error.required)" >Invalid (hris@pacificjeans.com)</span>
+                             
+            </div>
+             
+                
+            
+               
+       
+
+              
+            <div class="form-group">
+             <label class="text text-info">Password     : </label>               
+                <input type="password" ng-model="User.Password" class="form-control "  name="Password" placeholder = "Enter Password" ng-class="submitted?'ng-dirty':''" required />
+                 <span class="error col-md-offset-2" ng-show="(f1.uPassword.$dirty || submitted) && f1.uPassword.$error.required">Password required!</span>
+
+            </div>
+
+            <div class="form-group">
+                <label class="text text-info">Confirm Password : </label>                
+                <input type="password" ng-model="uCPassword" class="form-control "  name="CPassword" required compare-to="User.Password" placeholder = "Enter Confirm Password" ng-class="submitted?'ng-dirty':''"  />
+                 <span class="error col-md-offset-2" ng-show="f1.CPassword.$error.compareTo">Confirm Password required!</span>
+
+          </div>
+                
+       
+                     
+            <div class="form-group">
+                 <label class="text text-info"></label>                
+                <input type="submit" class="btn btn-primary col-md-offset-2" value="{{submitText}}" />
+               
+            </div>
+    
+        
+
+   </div>
+
+     </form>
+
+            <div class="col-md-4 col-sm-6" >
+               
+                                
+                      @*<div  style="padding-top:10px">
+    <img src="../images/blank-profile-picture.png" class="img-rounded" alt="User Profile Image" width="200" height="200">
+</div>*@    
+
+                    @*img-rounded  img-circle *@
+
+                    
+                       <img ng-src="{{ProfilePic}}"  class="img-circle" alt="User Profile Image" width="200" height="200"> 
+      
+              
+                 <span ng-show="advstatus">  <img ng-src="../images/hourglass.gif"  width="20" height="20">   </span>
+
+                        <div class="fileUpload btn btn-primary">
+                            <span class="glyphicon glyphicon-file"></span>
+                            <input type="file" class="upload"  ng-file-select="onFileSelect($files)"  custom-on-change="uploadFile" name="ProfilePic"  ng-model="ProfilePic">      
+                        </div>
+                        
+
+
+                        <div class="col-sm-6 col-md-12">
+                        <h4><span style="padding-left:20px;color:#0094ff">{{UserDetail.Name}}</span></h4>                        
+                            <i class="glyphicon glyphicon-map-marker"></i><span style="padding-left:20px">{{UserDetail.Department}}, {{UserDetail.Section}}</span>
+                             <br />
+                            <i class="glyphicon glyphicon-user"></i><span style="padding-left:20px">{{UserDetail.EmployeeCode}}</span>
+                            <br />
+                            <i class="glyphicon glyphicon-flag"></i><span style="padding-left:20px">{{UserDetail.Designation}}</span>
+                            <br />
+                            <i class="glyphicon glyphicon-plus"></i><span style="padding-left:20px">{{UserDetail.JoiningDate.slice(6,-2)|date:'dd-MM-yyyy'}}</span>
+                       
+                        </div>
+
+
+
+   </div>
+
+ </div>
+
+
+
+ </div>
+       </div>
+
+@section Scripts{
+<script src="~/Scripts/Controllers/UserProfileController.js"></script>
+}

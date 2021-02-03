@@ -1,0 +1,149 @@
+D:\MVC Demo\PacificPortal\PacificPortal\bin\PacificPortal.dll
+D:\MVC Demo\PacificPortal\PacificPortal\bin\PacificPortal.pdb
+D:\MVC Demo\PacificPortal\PacificPortal\bin\EntityFramework.dll
+D:\MVC Demo\PacificPortal\PacificPortal\bin\Microsoft.Web.Infrastructure.dll
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Net.Http.dll
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Net.Http.WebRequest.dll
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Web.Razor.dll
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Web.WebPages.Deployment.dll
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Web.WebPages.dll
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Web.WebPages.Razor.dll
+D:\MVC Demo\PacificPortal\PacificPortal\bin\EntityFramework.xml
+D:\MVC Demo\PacificPortal\PacificPortal\bin\Microsoft.Web.Infrastructure.xml
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Net.Http.xml
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Net.Http.WebRequest.xml
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Web.Razor.xml
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Web.WebPages.xml
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Web.WebPages.Deployment.xml
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Web.WebPages.Razor.xml
+D:\MVC Demo\PacificPortal\PacificPortal\obj\Release\PacificPortal.csprojResolveAssemblyReference.cache
+D:\MVC Demo\PacificPortal\PacificPortal\obj\Release\PacificPortal.dll
+D:\MVC Demo\PacificPortal\PacificPortal\obj\Release\PacificPortal.pdb
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Web.Http.WebHost.dll
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Web.Http.WebHost.xml
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Web.Http.dll
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Web.Http.xml
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Net.Http.Formatting.dll
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Runtime.Serialization.dll
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Net.Http.Formatting.xml
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\PacificPortal.dll
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\PacificPortal.pdb
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\EntityFramework.dll
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\Microsoft.Web.Infrastructure.dll
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Net.Http.dll
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Net.Http.Formatting.dll
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Net.Http.WebRequest.dll
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Runtime.Serialization.dll
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Web.Http.dll
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Web.Http.WebHost.dll
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Web.Mvc.dll
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Web.Razor.dll
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Web.WebPages.Deployment.dll
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Web.WebPages.dll
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Web.WebPages.Razor.dll
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Web.Mvc.xml
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\EntityFramework.xml
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\Microsoft.Web.Infrastructure.xml
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Net.Http.xml
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Net.Http.Formatting.xml
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Net.Http.WebRequest.xml
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Web.Http.xml
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Web.Http.WebHost.xml
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Web.Razor.xml
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Web.WebPages.xml
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Web.WebPages.Deployment.xml
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\bin\System.Web.WebPages.Razor.xml
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\obj\Release\PacificPortal.csprojResolveAssemblyReference.cache
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\obj\Release\PacificPortal.dll
+G:\SOFT\project\FROM LINKON\Server\last\PacificPortal\PacificPortal\obj\Release\PacificPortal.pdb
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\PacificPortal.dll
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\PacificPortal.pdb
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\EntityFramework.dll
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\Microsoft.Web.Infrastructure.dll
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Net.Http.dll
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Net.Http.Formatting.dll
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Net.Http.WebRequest.dll
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Runtime.Serialization.dll
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.Http.dll
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.Http.WebHost.dll
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.Mvc.dll
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.Razor.dll
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.WebPages.Deployment.dll
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.WebPages.dll
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.WebPages.Razor.dll
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.Mvc.xml
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\EntityFramework.xml
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\Microsoft.Web.Infrastructure.xml
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Net.Http.xml
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Net.Http.Formatting.xml
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Net.Http.WebRequest.xml
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.Http.xml
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.Http.WebHost.xml
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.Razor.xml
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.WebPages.xml
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.WebPages.Deployment.xml
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.WebPages.Razor.xml
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\obj\Release\PacificPortal.csprojResolveAssemblyReference.cache
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\obj\Release\PacificPortal.dll
+G:\SOFT\project\FROM LINKON\WEBSERVER\PacificPortal\PacificPortal\obj\Release\PacificPortal.pdb
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\PacificPortal.dll
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\PacificPortal.pdb
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\EntityFramework.dll
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\Microsoft.Web.Infrastructure.dll
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Net.Http.dll
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Net.Http.Formatting.dll
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Net.Http.WebRequest.dll
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Runtime.Serialization.dll
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.Http.dll
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.Http.WebHost.dll
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.Mvc.dll
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.Razor.dll
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.WebPages.Deployment.dll
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.WebPages.dll
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.WebPages.Razor.dll
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\EntityFramework.xml
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\Microsoft.Web.Infrastructure.xml
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Net.Http.xml
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Net.Http.Formatting.xml
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Net.Http.WebRequest.xml
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.Http.xml
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.Http.WebHost.xml
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.Razor.xml
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.WebPages.xml
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.WebPages.Deployment.xml
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\bin\System.Web.WebPages.Razor.xml
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\obj\Release\PacificPortal.csprojResolveAssemblyReference.cache
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\obj\Release\PacificPortal.dll
+G:\SOFT\project\WEBSERVER\PacificPortal\PacificPortal\obj\Release\PacificPortal.pdb
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Web.Mvc.dll
+D:\MVC Demo\PacificPortal\PacificPortal\bin\System.Web.Mvc.xml
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\PacificPortal.dll
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\PacificPortal.pdb
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\EntityFramework.dll
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\Microsoft.Web.Infrastructure.dll
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Net.Http.dll
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Net.Http.Formatting.dll
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Net.Http.WebRequest.dll
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Runtime.Serialization.dll
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Web.Http.dll
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Web.Http.WebHost.dll
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Web.Mvc.dll
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Web.Razor.dll
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Web.WebPages.Deployment.dll
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Web.WebPages.dll
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Web.WebPages.Razor.dll
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Web.Mvc.xml
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\EntityFramework.xml
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\Microsoft.Web.Infrastructure.xml
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Net.Http.xml
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Net.Http.Formatting.xml
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Net.Http.WebRequest.xml
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Web.Http.xml
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Web.Http.WebHost.xml
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Web.Razor.xml
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Web.WebPages.xml
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Web.WebPages.Deployment.xml
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\bin\System.Web.WebPages.Razor.xml
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\obj\Release\PacificPortal.csprojResolveAssemblyReference.cache
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\obj\Release\PacificPortal.dll
+G:\SOFT\new UP\linkon soft\Linkon Backup 19_feb_2018\PacificPortal\PacificPortal\obj\Release\PacificPortal.pdb

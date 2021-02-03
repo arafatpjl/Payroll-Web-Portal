@@ -1,0 +1,221 @@
+﻿@{
+    ViewBag.Title = "Attendence Approved Detail";
+}
+<style>
+    body{
+        margin-top:80px;   
+    }
+
+
+    input {
+        /*max-width:400px;*/
+    }
+    .error {
+        color: red;
+    }
+
+</style>
+
+
+
+<div ng-controller="AttenApproveController"  class="container">
+
+   <div class="panel panel-info" >
+
+            <div class="panel-heading" style="min-height:80px">
+
+
+                   
+                <div class="col-md-4 col-sm-6" >
+             
+          
+                                            <div class="input-daterange input-group">
+
+                                                    <span class="input-group-addon">Unit </span>
+
+                                                     <select ng-model="Company" class="form-control"ng-options="I.Name for I in CompanyList | filter:{ID:ComID}:containsComparator" ng-change="search_by()" ng-class="submitted?'ng-dirty':''" required >
+                                                        <option value="">Select Unit</option>
+                  
+                                                      </select>
+                                                
+                                            </select>  
+                                                
+
+                                            </div>
+
+                                    </div>
+
+
+
+                        <div class="col-md-2 col-sm-6" >
+             
+                            <div class="input-daterange input-group">
+                                                        <span class="input-group-addon">Year </span>  
+                                                    <input    ng-model="data.Year"   ng-change="search_by()"  class="form-control"    name="Year"   />
+                               
+
+                                
+
+                            </div>
+                             </div>
+
+                 <div class="col-md-3 col-sm-6" >
+                            <div class="input-daterange input-group">
+                                
+                                <span class="input-group-addon">Month </span>  
+                                <select   ng-model="data.Month"    class="form-control"  name="month"  ng-change="search_by()"  >
+                                    <option ng-repeat="item in months" value="{{item.id}}">{{item.name}}</option>
+                                        <option value="">Select Month</option>
+                                </select>                
+                                              
+
+                            </div>
+
+                                                
+
+                                </div>
+
+
+                          
+
+
+                 <div class="col-md-3 col-sm-6" >
+                            <div class="input-daterange input-group">
+
+                                 <span class="input-group-addon">  Approved </span>   
+
+                                    <select  ng-model="ProcessModel" class="form-control"  data-ng-init="ProcessModel = ProcessList[0]"   ng-options="e for e in ProcessList" >
+            
+                                    </select>  
+                                
+                                 <span class="input-group-addon">{{results.length}} </span>   
+
+                            </div>
+
+                                                
+
+                                </div>
+
+
+               
+                 
+            </div>
+ 
+         
+               @*<button class="btn btn-success btn-xs" ng-show="loading"><i class="fa fa-spinner fa-spin"></i> Loading</button>*@
+
+       <!-- progress bar info -->
+
+
+
+
+      
+
+
+
+   <div class="panel-body">
+
+                <div class="row">
+                     
+
+         <div class="col-md-12 col-sm-6" style="min-height:20px" >
+
+             
+               
+              
+
+                 
+   <div style="overflow-y: scroll;  max-height:500px; ">
+              
+
+                            <table  id="Report_table"  class="table">
+    <thead>
+        <tr>
+                <th>Emp</th>
+                <th>Code</th>              
+                <th>Section</th>              
+                <th>Request To</th>
+                 <th>Code</th>               
+                <th>Section</th>
+                <th>Desig.</th>
+                <th>Date</th>  
+                <th>Shift</th> 
+                <th>In</th>  
+                <th>Late</th>  
+                <th>Out</th>    
+                <th>Reason</th>       
+              
+               
+          
+    </thead>
+    <tbody>
+      @*<tr ng-repeat="r in EmpOTRequisitionList | orderBy : ['StartTime.Hours','StartTime.Minutes', 'Wstatus', 'RoadName', 'VehicleNo', 'Driver'] | filter: RoadFilter | filter: EmpTypeFilter|filter: {StartTime: {Hours: 18}}:true|filter: {StartTime: {Minutes: StartTimeFilter.split(':')[1]}}:exact as results"> 
+      
+        Department, Section, DesigAddi, EmpCode, DailyDate, Shift, OTStart, WeekNo, TotalWeekOT, WeekLimit, MonthNo, TotalMonthOT, MonthLimit
+      *@
+        <tr  ng-model="available" ng-repeat="r in EmpList |  filter: ProcessModel : true| orderBy :['-Updated_date']   as results"> 
+                      
+                <td style="color:#22849f">
+                    {{ r.Name.length > 15 ? ((r.Name | limitTo:15) + "...") : r.Name }}
+                </td>
+                <td>{{r.EmpCode}}</td>
+                
+                <td>{{r.Section | limitTo: 15}}</td>
+
+                <td style="color:#1da51f">
+                     {{ r.RequestToName.length > 15 ? ((r.RequestToName | limitTo:15) + "...") : r.RequestToName }}
+                <td>{{r.RequestToEmpCode}}</td>
+               
+                <td>{{r.RequestToSection | limitTo: 15}}</td>
+                <td style="color:#1da51f">{{r.RequestToDesigAddi | limitTo: 10}} </td>
+
+                <td style="color:#1da51f">{{r.prDate.slice(6,-2)|date:'dd-MM-yyyy'}}</td>
+                <td>{{r.Shift}}</td>
+                <td>{{r.TimeIn}}</td>
+                <td>{{r.LateHrs}}</td>
+                <td>{{r.TimeOut}}</td>
+
+                <td style="color:#db2121">
+                  <a href="#0" title="{{r.Reasons}}" data-toggle="tooltip" data-placement="top" tooltip>
+                        {{ r.Reasons.length > 15 ? ((r.Reasons | limitTo:30) + "...") : r.Reasons }}
+                      </a>
+                </td>
+           
+
+           </tr>
+    </tbody>
+
+
+</table>
+             
+                           </div>    
+
+                         
+           
+               </div>
+
+                
+
+ @* row end*@
+  </div>
+
+
+                  
+ @* panel body end*@
+  </div>
+
+
+ 
+  @* panel end*@
+</div>
+    
+    
+    
+    @*controller end *@
+     </div>
+   
+    
+
+@section Scripts{
+<script src="~/Scripts/Controllers/AttenApproveController.js"></script>
+}

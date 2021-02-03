@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "Notice";
+}
+<style>
+    body{
+        margin-top:80px;   
+         font-size: 12px;    
+    }
+
+
+    input {
+        /*max-width:400px;*/
+    }
+    .error {
+        color: red;
+    }
+
+
+
+    </style>
+
+
+
+<div ng-controller="NoticeController"  class="container">
+
+            
+   
+   <div class="panel panel-info" >
+       
+     
+                       
+   <div class="panel-heading" style="min-height:20px">
+
+              Notice
+
+            
+            @* panel heading end*@
+  </div>
+ 
+
+                <div class="panel-body">
+
+                 <div style="overflow-y: scroll;  max-height:500px; ">  
+                        <ul class="list-group">
+                            
+                            <div ng-repeat="r in NoticeList">
+                                <li class="list-group-item" data-toggle="modal" data-target="#ModalUpdateStatus" ng-click="GetNoticeURL(r.URL)"><i class="glyphicon glyphicon-hand-right" style="padding-left:80px;padding-right:20px;color:#1fa136"></i> {{r.Title}}<span class="badge">{{r.PublishDate.slice(6,-2)|date:'dd-MM-yyyy'}}</span></li>
+                            </div>
+                               
+                        </ul>
+                  </div>
+
+                      @*<li class="list-group-item" data-toggle="modal" data-target="#ModalUpdateStatus" ng-click="File_Name = {{r.URL}}"><i class="glyphicon glyphicon-hand-right"></i> {{r.Title}} {{r.URL}}<span class="badge">{{r.PublishDate.slice(6,-2)|date:'dd-MM-yyyy'}}</span></li>*@
+                          
+
+                    
+   <!-- Modal --> <!-- --------------------------Update--------------------------------- -->
+        <div class="modal fade" id="ModalUpdateStatus" role="dialog"  >
+            <div class="modal-dialog  modal-lg">
+               
+               <div class="panel panel-info"  >
+                    <div class="panel-heading" style="text-align:center">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        Notice
+                    </div>
+                    <div class="modal-body"  >
+
+       
+             <object   width="100%" height="500px" type="application/pdf" data="@Url.Action("GetPDF")?File_Name={{File_Name}}#zoom=95&scrollbar=0&toolbar=0&navpanes=0">
+          @*  alt : <a href="~/PDF/Festival_2018.pdf">Festival 2018</a>*@
+        </object>
+
+                    </div>
+                    <div class="modal-footer">
+                        
+                    </div>
+                </div>
+                   
+
+                    </div> 
+
+               </div> 
+           
+
+
+
+      @* 
+       @using (Html.BeginForm("ViewPDF", "Home", FormMethod.Post))
+    {
+        <a href="javascript:;" onclick="document.forms[0].submit();">View PDF</a>
+        <hr/>
+        @Html.Raw(TempData["Embed"])
+    }
+
+       <div id="pdf">
+  <object width="1000" height="500" type="application/pdf" data="~/PDF/Festival_2018.pdf?#zoom=85&scrollbar=0&toolbar=0&navpanes=0" id="pdf_content">
+    <p>Insert your error message here, if the PDF cannot be displayed.</p>
+  </object>
+</div>
+*@
+
+
+
+ @* panel body end*@
+  </div>
+
+
+ 
+  @* panel end*@
+</div>
+    
+    
+    
+    @*controller end *@
+     </div>
+   
+    
+
+@section Scripts{
+<script src="~/Scripts/Controllers/NoticeController.js"></script>
+}

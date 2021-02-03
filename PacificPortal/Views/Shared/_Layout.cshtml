@@ -1,0 +1,400 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+       
+    @*@Styles.Render("~/Content/css")*@
+     
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/custom-select-style.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/checkbox.css" rel="stylesheet" />
+    
+    <style>
+
+
+html { 
+        /*background: url('../images/img_6.jpg') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;*/
+}
+.navbar {max-height:10px !important}
+
+
+body {
+          
+        background: url('../images/img_6.jpg') no-repeat center center fixed;         
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+           font-size: 12px; 
+
+
+        /*background: url('../images/img_6 _large.jpg') repeat*/
+
+          /*background: url('../images/jeans_3.png') repeat;*/
+            
+}
+
+.main_container {
+      
+        /*background: url('../images/img_6.jpg');
+        width:100%;
+        height:100%;   
+        background-repeat: no-repeat;
+        background-size:100% auto; 
+        opacity: 0.7;
+        filter: alpha(opacity=50);*/ /* For IE8 and earlier */
+}
+
+
+
+
+.form-group label{
+    font-size: 0.9em;
+    /*font-family: 'Helvetica Neue', sans-serif;*/
+}
+
+
+.container {
+    /*-webkit-box-shadow: 0 0 10px 0 #000000;
+	-moz-box-shadow: 0 0 10px 0 #000000;
+	box-shadow: 0 0 10px 0 #000000;*/
+
+}
+
+    .fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    }
+    .fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    }
+    
+
+
+    </style>
+
+    
+    
+<style>
+
+   
+
+        
+.navbar-brand {
+  padding: 0px;
+  /*max-width: 10px;*/
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 5px;
+  width: auto;
+}
+
+
+
+.inputstl { 
+    padding: 9px; 
+    border: solid 1px #4B718B; 
+    outline: 0; 
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #CDDBE4), to(#FFFFFF)); 
+    background: -moz-linear-gradient(top, #FFFFFF, #CDDBE4 1px, #FFFFFF 25px); 
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+
+    } 
+    
+.menucls {
+  background-color: #69899f;
+  border-color: #425766;
+   /*background: url('../images/jeans_2.png') repeat;*/ 
+}
+.menucls .navbar-brand {
+  color: #d7e2e9;
+}
+.menucls .navbar-brand:hover, .menucls .navbar-brand:focus {
+  color: #e5dbdb;
+}
+.menucls .navbar-text {
+  color: #d7e2e9;
+}
+
+.menucls .navbar-nav{
+   background-color: #69899f;
+   /*background: url('../images/jeans_2.png') repeat;*/ 
+}
+.menucls .navbar-nav > li > a {
+  color: #d7e2e9;
+}
+.menucls .navbar-nav > li > a:hover, .menucls .navbar-nav > li > a:focus {
+  color: #e5dbdb;
+   background-color: #ee2e2e;
+}
+
+.menucls .navbar-nav > li > .dropdown-menu {
+  background-color: #69899f;
+}
+.menucls .navbar-nav > li > .dropdown-menu > li > a {
+  color: #d7e2e9;
+}
+.menucls .navbar-nav > li > .dropdown-menu > li > a:hover,
+.menucls .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #e5dbdb;
+  background-color: #425766;
+}
+.menucls .navbar-nav > li > .dropdown-menu > li > .divider {
+  background-color: #69899f;
+}
+.menucls .navbar-nav > .active > a, .menucls .navbar-nav > .active > a:hover, .menucls .navbar-nav > .active > a:focus {
+  color: #e5dbdb;
+  background-color: #425766;
+}
+
+.menucls .navbar-nav > .open > a, .menucls .navbar-nav > .open > a:hover, .menucls .navbar-nav > .open > a:focus {
+  color: #e5dbdb;
+  background-color: #425766;
+}
+.menucls .navbar-toggle {
+  border-color: #425766;
+}
+.menucls .navbar-toggle:hover, .menucls .navbar-toggle:focus {
+  background-color: #425766;
+}
+.menucls .navbar-toggle .icon-bar {
+  background-color: #d7e2e9;
+}
+.menucls .navbar-collapse,
+.menucls .navbar-form {
+  border-color: #d7e2e9;
+}
+
+
+.menucls .navbar-link {
+  color: #d7e2e9;
+}
+.menucls .navbar-link:hover {
+  color: #e5dbdb;
+
+}
+
+@@media (max-width: 767px) {
+  .menucls .navbar-nav .open .dropdown-menu > li > a {
+    color: #d7e2e9;
+  }
+  .menucls .navbar-nav .open .dropdown-menu > li > a:hover, .menucls .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #e5dbdb;
+     
+  }
+  .menucls .navbar-nav .open .dropdown-menu > .active > a, .menucls .navbar-nav .open .dropdown-menu > .active > a:hover, .menucls .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #e5dbdb;
+    background-color: #425766;
+  }
+}
+</style>
+    
+
+    </head>
+
+<body ng-app="MyApp">
+
+
+
+<div  ng-if="@Session["LoginID"] != null">
+
+
+<nav class="navbar menucls navbar-fixed-top" ng-if="@Session["HeaderFooter"] == null">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+      </button>
+   
+        <a class="navbar-brand" href="#"><img src="../images/pjl_logo.png" alt="PJL"> 
+        </a>
+        <a class="navbar-brand" style="padding-left:20px;padding-top:20px;color:#FFF">Web Portal 
+        </a> 
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1" >
+      <ul class="nav navbar-nav">
+          @*class="active"*@
+
+      @*  <li ><a href="Deshboard">Home</a></li>
+           
+        <li class="dropdown">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HRIS <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+                    <li><a href="JobCard">Job Card</a></li>
+                    <li><a href="Leave">Leave Management</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="EmpInfo">Employee Information</a></li>
+                    <li><a href="UserProfile">My Profile</a></li>
+                   
+          </ul>
+        </li>
+          *@
+
+          
+
+
+           @{
+              
+               
+               if (ViewBag.UserMenus != null)
+              {
+                  var UserMenus = ViewBag.UserMenus as IEnumerable<PacificPortal.Models.UserMenu>;
+
+                  foreach (var Menus in UserMenus)
+                  {
+
+                      if (Menus.Main_Menu_Id == "0")
+                      {
+
+                          var SubMenus = UserMenus.Where(p => p.Main_Menu_Id == Menus.ID.ToString()).ToList();
+
+                                                     
+                            if (SubMenus.Count > 0)
+                                {
+                                        <li class="dropdown">
+                                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i style="padding-right:5px" class="glyphicon glyphicon-@Menus.Menu_Icon"></i>@Menus.Menu_Name 
+                                        <span class="caret"></span>
+
+                                        </a>
+                                        <ul class="dropdown-menu">
+
+                            @{
+                                        
+                                    foreach (var Menu in SubMenus)
+                                    {
+                                            <li><a href=" @Menu.Menu_URL"> @Menu.Menu_Name</a></li>
+                                    }
+                            }
+
+                                        </ul>
+                                    
+                                        </li>
+                  
+                                }
+                            else
+                                {
+                                            <li class="dropdown">
+                                            <a href=" @Menus.Menu_URL">
+                                            <i style="padding-right:5px" class="glyphicon glyphicon-@Menus.Menu_Icon"></i>@Menus.Menu_Name 
+                                     
+                                            </a></li>
+                                }
+                                             
+                                    
+
+
+                           
+                      }
+                  }
+                
+                   
+                    
+          
+              }
+              
+              }
+           
+        
+
+
+          @{
+              
+              if (ViewBag.UserInfo != null)
+              {
+                  var UserInfo = ViewBag.UserInfo as IEnumerable<PacificPortal.Models.prc_EmployeeInfo_Result>;
+                   <li class="dropdown">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i style="padding-right:5px" class="glyphicon glyphicon-user"></i> @UserInfo.FirstOrDefault().Name <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+             
+                <li><a href="UserProfile">My Profile</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href=""> @UserInfo.FirstOrDefault().EmployeeCode</a></li>
+                <li><a href=""> @UserInfo.FirstOrDefault().Designation</a></li>            
+                <li><a href=""> @UserInfo.FirstOrDefault().Department</a></li>
+                <li><a href=""> @UserInfo.FirstOrDefault().Section</a></li>
+                    
+          </ul>
+        </li>
+              }
+              
+              }
+
+        
+          <li><a href="Logout"><i style="padding-right:5px" class="glyphicon glyphicon-off"></i>Log Out</a></li>    
+
+      </ul>
+
+
+
+     @* <form class="navbar-form navbar-right" role="search">
+       <span style="color:white"><i class="glyphicon glyphicon-user"></i>  @ViewBag.UserInfo </span>
+        
+      </form>*@
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</div>
+
+    @RenderBody()
+
+
+
+    <style>
+        .navbar-sm {max-height:20px}
+    </style>
+    
+
+    <nav class="navbar-sm menucls navbar-fixed-bottom" ng-if="@Session["HeaderFooter"] == null" style="height:20px">
+  <div class="container-fluid">
+    <div style="text-align:center;color:#FFF;font-size:14px">
+    <strong> Developed By : ICT (Software) Department  </strong>
+        </div>
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/bootstrap")
+   
+
+        <script src="~/Scripts/MyApp.js"></script> 
+    
+    
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

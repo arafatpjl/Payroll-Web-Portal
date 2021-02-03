@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabasefileModelStoreContainer" CdmEntityContainer="PJL_D_Entities">
+    <EntitySetMapping Name="Employee_Information">
+      <EntityTypeMapping TypeName="DatabasefileModel.Employee_Information">
+        <MappingFragment StoreEntitySet="Employee_Information">
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+          <ScalarProperty Name="ComID" ColumnName="ComID" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FathersName" ColumnName="FathersName" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="PreAddress" ColumnName="PreAddress" />
+          <ScalarProperty Name="PerAddress" ColumnName="PerAddress" />
+          <ScalarProperty Name="NID" ColumnName="NID" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="DesigAddi" ColumnName="DesigAddi" />
+          <ScalarProperty Name="OpenRate" ColumnName="OpenRate" />
+          <ScalarProperty Name="CurrRate" ColumnName="CurrRate" />
+          <ScalarProperty Name="MothersName" ColumnName="MothersName" />
+          <ScalarProperty Name="HusbandName" ColumnName="HusbandName" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="MLeave" ColumnName="MLeave" />
+          <ScalarProperty Name="MLeft" ColumnName="MLeft" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="BusStop" ColumnName="BusStop" />
+          <ScalarProperty Name="BusLine" ColumnName="BusLine" />
+          <ScalarProperty Name="WStatus" ColumnName="WStatus" />
+          <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="EmpAttID" ColumnName="EmpAttID" />
+          <ScalarProperty Name="BepzaID" ColumnName="BepzaID" />
+          <ScalarProperty Name="BusAvail" ColumnName="BusAvail" />
+          <ScalarProperty Name="AttOff" ColumnName="AttOff" />
+          <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
+          <ScalarProperty Name="BusAvailDate" ColumnName="BusAvailDate" />
+          <ScalarProperty Name="AppDate" ColumnName="AppDate" />
+          <ScalarProperty Name="EmpLVID" ColumnName="EmpLVID" />
+          <ScalarProperty Name="FracPay" ColumnName="FracPay" />
+          <ScalarProperty Name="FracPayOT" ColumnName="FracPayOT" />
+          <ScalarProperty Name="LeftDate" ColumnName="LeftDate" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="LocalAddress" ColumnName="LocalAddress" />
+          <ScalarProperty Name="Experience" ColumnName="Experience" />
+          <ScalarProperty Name="CompName" ColumnName="CompName" />
+          <ScalarProperty Name="Process" ColumnName="Process" />
+          <ScalarProperty Name="ProcessCat" ColumnName="ProcessCat" />
+          <ScalarProperty Name="DeleteRow" ColumnName="DeleteRow" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPass" ColumnName="UserPass" />
+          <ScalarProperty Name="ComputerName" ColumnName="ComputerName" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+          <ScalarProperty Name="MLDate" ColumnName="MLDate" />
+          <ScalarProperty Name="DiscDate" ColumnName="DiscDate" />
+          <ScalarProperty Name="Incr_Month" ColumnName="Incr_Month" />
+          <ScalarProperty Name="SP_Actvt" ColumnName="SP_Actvt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unit">
+      <EntityTypeMapping TypeName="DatabasefileModel.Company_Information">
+        <MappingFragment StoreEntitySet="Company_Information">
+          <ScalarProperty Name="ReportPath" ColumnName="ReportPath" />
+          <ScalarProperty Name="IsClose" ColumnName="IsClose" />
+          <ScalarProperty Name="DBPrefix" ColumnName="DBPrefix" />
+          <ScalarProperty Name="DBName" ColumnName="DBName" />
+          <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+          <ScalarProperty Name="EmpImageLocation" ColumnName="EmpImageLocation" />
+          <ScalarProperty Name="SignedBy" ColumnName="SignedBy" />
+          <ScalarProperty Name="AddressBangla" ColumnName="AddressBangla" />
+          <ScalarProperty Name="NameBangla" ColumnName="NameBangla" />
+          <ScalarProperty Name="WMedical" ColumnName="WMedical" />
+          <ScalarProperty Name="Medical" ColumnName="Medical" />
+          <ScalarProperty Name="NZN" ColumnName="NZN" />
+          <ScalarProperty Name="PFundM" ColumnName="PFundM" />
+          <ScalarProperty Name="PFund" ColumnName="PFund" />
+          <ScalarProperty Name="BonusM" ColumnName="BonusM" />
+          <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+          <ScalarProperty Name="FoodPayM" ColumnName="FoodPayM" />
+          <ScalarProperty Name="FoodPay" ColumnName="FoodPay" />
+          <ScalarProperty Name="HRentM" ColumnName="HRentM" />
+          <ScalarProperty Name="WHRent" ColumnName="WHRent" />
+          <ScalarProperty Name="WBASIC" ColumnName="WBASIC" />
+          <ScalarProperty Name="HRent" ColumnName="HRent" />
+          <ScalarProperty Name="BasicM" ColumnName="BasicM" />
+          <ScalarProperty Name="Basic" ColumnName="Basic" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUserInfoes">
+      <EntityTypeMapping TypeName="DatabasefileModel.tblUserInfo">
+        <MappingFragment StoreEntitySet="tblUserInfo">
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="last_login_Mac" ColumnName="last_login_Mac" />
+          <ScalarProperty Name="last_login_date" ColumnName="last_login_date" />
+          <ScalarProperty Name="YsnActive" ColumnName="YsnActive" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="PhoneExt" ColumnName="PhoneExt" />
+          <ScalarProperty Name="MobileNoHome" ColumnName="MobileNoHome" />
+          <ScalarProperty Name="MobileNoPerson" ColumnName="MobileNoPerson" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+          <ScalarProperty Name="ReportSuper" ColumnName="ReportSuper" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="RegID" ColumnName="RegID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

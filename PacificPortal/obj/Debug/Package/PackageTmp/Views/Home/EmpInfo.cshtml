@@ -1,0 +1,396 @@
+﻿@{
+    ViewBag.Title = "Employee Information";
+}
+<style>
+    body{
+        margin-top:80px;  
+    }
+
+
+    input {
+        /*max-width:400px;*/
+    }
+    .error {
+        color: red;
+    }
+
+    
+
+
+#rowSearchType div div{
+        background-color:#4ec9d5;  
+        color:#daf2f1;     
+        border: 1px solid #aef5e6;
+        border-radius: 10px;
+        margin-top: 1px;       
+        font-size: 14px;   
+}
+
+
+#rowSearchData{
+        background-color:#4ec9d5;  
+        color:#091f72;    
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /*display: inline-block;*/
+        max-width: 100%;
+
+        border: 2px solid #aef5e6;
+        border-radius: 20px;
+        margin-top: 5px;        
+          font-size: 11px;   
+}
+
+
+#rowSearchData h5{        
+        color:#FFF; 
+}
+
+
+.img-hover img {                 
+    -webkit-transition: all .3s ease; /* Safari and Chrome */
+  	-moz-transition: all .3s ease; /* Firefox */
+  	-o-transition: all .3s ease; /* IE 9 */
+  	-ms-transition: all .3s ease; /* Opera */
+  	transition: all .3s ease;
+}
+
+
+.img-hover img:hover {
+
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform:translate(0px, 80px) scale(3); /* Safari and Chrome */
+    -moz-transform:translate(0px, 80px) scale(3); /* Firefox */
+    -ms-transform:translate(0px, 80px) scale(3); /* IE 9 */
+    -o-transform:translate(0px, 80px) scale(3); /* Opera */
+    transform:translate(0px, 80px) scale(3);
+         
+}
+  
+  
+.grayscale {
+  -webkit-filter: brightness(1.10) grayscale(100%) contrast(90%);
+  -moz-filter: brightness(1.10) grayscale(100%) contrast(90%);
+  filter: brightness(1.10) grayscale(100%); 
+}
+       
+
+</style>
+
+
+
+<div ng-controller="EmpInfoController"  class="container">
+
+   <div class="panel panel-info" >
+
+            <div class="panel-heading" style="min-height:80px">
+
+
+               <div class="col-md-4 col-sm-6" >
+             
+          
+              <div class="input-daterange input-group">
+
+                                        <span class="input-group-addon">  Search By </span>
+
+                                 <select  ng-model="columns" ng-change="columnsChange(columns)" class="form-control"   ng-options="e for e in headers" >
+                                                    </select>
+                               <span class="input-group-addon" >My Team 
+                                    <i style="padding-left:20px;color:#4ec9d5;cursor: pointer; " class="glyphicon glyphicon-search"  ng-click="AddSearchType()"></i>                
+                               </span>
+                 
+
+                                    </div>
+
+
+   </div>
+
+
+                 <div class="col-md-5 col-sm-6" >
+               
+
+                 <div class="input-daterange input-group">
+
+                                                                          
+                    
+                                <input type="text" class="search-query form-control" ng-change="check()" ng-model-options='{ debounce: 1000 }' ng-model="search[columns]"  placeholder="{{search_Placeholder}}" />
+                               
+                                          <span class="input-group-addon" style="background-color:#4ec9d5;color:#FFF">
+                                                    {{results.length}}
+                                                   <i style="padding-left:20px;color:#ffd800;cursor: pointer; " class="glyphicon glyphicon-envelope"  ng-click="mailto()"></i>                
+                                                    </span>  
+                      
+                                    </div>
+                     
+                         
+
+   </div>
+
+                 <div class="col-md-3 col-sm-6" >
+               
+
+                 <div class="input-daterange input-group">
+
+                              
+
+                                       <span class="input-group-addon"> Limit  </span>
+                                   
+                                     <input ng-model="Limit" type="text" class="form-control"   />
+                                   
+                                
+                     
+                                    </div>
+
+
+   </div>
+                
+               
+        
+               
+  
+
+
+          
+                <div class="col-md-12 col-sm-6" >
+                <div class="progress">
+  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{loading}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( loading + '%' ) }">
+    {{loading}}%
+  </div>
+                     </div>
+</div>  
+
+               
+
+
+   
+
+                @*style="border:1px solid #4ec9d5;"*@ 
+
+                    <div class="row" id="rowSearchType"> 
+                    <div class="col-xs-12">
+
+                        <div class="col-xs-3" ng-repeat="(key,value) in search">
+                             
+                                 {{key}}  :  
+                            <span style="color: #091f72">
+                {{key === "ReportSuper" ? "My Team Member" : value}}
+                            </span>
+                            <button type="button" class="close" ng-click="removeSearchType(key,value)">&times;</button>
+
+                          
+                            
+                        </div>
+
+                         <div class="col-xs-3" ng-repeat="(key,value) in searchExact">
+                             
+                                 {{key}}  :  
+                            <span style="color: #091f72">
+                {{key === "ReportSuper" ? "My Team Member" : value}}
+                            </span>
+                            <button type="button" class="close" ng-click="removesearchExactType(key,value)">&times;</button>
+
+                          
+                            
+                        </div>
+
+
+                        
+
+                    </div>
+
+ </div>
+        
+
+                </br>
+                 
+            </div>
+ 
+         
+               @*<button class="btn btn-success btn-xs" ng-show="loading"><i class="fa fa-spinner fa-spin"></i> Loading</button>*@
+
+       <!-- progress bar info -->
+
+
+
+
+      
+
+
+
+   <div class="panel-body">
+
+                       
+    @*<label for="primary" class="btn btn-info">Level <input type="checkbox" ng-change="DesigShowChange()" ng-model="DesigShow" id="primary" class="badgebox"><span class="badge">&check;</span></label>
+   *@
+ 
+      <div class="row" > 
+
+   
+        <div ng-if="DesigShow"   class="col-md-12" ng-repeat="(key,value) in (results_groupBy  = (EmployeeInfoListgroupBy | filter: search ))|  groupBy:'Level_Name'">
+      
+            
+                @*<div ng-if="DesigShow"  class="col-xs-12" ng-repeat="(key,value) in results2| filter: search |  groupBy:'Level_No'">*@
+
+            </br>
+              <label for="primary" class="btn btn-info">Level :<span class="badge">{{ key }}</span></label>
+   
+                  </br>
+
+        
+  <div class="col-md-3" id="rowSearchData"   ng-repeat="EmployeeInfo in value| orderBy:'Name'" >
+   
+      <img check-image ng-src="../images/users/{{EmployeeInfo.RegId}}.png"  class="card-img-top img-circle img-responsive" style="margin:0 auto;" alt="User Profile Image" width="80" height="80"> 
+       
+            <h5><span style="padding-left:10px;">{{EmployeeInfo.Name}}</span></h5>   
+    
+                            <i class="glyphicon glyphicon-home"></i><span style="padding-left:20px">{{EmployeeInfo.Unit}}</span>      
+                              <br />               
+                            <i class="glyphicon glyphicon-map-marker"></i><span style="padding-left:20px"> {{EmployeeInfo.Section}}</span>
+                             <br />
+                            <i class="glyphicon glyphicon-user"></i><span style="padding-left:20px">{{EmployeeInfo.EmployeeCode}}</span>
+                            <br />
+                            <i class="glyphicon glyphicon-education"></i><span style="padding-left:20px">{{EmployeeInfo.Designation}}</span>
+                            <br />
+                            <i class="glyphicon glyphicon-phone"></i><span style="padding-left:20px">{{EmployeeInfo.MobileNoPerson}}</span>
+                             <br />
+                            <i class="glyphicon glyphicon-phone-alt"></i><span style="padding-left:20px">{{EmployeeInfo.PhoneExt}}</span>
+                             <br />
+                            <i class="glyphicon glyphicon-plus"></i><span style="padding-left:20px">{{EmployeeInfo.JoiningDate.slice(6,-2)|date:'dd-MM-yyyy'}}</span>
+                    <br />
+                            <i class="glyphicon glyphicon-envelope" style="color:#ffd800;cursor: pointer; "  ng-click="mailtoPerson(EmployeeInfo.EmailID)"></i><span style="padding-left:20px">{{EmployeeInfo.EmailID}}</span>
+                 
+  </div>
+
+
+     </div>
+
+          
+
+
+    <div  ng-if="!DesigShow" id="rowSearchData" class="col-md-3" ng-repeat="EmployeeInfo in EmployeeInfoList| limitTo: Limit  | filter : searchExact : true| filter : search as results" >
+    
+          <div class="img-hover">
+    
+       <img check-image ng-src="../images/users/{{EmployeeInfo.RegId}}.png"  class="card-img-top img-circle img-responsive" style="margin:0 auto;" alt="User Profile Image" width="80" height="80"> 
+      
+    </div>
+      
+            <h5><span style="padding-left:10px;">{{EmployeeInfo.Name}}</span></h5>   
+                            <i class="glyphicon glyphicon-home"></i><span style="padding-left:20px">{{EmployeeInfo.Unit}}</span>      
+                              <br />               @*, {{EmployeeInfo.Section}}*@
+                            <i class="glyphicon glyphicon-map-marker"></i><span style="padding-left:20px">{{EmployeeInfo.Department}}</span>
+                             <br />
+                            <i class="glyphicon glyphicon-user"></i><span style="padding-left:20px">{{EmployeeInfo.EmployeeCode}}</span> <span style="color:#a48a8a"> ({{EmployeeInfo.RegId}})</span>
+                            <br />
+                            <i class="glyphicon glyphicon-education"></i><span style="padding-left:20px">{{EmployeeInfo.Designation}}</span>
+                            <br />
+                            <i class="glyphicon glyphicon-phone"></i><span style="padding-left:20px">{{EmployeeInfo.MobileNoPerson}}</span>
+                             <br />
+                            <i class="glyphicon glyphicon-phone-alt"></i><span style="padding-left:20px">{{EmployeeInfo.PhoneExt}}</span>
+                             <br />
+                            <i class="glyphicon glyphicon-plus"></i><span style="padding-left:20px">{{EmployeeInfo.JoiningDate.slice(6,-2)|date:'dd-MM-yyyy'}}</span>
+                   <br />
+                            <i class="glyphicon glyphicon-envelope" style="color:#ffd800;cursor: pointer; "  ng-click="mailtoPerson(EmployeeInfo.EmailID)"></i><span style="padding-left:20px">{{EmployeeInfo.EmailID}}</span>
+                 
+
+        @*  <a  href="" data-toggle="modal" data-target="{{'#' + EmployeeInfo.RegId+'ModalShowImageSlide'}}" >Image</a>
+       *@ 
+             <!-- Modal --> <!-- --------------------------ModalShowImageSlide--------------------------------- -->
+        <div class="modal fade" id="{{EmployeeInfo.RegId+'ModalShowImageSlide'}}"  role="dialog"  >
+            <div class="modal-dialog modal-lg" style="min-height:1000px">
+               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+               <div class="panel panel-info"  >
+                    <div class="panel-heading" style="text-align:center">
+                        <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                       {{EmployeeInfo.Name}}
+                    </div>
+                    <div class="modal-body"  >
+                         <img check-image ng-src="../images/users/{{EmployeeInfo.RegId}}.png"  class="card-img-top img-circle img-responsive" style="margin:0 auto;" alt="User Profile Image" width="256" height="256"> 
+     
+ 
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+ 
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+     <img src="http://azoom-sites.rockthemes.net/abboxed/wp-content/uploads/sites/14/2015/05/abboxed-restaurant-portfolio2.jpg" alt="First Slide" />
+      <div class="carousel-caption">
+      	<h3>Caption Text</h3>
+      </div>
+    </div>
+    <div class="item">
+     <img src="http://azoom-sites.rockthemes.net/abboxed/wp-content/uploads/sites/14/2015/05/abboxed-beach-portfolio.jpg" alt="Second Slide" />
+   <div class="carousel-caption">
+      	<h3>Caption Text</h3>
+      </div>
+    </div>
+    <div class="item">
+     <img src="http://azoom-sites.rockthemes.net/abboxed/wp-content/uploads/sites/14/2015/05/abboxed-beach-portfolio2.jpg" alt="Third Slide" />
+        		  <div class="carousel-caption">
+      	<h3>Caption Text</h3>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Controls -->
+<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        			<span class="icon-prev" aria-hidden="true"></span>
+        			<span class="sr-only">Previous</span>
+        		</a>
+ 
+        		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        			<span class="icon-next" aria-hidden="true"></span>
+        			<span class="sr-only">Next</span>
+        		</a>
+</div> <!-- Carousel -->
+
+            
+                    </div>
+                    <div class="modal-footer">
+                        
+                    </div>
+                </div>
+                   </div>
+
+                    </div> 
+
+               </div> 
+
+          
+    </div>
+        
+        
+  </div>
+
+
+ @* row end*@
+  </div>
+
+
+
+ @* panel body end*@
+  </div>
+
+
+ 
+  @* panel end*@
+</div>
+    
+    
+    
+    @*controller end *@
+     </div>
+   
+    
+
+@section Scripts{
+<script src="~/Scripts/Controllers/EmpInfoController.js"></script>
+}

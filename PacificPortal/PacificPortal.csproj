@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9A583BD6-2E85-4E86-B887-56A9A5784223}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PacificPortal</RootNamespace>
+    <AssemblyName>PacificPortal</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\D\crystel report DLL\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\D\crystel report DLL\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MVCWithAngularJs\MVCWithAngularJs\bin\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AlbumController.cs" />
+    <Compile Include="Controllers\AttendenceController.cs" />
+    <Compile Include="Controllers\BusScheduleController.cs" />
+    <Compile Include="Controllers\CrystalReportPdfResult.cs" />
+    <Compile Include="Controllers\EmpOTRequisitionController.cs" />
+    <Compile Include="Controllers\FabricController.cs" />
+    <Compile Include="Controllers\LeaveController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\Utilities.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\DataController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Company_Information.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\HomeData.cs" />
+    <Compile Include="Models\PJL.Context.cs">
+      <DependentUpon>PJL.Context.tt</DependentUpon>
+      <SubType>Code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Models\PJL.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Models\PJL.Designer.cs">
+      <DependentUpon>PJL.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Models\prc_CopyBusSchedule_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\prc_EmployeeAttenApp_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\prc_EmployeeAttenInfo_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\prc_EmployeeBirthDay_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\prc_EmployeeInfoByEmpCode_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\prc_EmployeeInfoByRegId_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\prc_EmployeeInfoDetail_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\prc_EmployeeInfo_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\prc_EmployeeLeaveInfo_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\prc_EmployeeLeaveStatus_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\prc_FabricInfoDetail_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\prc_GetAlbumByGroupID_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\prc_GetAlbum_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\prc_GetEmpDeptSec_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\prc_GetTeamMember_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\prc_Get_OTRequEmail_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Prc_Get_OTRequ_Info_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Prc_Get_OTRequ_Summary_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Prc_OTRequ_Approve_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Prc_OTRequ_Reset_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\prc_UserMenu_Result.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\tblAlbum.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\tblAlbumGroup.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\tblBusSchedule.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\tblDeptSec.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\tblEmpAttenApp.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\tblEmpLeaveApp.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\tblEmpOTApprovePermission.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblEmpOTRequ.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblFabricColour.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblFabricContent.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblFabricInfo.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblFabricMill.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblFabricType.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblFabricWave.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblMenu.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\tblNotice.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\tblOTStatus.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUserDeptSecPermission.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\tblUser_LogInfo.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\tblUser_Registration.cs">
+      <DependentUpon>PJL.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\checkbox.css" />
+    <Content Include="Content\custom-select-style.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\album\blank-picture.png" />
+    <Content Include="images\bd_1.gif" />
+    <Content Include="images\bd_2.gif" />
+    <Content Include="images\bd_3.gif" />
+    <Content Include="images\bd_5.gif" />
+    <Content Include="images\bd_6.gif" />
+    <Content Include="images\bd_7.gif" />
+    <Content Include="images\blank-profile-picture.png" />
+    <Content Include="images\BusSchedule\bus2.png" />
+    <Content Include="images\BusSchedule\bus2_L.png" />
+    <Content Include="images\BusSchedule\car_compact2.png" />
+    <Content Include="images\BusSchedule\car_compact2_L.png" />
+    <Content Include="images\BusSchedule\Copy of bus2.png" />
+    <Content Include="images\BusSchedule\delivery_truck.png" />
+    <Content Include="images\BusSchedule\delivery_truck_L.png" />
+    <Content Include="images\BusSchedule\minibus.png" />
+    <Content Include="images\BusSchedule\minibus_L.png" />
+    <Content Include="images\BusSchedule\police_car.png" />
+    <Content Include="images\BusSchedule\police_car_L.png" />
+    <Content Include="images\entrepreneurs.jpg" />
+    <Content Include="images\entrepreneurs.png" />
+    <Content Include="images\entrepreneurs_trans.png" />
+    <Content Include="images\ext.jpg" />
+    <Content Include="images\hourglass.gif" />
+    <Content Include="images\human-resources_2.jpg" />
+    <Content Include="images\img_6 - Copy %282%29.jpg" />
+    <Content Include="images\img_6 _large.jpg" />
+    <Content Include="images\jeans_1.png" />
+    <Content Include="images\jeans_2.png" />
+    <Content Include="images\jeans_3.png" />
+    <Content Include="images\jeans_4.png" />
+    <Content Include="images\pjl_HRIS.png" />
+    <Content Include="images\users\blank-profile-picture.png" />
+    <Content Include="images\img_5.jpg" />
+    <Content Include="images\img_6.jpg" />
+    <Content Include="images\pjl_logo.png" />
+    <Content Include="images\pjl_logo_web.png" />
+    <Content Include="images\HR-page.jpg" />
+    <Content Include="images\human-resources_1.jpg" />
+    <Content Include="Models\PJL.Context.tt">
+      <DependentUpon>PJL.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PJL.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\PJL.edmx.diagram">
+      <DependentUpon>PJL.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\PJL.tt">
+      <DependentUpon>PJL.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PJL.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bs-modal-fullscreen.js" />
+    <Content Include="Scripts\bs-modal-fullscreen.min.js" />
+    <Content Include="Scripts\Controllers\AlbumAdminController.js" />
+    <Content Include="Scripts\Controllers\AlbumPermissionController.js" />
+    <Content Include="Scripts\Controllers\AlbumPublishController.js" />
+    <Content Include="Scripts\Controllers\BusScheduleController.js" />
+    <Content Include="Scripts\Controllers\AttenApproveController.js" />
+    <Content Include="Scripts\Controllers\FabricController.js" />
+    <Content Include="Scripts\Controllers\FabricInfoController.js" />
+    <Content Include="Scripts\Controllers\LeaveApproveController.js" />
+    <Content Include="Scripts\Controllers\EmpOTRequApproveController.js" />
+    <Content Include="Scripts\Controllers\EmpOTRequisitionController.js" />
+    <Content Include="Scripts\Controllers\EmpBirthdayController.js" />
+    <Content Include="Scripts\Controllers\HelpLineController.js" />
+    <Content Include="Scripts\Controllers\EmpInfoController.js" />
+    <Content Include="Scripts\Controllers\LeaveCardDetailController.js" />
+    <Content Include="Scripts\Controllers\NoticeController.js" />
+    <Content Include="Scripts\Controllers\UserProfileController.js" />
+    <Content Include="Scripts\Controllers\RecoveryPasswordController.js" />
+    <Content Include="Scripts\Controllers\LeaveController.js" />
+    <Content Include="Scripts\Controllers\DeshboardController.js" />
+    <Content Include="Scripts\Controllers\JobCardDetailController.js" />
+    <Content Include="Scripts\Controllers\LogoutController.js" />
+    <Content Include="Scripts\Controllers\JobCardController.js" />
+    <Content Include="Scripts\Controllers\LoginController.js" />
+    <Content Include="Scripts\Controllers\RegistrationController.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="CrystalReport\PIB_DailyWithSummary_desWise_WithEff.rpt" />
+    <Content Include="PDF\Festival_2018.pdf" />
+    <Content Include="PDF\Final Bulletin 2018.pdf" />
+    <Content Include="PDF\IP PHONE INDEX.pdf" />
+    <None Include="Properties\PublishProfiles\PJL_portal.pubxml" />
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Controllers\WeeklyOTDetailController.js" />
+    <Content Include="Scripts\Controllers\WeeklyOTReportController.js" />
+    <Content Include="Scripts\Copy of customSelect.js" />
+    <Content Include="Scripts\customSelect.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.1.0.debug.js" />
+    <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\MyApp.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Registration.cshtml" />
+    <Content Include="Views\Home\Deshboard.cshtml" />
+    <Content Include="Views\Home\Logout.cshtml" />
+    <Content Include="Views\Home\JobCard.cshtml" />
+    <Content Include="Views\Home\JobCardDetail.cshtml" />
+    <Content Include="Views\Home\Leave.cshtml" />
+    <Content Include="Views\Home\RecoveryPassword.cshtml" />
+    <Content Include="Views\Home\UserProfile.cshtml" />
+    <Content Include="Views\Home\LeaveCardDetail.cshtml" />
+    <Content Include="Views\Shared\Copy of _Layout.cshtml" />
+    <Content Include="Views\Home\HelpLine.cshtml" />
+    <Content Include="Views\Home\EmpInfo.cshtml" />
+    <Content Include="Views\Home\EmpBirthday.cshtml" />
+    <Content Include="Views\Home\ShowAlbum.cshtml" />
+    <Content Include="Views\Home\BusSchedule.cshtml" />
+    <Content Include="Views\Home\BusScheduleAdmin.cshtml" />
+    <Content Include="Views\Home\Notice.cshtml" />
+    <Content Include="Views\Home\AlbumAdmin.cshtml" />
+    <Content Include="Views\Home\AlbumPermission.cshtml" />
+    <Content Include="Views\Home\AlbumPublish.cshtml" />
+    <Content Include="Views\Home\EmpOTRequisition.cshtml" />
+    <Content Include="Views\Home\EmpOTRequApprove.cshtml" />
+    <Content Include="Views\Home\LeaveApprove.cshtml" />
+    <Content Include="Views\Home\EmpOTRequReport.cshtml" />
+    <Content Include="Views\Home\AttenApprove.cshtml" />
+    <Content Include="Views\Home\EmpOTDetailsReport.cshtml" />
+    <Content Include="Views\Home\EmpOTDetailsSummary.cshtml" />
+    <Content Include="Views\Home\FabricDetailsEntry.cshtml" />
+    <Content Include="Views\Home\FabricInfo.cshtml" />
+    <Content Include="Views\Home\WeeklyOTDetail.cshtml" />
+    <Content Include="Views\Home\WeeklyOTreport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="UploadedFiles\" />
+    <Folder Include="UploadedFiles_Bak\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\PJL.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PJL.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>36226</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52735/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

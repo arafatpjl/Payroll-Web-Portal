@@ -1,0 +1,458 @@
+﻿@{
+    ViewBag.Title = "Bus Schedule Admin";
+}
+<style>
+    body{
+        margin-top:80px;   
+    }
+
+
+    input {
+        /*max-width:400px;*/
+    }
+    .error {
+        color: red;
+    }
+
+#rowSearchType div div{
+        background-color:#4ec9d5;  
+        color:#69a31e;     
+        border: 1px solid #aef5e6;
+        border-radius: 10px;
+        margin-top: 1px;
+        min-width: 250px;
+        font-size: 14px;   
+}
+
+
+#rowSearchData{
+        
+        background:url( ../images/BusSchedule/bus2.png) no-repeat ;
+        background-size: 30% 30%;
+        background-position: right 30px bottom 20px;
+        /* 
+
+            background-position: top left;
+background-position: 50px 30%;
+background-position: top 25%;
+background-position: right 10px bottom 20px;
+background-position: center center
+background-position: 10px 20px;
+background-position: 5em 2em;
+
+background-position: 75% 50%;
+             -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;   
+            width: 30%;
+        height: 30%;
+             padding:80px;
+             ../images/BusSchedule/bus2.png
+      ../images/BusSchedule/minibus.png
+      ../images/BusSchedule/car_compact2.png
+
+         opacity: 0.3;
+        filter: alpha(opacity=30);*/ 
+          
+}
+
+ 
+
+</style>
+
+
+
+<div ng-controller="BusScheduleController"  class="container">
+
+   <div class="panel panel-info" >
+
+            <div class="panel-heading" style="min-height:80px">
+
+
+                                    <div class="col-md-4 col-sm-6" >
+             
+          
+                                            <div class="input-daterange input-group">
+
+                                                    <span class="input-group-addon"></span>
+
+                                                    <div class="input-group date"  id="ScheduleDate" ng-model="ScheduleDate"  ng-blur="search_by()" ng-model-options='{ debounce: 1000 }' date-picker>
+                                                    <input type="text" class="form-control" name="ScheduleDate"  ng-model="ScheduleDate"   ng-blur="search_by()" ng-model-options='{ debounce: 1000 }' date-picker-input>
+
+                                                    <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>                             
+                                                    </span>
+                                                    </div>
+                                                     <span class="input-group-addon"></span>
+                                                <select  ng-model="StartTimeFilter"  ng-init=":" class="form-control"  ng-model-options='{ debounce: 500 }'  ng-options="e for e in StartTimeList" >
+           
+                                            </select>  
+                                                
+
+                                            </div>
+
+
+                                    </div>
+
+
+
+                 
+
+
+                                <div class="col-md-3 col-sm-6" >
+               
+
+                                        <div class="input-daterange input-group">
+
+                                                                          
+                                            <span class="input-group-addon">  Road </span>   
+
+                                            <select  ng-model="RoadFilter" class="form-control"  ng-model-options='{ debounce: 500 }' 
+                                                 ng-options="e for e in RoadNameList" >
+            
+                                            </select>     
+                                   
+                     
+                                        </div>          
+
+                                </div>
+
+               
+                @*<input type="text" class="search-query form-control"  ng-model="search[Road]"/>*@
+
+
+                        <div class="col-md-4 col-sm-6" >
+               
+
+                                    <div class="input-daterange input-group">                            
+
+                                                                                          
+                                    <span class="input-group-addon">  Type </span>   
+
+                                    <select  ng-model="EmpTypeFilter" class="form-control"   ng-model-options='{ debounce: 500 }'  ng-options="e for e in EmpTypeList" >
+            
+                                    </select>     
+                     
+                                        <span class="input-group-addon">  
+                                                         Publish :
+                                                         </span>
+                                        <span class="input-group-addon">  
+                                                          <span class="glyphicon glyphicon-check" ng-click="PublishBusSchedule(true)"></span>     
+                                                         </span>
+
+                                                <span class="input-group-addon">  
+                                                          <span class="glyphicon glyphicon-remove" ng-click="PublishBusSchedule(false)"></span>     
+                                                         </span>
+
+                                                <span class="input-group-addon">  
+                                                          <span class="glyphicon glyphicon-list-alt" ng-click="ReportBusSchedule()"></span>     
+                                                         </span>
+
+                                    </div>
+
+
+
+
+                        </div>
+
+               <div class="col-md-1 col-sm-6" >
+               
+
+                                 <input type="submit" ng-click="Reset()" class="form-control btn btn-primary"  value="Reset" />
+                               
+                        </div>
+
+          
+               
+                 
+            </div>
+ 
+         
+               @*<button class="btn btn-success btn-xs" ng-show="loading"><i class="fa fa-spinner fa-spin"></i> Loading</button>*@
+
+       <!-- progress bar info -->
+
+
+
+
+      
+
+
+
+   <div class="panel-body">
+
+
+
+
+        <div class="row">
+
+                                <div class="col-md-4 col-sm-6" >
+               
+
+                                      <div class="input-daterange input-group">
+
+                                                    <span class="input-group-addon">  Copy To Date </span>
+
+                                                    <div class="input-group date"  id="BusSchedule.ToDate" ng-model="BusSchedule.ToDate"  ng-model-options='{ debounce: 1000 }' date-picker>
+                                                    <input type="text" class="form-control netto-input" name="BusSchedule.ToDate"  ng-model="BusSchedule.ToDate"    ng-model-options='{ debounce: 1000 }' date-picker-input>
+
+                                                    <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>                             
+                                                    </span>
+                                                        <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-copy"  ng-click="CopyBusSchedule(BusSchedule)"></span>                             
+                                                    </span>
+                                                    </div>
+                 
+
+                                            </div>        
+
+                                </div>
+
+           </div>     
+
+                <div class="row">
+                   <div style="overflow-y: scroll;  max-height:500px; ">         
+
+         <div class="col-md-12 col-sm-6" style="min-height:20px" >
+           Total : {{ results.length}} 
+
+        <table  id="Report_table"  class="table">
+    <thead>
+        <tr>
+            <th>Time</th>
+            <th>Wstatus</th>
+            <th>Vehicle No</th>
+            <th>Road Name</th>
+            <th>Starting Point</th>
+            <th>Destination</th>           
+            <th>Road Description</th>           
+            <th>Type</th>
+            <th>Driver</th>
+            <th>Capacity</th>
+            <th>Publish</th>
+            <th>Edit</th>
+             <th>Add</th>
+             <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+      @*<tr ng-repeat="r in BusScheduleList | orderBy : ['StartTime.Hours','StartTime.Minutes', 'Wstatus', 'RoadName', 'VehicleNo', 'Driver'] | filter: RoadFilter | filter: EmpTypeFilter|filter: {StartTime: {Hours: 18}}:true|filter: {StartTime: {Minutes: StartTimeFilter.split(':')[1]}}:exact as results"> 
+      
+
+      *@
+        <tr ng-repeat="r in BusScheduleList | orderBy : ['StartTime.Hours','StartTime.Minutes', 'Wstatus', 'RoadName', 'VehicleNo', 'Driver'] | filter: RoadFilter | filter: EmpTypeFilter| filter: time_Match(StartTimeFilter) as results"> 
+           
+            <td>{{timeFunction(r.StartTime)}}</td>
+            <td>{{r.Wstatus}}</td>
+            <td>{{r.VehicleNo}}</td>
+            <td>{{r.RoadName}}</td>
+            <td>{{r.StartingPoint}}</td>
+            <td>{{r.Destination}}</td>        
+            <td>{{r.RoadDescription}}</td>         
+            <td>{{r.VehicleType}}</td>
+            <td>{{r.Driver}}</td>
+            <td>{{r.PassengerCapacity}}</td>
+           <td>{{r.Publish}}</td>
+          
+          <td>
+           <i style="font-size:14px;color:#1683a1"  ng-click="edit_data(r)" class="glyphicon glyphicon-list-alt"></i>
+          </td>
+     <td>
+           <i style="font-size:10px;color:#69a31e"  ng-click="add_data(r)" class="glyphicon glyphicon-plus"></i>
+          </td>
+        <td>
+           <i style="font-size:10px;color:#d92424"  ng-click="delete_data(r)" class="glyphicon glyphicon-remove"></i>
+          </td>  
+          
+           </tr>
+    </tbody>
+</table>
+
+ 
+   <!-- Modal --> <!-- --------------------------Update--------------------------------- -->
+        <div class="modal fade" id="ModalUpdateStatus" role="dialog"  >
+            <div class="modal-dialog  modal-lg">
+                 <div class="col-sm-8 col-sm-offset-3">
+               <div class="panel panel-info"  >
+                    <div class="panel-heading" style="text-align:center">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        Update
+                    </div>
+                    <div class="modal-body"  >
+
+        <form novalidate name="f1" ng-submit="Update(RowData)" style="padding:10px 10px 10px 30px;">          
+           
+
+            <table class="table">
+    <tbody>
+
+        <tr> 
+
+            <tr>           
+          <td>Date :</td>
+            <td>{{RowData.Date.slice(6,-2)|date:'dd-MM-yyyy'}} </td>
+           </tr>
+
+         <tr> 
+           <td>Vehicle No :</td>
+            <td>
+                <input type="text" ng-model="RowData.VehicleNo" class=" form-control" name="VehicleNo" placeholder = "Vehicle No" ng-class="submitted?'ng-dirty':''" required autofocus />
+                <span class="error col-md-offset-2" ng-show="(f1.VehicleNo.$dirty || submitted) && f1.VehicleNo.$error.required">Vehicle No required!</span>
+ 
+            </td>
+                         </tr>
+
+
+        <tr> 
+           <td>Vehicle Type:</td>
+            <td>
+
+                <div custom-select="g for g in VehicleTypeList | filter: $searchTerm" ng-model="RowData.VehicleType" custom-select-options="growableOptions_VehicleTypeList"  ng-class="submitted?'ng-dirty':''" required ></div>
+        <span class="error col-md-offset-2" ng-show="(f1.VehicleType.$dirty || submitted) && f1.VehicleType.$error.required">Vehicle Type required!</span>
+ 
+            </td>
+                         </tr>
+
+        
+        
+        <tr> 
+           <td>Passenger Capacity:</td>
+            <td>
+                <input type="text" ng-model="RowData.PassengerCapacity" class=" form-control" name="PassengerCapacity" placeholder = "Passenger Capacity" ng-class="submitted?'ng-dirty':''" required autofocus />
+                <span class="error col-md-offset-2" ng-show="(f1.PassengerCapacity.$dirty || submitted) && f1.PassengerCapacity.$error.required">Passenger Capacity required!</span>
+ 
+
+            </td>
+                         </tr>
+
+
+         
+
+
+          <tr>           
+          <td>Start Time :</td>
+            <td>
+                @*{{RowData.StartTime.Hours}}:{{RowData.StartTime.Minutes}}*@ 
+                 <input type="text" ng-model="RowData.StartTime" class=" form-control" name="StartTime" placeholder = "Start Time" ng-class="submitted?'ng-dirty':''" required autofocus />
+                <span class="error col-md-offset-2" ng-show="(f1.StartTime.$dirty || submitted) && f1.StartTime.$error.required">Start Time required!</span>
+ 
+
+            </td>
+           </tr>
+
+      
+
+        <tr> 
+           <td>Driver:</td>
+            <td>
+          <div custom-select="g for g in DriverList | filter: $searchTerm" ng-model="RowData.Driver" custom-select-options="growableOptions_DriverList"  ng-class="submitted?'ng-dirty':''" required ></div>
+       
+
+                <span class="error col-md-offset-2" ng-show="(f1.Driver.$dirty || submitted) && f1.Driver.$error.required">Driver required!</span>
+ 
+
+            </td>
+                         </tr>
+
+
+
+           <tr> 
+           <td>Starting Point :</td>
+            <td>
+             <div custom-select="g for g in StartingPointList | filter: $searchTerm" ng-model="RowData.StartingPoint" custom-select-options="growableOptions_StartingPointList"  ng-class="submitted?'ng-dirty':''" required ></div>
+       
+                 <span class="error col-md-offset-2" ng-show="(f1.StartingPoint.$dirty || submitted) && f1.StartingPoint.$error.required">Starting Point required!</span>
+ 
+
+            </td>
+                         </tr>
+
+
+       <tr> 
+           <td>Destination :</td>
+            <td>
+       
+            <div custom-select="g for g in DestinationList | filter: $searchTerm" ng-model="RowData.Destination" custom-select-options="growableOptions_DestinationList"  ng-class="submitted?'ng-dirty':''" required ></div>
+       
+                 <span class="error col-md-offset-2" ng-show="(f1.Destination.$dirty || submitted) && f1.Destination.$error.required">Destination required!</span>
+ 
+
+            </td>
+                         </tr>
+
+
+          <tr> 
+           <td>Road Name :</td>
+            <td>
+               <div custom-select="g for g in RoadNameList | filter: $searchTerm" ng-model="RowData.RoadName" custom-select-options="growableOptions_RoadNameList"  ng-class="submitted?'ng-dirty':''" required"></div>
+       
+                 <span class="error col-md-offset-2" ng-show="(f1.RoadName.$dirty || submitted) && f1.RoadName.$error.required">Road Name required!</span>
+ 
+
+            </td>
+                         </tr>
+
+
+         <tr> 
+           <td>Road Description :</td>
+           <td> <textarea name="textarea"   class="form-control " ng-model="RowData.RoadDescription" name="Description" placeholder = "Description" ng-class="submitted?'ng-dirty':''" required /></textarea>
+               <span class="error col-md-offset-2" ng-show="(f1.RoadDescription.$dirty || submitted) && f1.RoadDescription.$error.required">Road Description required!</span>
+ 
+         </td>
+                         </tr>
+      
+      
+
+       
+
+           </tbody>
+                </table>
+
+                        
+              
+
+             <div class="text-center"> 
+                             <input type="submit" class="btn btn-primary" value="Update" />         
+                        </div>
+
+                
+        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        
+                    </div>
+                </div>
+                   </div>
+
+                    </div> 
+
+               </div> 
+           
+     
+
+ @* row end*@
+  </div>
+
+</div>
+                    </div>
+ @* panel body end*@
+  </div>
+
+
+ 
+  @* panel end*@
+</div>
+    
+    
+    
+    @*controller end *@
+     </div>
+   
+    
+
+@section Scripts{
+<script src="~/Scripts/Controllers/BusScheduleController.js"></script>
+}

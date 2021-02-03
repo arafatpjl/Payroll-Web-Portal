@@ -1,0 +1,42 @@
+//starts the carousel
+    
+
+angular.element(document).ready(function () {
+        angular.element('#myCarousel').carousel();
+    });
+
+
+ng-if="viewLoaded";
+
+$Scope.viewLoaded = false;
+    angular.element(document).ready(function() {
+      console.log('page completed');
+      $timeout(function() {
+        $Scope.viewLoaded = true;
+      }, 2000);
+    });
+
+
+
+In your directive, it should be element.find('img').
+
+angular.module('Joy', [])
+    .directive('hello', [function () {
+    return {
+        restrict: 'A',
+        link: function (scope, ele) {
+            var img = ele.find('img');
+            console.log(img);
+            img.bind('load', function () {
+                console.log('img is loaded');
+            });
+        }
+    };
+}]);
+HTML:
+
+<div ng-app="Joy">
+    <div hello>
+        <img ng-src="https://www.google.com.hk/images/srpr/logo11w.png">
+    </div>
+</div>

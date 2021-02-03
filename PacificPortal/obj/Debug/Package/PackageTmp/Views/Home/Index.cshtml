@@ -1,0 +1,150 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+<style>
+    body{
+        margin-top:50px;       
+    }
+    
+    input {
+        /*max-width:500px;*/
+    }
+    .error {
+        color: red;
+    }
+
+    
+
+.row div {
+    background-color:#bedae5;    
+    white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        max-width: 100%;
+}
+
+.row:nth-of-type(2n) div { 
+        background: #0094ff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        max-width: 100%;
+    }
+
+
+/*.row div {
+     background: #eee;
+   }
+
+  .row div:nth-of-type(2n) {
+     background: #fff;
+   }*/
+
+
+
+
+
+
+</style>
+
+
+
+    <div ng-controller="LoginController" style="padding-top:20px"  class="container" ng-cloak>
+
+                
+@*<div class="panel panel-info col-md-6 col-md-offset-3">*@
+
+
+    <div class="col-sm-10 col-sm-offset-3">
+
+
+
+        <div class="panel panel-info"  style="margin-top:50px;max-width:500px;">
+            <div class="panel-heading">
+               Login
+            </div>
+
+        <form novalidate name="f1" ng-submit="Login_check(User)" style="padding:10px 30px 10px 30px;">          
+
+            
+            
+            <div class="form-group">
+                <label class="text text-info">Unit : </label> 
+             
+                <select ng-model="Company" class="form-control"  name="ComID" ng-options="I.Name for I in CompanyList" ng-change="GetCompID()" ng-class="submitted?'ng-dirty':''" required >
+                <option value="">Select Unit</option>
+                  
+              </select>
+                             
+              
+               @*<div custom-select="ID as s.Name for s in CompanyList| filter: { Name: $searchTerm }"  ng-model="person">
+        
+                  <div class="row">
+                     <div class="col-sm-3">{{s.ID}}</div>
+                     <div class="col-sm-5">{{s.Name}}</div>
+                     <div class="col-sm-4">{{s.DBName}}</div>
+                 </div>
+                                   
+              </div>*@
+             
+                
+                
+                <span class="error" ng-show="(f1.ComID.$dirty || submitted) && f1.ComID.$error.required">Unit required!</span>
+                
+                            </div>
+               
+       
+           
+
+
+               @*  <div class="form-group">   
+       <div class="input-group date" id="birthdate"  ng-model="f1.Birthdate" date-picker>
+         <input type="text" class="form-control netto-input"  ng-model="f1.Birthdate" date-picker-input>
+
+         <span class="input-group-addon">
+           <span class="glyphicon glyphicon-calendar"></span>
+         </span>
+       </div>
+     </div>*@
+ 
+
+
+            <div class="form-group">
+                <label class="text text-info">Login ID : </label>
+                <input type="text" ng-model="User.EmployeeCode" class="form-control" name="EmployeeCode" ng-class="submitted?'ng-dirty':''" required />
+                <span  ng-show="(f1.EmployeeCode.$dirty || submitted) && f1.EmployeeCode.$error.required">Username required!</span>
+            </div>
+
+            <div class="form-group">
+                <label class="text text-info">Password : </label>
+                <input type="password" ng-model="User.Password" class="form-control" name="Password" ng-class="submitted?'ng-dirty':''" required />
+                <span class="error" ng-show="(f1.Password.$dirty || submitted) && f1.Password.$error.required">Password required!</span>
+            </div>
+           
+             <div class="text-center">               
+                <input type="submit" class="btn btn-primary" value="{{submitText}}" />
+            </div>
+
+                 
+        </form>
+
+
+     <div class="panel-footer">
+               
+         <a href="#" style="margin-left:40px;">@Html.ActionLink("Sign Up ", "Registration")</a>
+         <a href="#" style="margin-left:40px;">@Html.ActionLink("Forget Password", "RecoveryPassword")</a>         
+    
+    </div>
+
+    </div>
+
+    
+
+    </div> 
+        </div> 
+
+@section Scripts{
+<script src="~/Scripts/Controllers/LoginController.js"></script>
+}

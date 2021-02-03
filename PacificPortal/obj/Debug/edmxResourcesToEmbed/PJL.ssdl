@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabasefileModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DatabasefileModelStoreContainer">
+    <EntitySet Name="Company_Information" EntityType="DatabasefileModel.Store.Company_Information" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employee_Information" EntityType="DatabasefileModel.Store.Employee_Information" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblUserInfo" EntityType="DatabasefileModel.Store.tblUserInfo" store:Type="Tables" store:Schema="dbo" store:Name="tblUserInfo">
+      <DefiningQuery>SELECT 
+      [tblUserInfo].[ID] AS [ID], 
+      [tblUserInfo].[RegID] AS [RegID], 
+      [tblUserInfo].[EmployeeCode] AS [EmployeeCode], 
+      [tblUserInfo].[ReportSuper] AS [ReportSuper], 
+      [tblUserInfo].[DateofBirth] AS [DateofBirth], 
+      [tblUserInfo].[BloodGroup] AS [BloodGroup], 
+      [tblUserInfo].[EmailID] AS [EmailID], 
+      [tblUserInfo].[MobileNoPerson] AS [MobileNoPerson], 
+      [tblUserInfo].[MobileNoHome] AS [MobileNoHome], 
+      [tblUserInfo].[PhoneExt] AS [PhoneExt], 
+      [tblUserInfo].[Picture] AS [Picture], 
+      [tblUserInfo].[Password] AS [Password], 
+      [tblUserInfo].[YsnActive] AS [YsnActive], 
+      [tblUserInfo].[last_login_date] AS [last_login_date], 
+      [tblUserInfo].[last_login_Mac] AS [last_login_Mac], 
+      [tblUserInfo].[Created_date] AS [Created_date], 
+      [tblUserInfo].[Created_By] AS [Created_By], 
+      [tblUserInfo].[Updated_date] AS [Updated_date], 
+      [tblUserInfo].[Updated_by] AS [Updated_by]
+      FROM [dbo].[tblUserInfo] AS [tblUserInfo]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <EntityType Name="Company_Information">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" MaxLength="15" />
+    <Property Name="Basic" Type="real" />
+    <Property Name="BasicM" Type="bit" Nullable="false" />
+    <Property Name="HRent" Type="real" />
+    <Property Name="WBASIC" Type="real" />
+    <Property Name="WHRent" Type="real" />
+    <Property Name="HRentM" Type="bit" Nullable="false" />
+    <Property Name="FoodPay" Type="real" />
+    <Property Name="FoodPayM" Type="bit" Nullable="false" />
+    <Property Name="Bonus" Type="real" />
+    <Property Name="BonusM" Type="bit" Nullable="false" />
+    <Property Name="PFund" Type="real" />
+    <Property Name="PFundM" Type="bit" Nullable="false" />
+    <Property Name="NZN" Type="bit" Nullable="false" />
+    <Property Name="Medical" Type="real" />
+    <Property Name="WMedical" Type="real" />
+    <Property Name="NameBangla" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddressBangla" Type="varchar" MaxLength="100" />
+    <Property Name="SignedBy" Type="varchar" MaxLength="50" />
+    <Property Name="EmpImageLocation" Type="varchar" MaxLength="100" />
+    <Property Name="ServerName" Type="varchar" MaxLength="20" />
+    <Property Name="DBName" Type="varchar" MaxLength="20" />
+    <Property Name="DBPrefix" Type="varchar" MaxLength="25" />
+    <Property Name="IsClose" Type="tinyint" Nullable="false" />
+    <Property Name="ReportPath" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Employee_Information">
+    <Key>
+      <PropertyRef Name="ComID" />
+      <PropertyRef Name="EmployeeCode" />
+    </Key>
+    <Property Name="RegId" Type="bigint" Nullable="false" />
+    <Property Name="ComID" Type="tinyint" Nullable="false" />
+    <Property Name="EmployeeCode" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="FathersName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Age" Type="tinyint" />
+    <Property Name="BirthDate" Type="smalldatetime" />
+    <Property Name="Religion" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="PreAddress" Type="nvarchar" MaxLength="255" />
+    <Property Name="PerAddress" Type="nvarchar" MaxLength="255" />
+    <Property Name="NID" Type="nvarchar" MaxLength="25" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="District" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="JoiningDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="Department" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Section" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Designation" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="DesigAddi" Type="nvarchar" MaxLength="50" />
+    <Property Name="OpenRate" Type="int" Nullable="false" />
+    <Property Name="CurrRate" Type="int" Nullable="false" />
+    <Property Name="MothersName" Type="nvarchar" MaxLength="50" />
+    <Property Name="HusbandName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="6" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+    <Property Name="MLeave" Type="bit" Nullable="false" />
+    <Property Name="MLeft" Type="bit" Nullable="false" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="100" />
+    <Property Name="BusStop" Type="nvarchar" MaxLength="25" />
+    <Property Name="BusLine" Type="nvarchar" MaxLength="25" />
+    <Property Name="WStatus" Type="nvarchar" MaxLength="1" />
+    <Property Name="BloodGroup" Type="nvarchar" MaxLength="25" />
+    <Property Name="EmpAttID" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="BepzaID" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="BusAvail" Type="nvarchar" MaxLength="1" />
+    <Property Name="AttOff" Type="nvarchar" Nullable="false" MaxLength="1" />
+    <Property Name="ShiftID" Type="tinyint" Nullable="false" />
+    <Property Name="BusAvailDate" Type="smalldatetime" />
+    <Property Name="AppDate" Type="smalldatetime" />
+    <Property Name="EmpLVID" Type="tinyint" />
+    <Property Name="FracPay" Type="smallint" Nullable="false" />
+    <Property Name="FracPayOT" Type="smallint" Nullable="false" />
+    <Property Name="LeftDate" Type="smalldatetime" />
+    <Property Name="ImagePath" Type="nvarchar" Nullable="false" MaxLength="19" StoreGeneratedPattern="Computed" />
+    <Property Name="LocalAddress" Type="varchar" MaxLength="250" />
+    <Property Name="Experience" Type="nvarchar" Nullable="false" MaxLength="53" />
+    <Property Name="CompName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Process" Type="nvarchar" MaxLength="255" />
+    <Property Name="ProcessCat" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeleteRow" Type="smallint" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserPass" Type="nvarchar" MaxLength="100" />
+    <Property Name="ComputerName" Type="nvarchar" MaxLength="100" />
+    <Property Name="EntryDate" Type="smalldatetime" />
+    <Property Name="EntryTime" Type="smalldatetime" />
+    <Property Name="MLDate" Type="smalldatetime" />
+    <Property Name="DiscDate" Type="smalldatetime" />
+    <Property Name="Incr_Month" Type="nvarchar" MaxLength="50" />
+    <Property Name="SP_Actvt" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Databasefile.dbo.tblUserInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="tblUserInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RegID" Type="int" />
+    <Property Name="EmployeeCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReportSuper" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateofBirth" Type="date" />
+    <Property Name="BloodGroup" Type="nchar" MaxLength="10" />
+    <Property Name="EmailID" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobileNoPerson" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobileNoHome" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneExt" Type="nvarchar" MaxLength="50" />
+    <Property Name="Picture" Type="image" />
+    <Property Name="Password" Type="nchar" MaxLength="10" />
+    <Property Name="YsnActive" Type="bit" />
+    <Property Name="last_login_date" Type="datetime" />
+    <Property Name="last_login_Mac" Type="varchar" MaxLength="200" />
+    <Property Name="Created_date" Type="datetime" />
+    <Property Name="Created_By" Type="varchar" MaxLength="50" />
+    <Property Name="Updated_date" Type="datetime" />
+    <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+</Schema>

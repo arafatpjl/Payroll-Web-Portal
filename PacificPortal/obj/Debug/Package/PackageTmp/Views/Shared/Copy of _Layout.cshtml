@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+       
+    @*@Styles.Render("~/Content/css")*@
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/custom-select-style.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" />
+
+    <style>
+
+        
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 5px;
+  width: auto;
+}
+
+
+
+
+/* div_header
+
+line height is 20px by default so add 30px top and bottom to equal the new .navbar-brand 80px height  */
+
+.div_header .navbar-brand {
+  height: 60px;
+}
+
+.div_header .nav >li >a {
+
+}
+.div_header .navbar-toggle {
+  padding: 10px;
+  margin: 25px 15px 25px 0;
+}
+
+
+
+
+
+/* CSS Transform Align Navbar Brand Text ... This could also be achieved with table / table-cells */
+.navbar-alignit .navbar-header {
+	  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  height: 50px;
+}
+.navbar-alignit .navbar-brand {
+	top: 50%;
+	display: block;
+	position: relative;
+	height: auto;
+	transform: translate(0,-50%);
+	margin-right: 15px;
+  margin-left: 15px;
+}
+
+
+
+
+
+.navbar-nav>li>.dropdown-menu {
+	z-index: 9999;
+}
+
+
+html { 
+        /*background: url('../images/img_6.jpg') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;*/
+}
+
+
+
+body {
+        font-family: "Lato";     
+
+        background: url('../images/img_6.jpg') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+}
+
+.main_container {
+      
+        background: url('../images/img_6.jpg');
+        width:100%;
+        height:100%;
+        /* background-size: 100% 100%;
+        background-repeat: no-repeat;*/    
+        background-repeat: no-repeat;
+        background-size:100% auto; 
+        opacity: 1;
+        filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+
+
+
+
+.form-group label{
+    font-size: 0.9em;
+    /*font-family: 'Helvetica Neue', sans-serif;*/
+}
+
+
+    </style>
+
+    
+    
+<style>
+.inputstl { 
+    padding: 9px; 
+    border: solid 1px #4B718B; 
+    outline: 0; 
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #CDDBE4), to(#FFFFFF)); 
+    background: -moz-linear-gradient(top, #FFFFFF, #CDDBE4 1px, #FFFFFF 25px); 
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+
+    } 
+    
+.menucls {
+  background-color: #69899f;
+  border-color: #425766;
+}
+.menucls .navbar-brand {
+  color: #d7e2e9;
+}
+.menucls .navbar-brand:hover, .menucls .navbar-brand:focus {
+  color: #e5dbdb;
+}
+.menucls .navbar-text {
+  color: #d7e2e9;
+}
+.menucls .navbar-nav > li > a {
+  color: #d7e2e9;
+}
+.menucls .navbar-nav > li > a:hover, .menucls .navbar-nav > li > a:focus {
+  color: #e5dbdb;
+}
+.menucls .navbar-nav > li > .dropdown-menu {
+  background-color: #69899f;
+}
+.menucls .navbar-nav > li > .dropdown-menu > li > a {
+  color: #d7e2e9;
+}
+.menucls .navbar-nav > li > .dropdown-menu > li > a:hover,
+.menucls .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #e5dbdb;
+  background-color: #425766;
+}
+.menucls .navbar-nav > li > .dropdown-menu > li > .divider {
+  background-color: #69899f;
+}
+.menucls .navbar-nav > .active > a, .menucls .navbar-nav > .active > a:hover, .menucls .navbar-nav > .active > a:focus {
+  color: #e5dbdb;
+  background-color: #425766;
+}
+.menucls .navbar-nav > .open > a, .menucls .navbar-nav > .open > a:hover, .menucls .navbar-nav > .open > a:focus {
+  color: #e5dbdb;
+  background-color: #425766;
+}
+.menucls .navbar-toggle {
+  border-color: #425766;
+}
+.menucls .navbar-toggle:hover, .menucls .navbar-toggle:focus {
+  background-color: #425766;
+}
+.menucls .navbar-toggle .icon-bar {
+  background-color: #d7e2e9;
+}
+.menucls .navbar-collapse,
+.menucls .navbar-form {
+  border-color: #d7e2e9;
+}
+.menucls .navbar-link {
+  color: #d7e2e9;
+}
+.menucls .navbar-link:hover {
+  color: #e5dbdb;
+}
+
+@@media (max-width: 767px) {
+  .menucls .navbar-nav .open .dropdown-menu > li > a {
+    color: #d7e2e9;
+  }
+  .menucls .navbar-nav .open .dropdown-menu > li > a:hover, .menucls .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #e5dbdb;
+  }
+  .menucls .navbar-nav .open .dropdown-menu > .active > a, .menucls .navbar-nav .open .dropdown-menu > .active > a:hover, .menucls .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #e5dbdb;
+    background-color: #425766;
+  }
+}
+</style>
+
+
+    </head>
+
+<body ng-app="MyApp">
+
+
+
+<div class="container">
+<nav class="navbar menucls navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+	<span class="icon-envelope"></span>	
+      </button>
+   
+        <a class="navbar-brand" href="#"><img src="../images/pjl_logo_web.png" alt="PJL">
+        </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="http://www.jquery-az.com/php-tutorials/">PHP</a></li>
+        <li><a href="http://www.jquery-az.com/jquery-tips/">jQuery</a></li>
+        <li class="dropdown">
+          <a href="http://www.jquery-az.com/bootstrap-tips-tutorials/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bootstrap <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://www.jquery-az.com/bootstrap-carousel-5-single-multiple-horizontal-and-vertical-sliding-demos/">Carousel</a></li>
+            <li><a href="http://www.jquery-az.com/bootstrap-form-customized-styles-6-online-examples/">Forms</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="http://www.jquery-az.com/bootstrap-select-5-beautiful-styles/">Select</a></li>
+          </ul>
+        </li>
+      </ul>
+
+
+
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control inputstl" id="Name2" placeholder="Enter Name here">
+          <input type="email" class="form-control inputstl" id="Email2" placeholder="Email here">
+            @ViewBag.UserInfo 
+        </div>
+        <button type="submit" class="btn btn-info">Subscribe</button>
+      </form>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</div>
+
+      @RenderBody()
+
+    
+<nav class="navbar navbar-default navbar-fixed-bottom" ng-if="@Session["HeaderFooter"] == null">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <!-- simple code -->
+             <h5> Developed By : Software(ICT)</h5>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!-- simple code -->
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/bootstrap")
+   
+
+        <script src="~/Scripts/MyApp.js"></script> 
+    
+
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

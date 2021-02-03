@@ -1,0 +1,109 @@
+$('body').addClass('wait');
+$(a).removeClass(c);
+
+<div class="modal fade modal-fullscreen" 
+
+$("[data-toggle='modal']").click(function (e) {
+  e.preventDefault();
+  e.stopPropagation();
+});
+
+$("[data-toggle='modal']").on("contextmenu", function(e) {
+  e.preventDefault();
+ 
+$("#homeAlert").removeClass("in").show();
+	$("#homeAlert").delay(1500).addClass("in").fadeOut(1000);
+})
+
+
+
+
+$scope.uploadImage = function (files) {           
+       var ext = files[0].name.match(/\.(.+)$/)[1];
+       if(angular.lowercase(ext) ==='jpg' || angular.lowercase(ext) ==='jpeg' || angular.lowercase(ext) ==='png'){
+        alert("Valid File Format");
+       }  
+       else{
+        alert("Invalid File Format");
+       }       
+    }
+
+################################3
+
+How to use your directive
+
+<div prevent-right-click="YSN_preventRightClick"></div>
+
+$scope.YSN_preventRightClick = false;
+
+app.directive('preventRightClick', [
+
+            function() {
+                return {
+                    restrict: 'A',
+                    link: function($scope, $ele) {
+                        $ele.bind("contextmenu", function(e) {
+                            e.preventDefault();
+                        });
+                    }
+                };
+            }
+        ])
+
+
+
+################################
+<a href="#"  
+                    prevent-right-click>Click Me
+            </a>
+
+
+
+app.directive('preventRightClick', [
+
+            function() {
+                return {
+                    restrict: 'A',
+                    link: function($scope, $ele) {
+                        $ele.bind("contextmenu", function(e) {
+                            e.preventDefault();
+                        });
+                    }
+                };
+            }
+        ])
+
+
+
+
+
+################################
+
+How to use your directive
+
+<div single-view-card read-only="ctrlReadOnly"></div>
+
+
+
+The directive looks like this
+angular.module('CrossReference', [])
+    .directive('singleViewCard', [function () {
+    return {
+        restrict: 'A',
+        template: '<div ng-hide="readOnly">Hidden when readOnly is true</div>',
+        replace: true,
+        scope: {
+            readOnly: '='
+        }
+    };
+}])
+Here is a fake controller to prepare the data for the view
+.controller('myCtrl', function ($scope) {
+    $scope.ctrlReadOnly = false;
+});
+################################
+
+<form action="/action_page.php">
+  <input type="file" name="pic" accept="image/*">
+  <input type="submit">
+</form>

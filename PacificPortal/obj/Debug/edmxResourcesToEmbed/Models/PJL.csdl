@@ -1,0 +1,838 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabasefileModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="prc_EmployeeJobCard">
+      <Parameter Name="RegId" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="Int32" />
+      <Parameter Name="Year" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="prc_EmployeeInfoByEmpCode" ReturnType="Collection(DatabasefileModel.prc_EmployeeInfoByEmpCode_Result)">
+      <Parameter Name="CompID" Mode="In" Type="String" />
+      <Parameter Name="EmpCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="prc_EmployeeInfoByRegId" ReturnType="Collection(DatabasefileModel.prc_EmployeeInfoByRegId_Result)">
+      <Parameter Name="RegId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="prc_GetTeamMember" ReturnType="Collection(DatabasefileModel.prc_GetTeamMember_Result)">
+      <Parameter Name="RegID" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Company_Information" EntityType="DatabasefileModel.Company_Information" />
+    <FunctionImport Name="prc_EmployeeLeaveEnjoyDetail">
+      <Parameter Name="RegId" Mode="In" Type="String" />
+      <Parameter Name="Year" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="prc_EmployeeLeaveEnjoySummary">
+      <Parameter Name="RegId" Mode="In" Type="String" />
+      <Parameter Name="Year" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="tblUser_Registration" EntityType="DatabasefileModel.tblUser_Registration" />
+    <FunctionImport Name="prc_EmployeeLeaveApplication">
+      <Parameter Name="RegId" Mode="In" Type="Int32" />
+      <Parameter Name="AppliedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="RequestTo" Mode="In" Type="Int32" />
+      <Parameter Name="ActingPerson" Mode="In" Type="Int32" />
+      <Parameter Name="LType" Mode="In" Type="String" />
+      <Parameter Name="LDays" Mode="In" Type="Decimal" />
+      <Parameter Name="FrDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Reasons" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+      <Parameter Name="Created_date" Mode="In" Type="DateTime" />
+      <Parameter Name="Created_By" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tblUser_LogInfo" EntityType="DatabasefileModel.tblUser_LogInfo" />
+    <FunctionImport Name="prc_EmployeeLeaveInsertMainDatabase">
+      <Parameter Name="RegId" Mode="In" Type="Int64" />
+      <Parameter Name="AppliedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="RequestTo" Mode="In" Type="Int32" />
+      <Parameter Name="ActingPerson" Mode="In" Type="Int32" />
+      <Parameter Name="LType" Mode="In" Type="String" />
+      <Parameter Name="LDays" Mode="In" Type="Decimal" />
+      <Parameter Name="FrDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Reasons" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+      <Parameter Name="Created_date" Mode="In" Type="DateTime" />
+      <Parameter Name="Created_By" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="prc_EmployeeAttenApp" ReturnType="Collection(DatabasefileModel.prc_EmployeeAttenApp_Result)">
+      <Parameter Name="RegId" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="Int32" />
+      <Parameter Name="Year" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="tblEmpAttenApps" EntityType="DatabasefileModel.tblEmpAttenApp" />
+    <FunctionImport Name="prc_EmployeeBirthDay" ReturnType="Collection(DatabasefileModel.prc_EmployeeBirthDay_Result)" />
+    <FunctionImport Name="prc_UserMenu" ReturnType="Collection(DatabasefileModel.prc_UserMenu_Result)">
+      <Parameter Name="RegId" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tblMenus" EntityType="DatabasefileModel.tblMenu" />
+    <EntitySet Name="tblBusSchedules" EntityType="DatabasefileModel.tblBusSchedule" />
+    <FunctionImport Name="prc_CopyBusSchedule" ReturnType="Collection(DatabasefileModel.prc_CopyBusSchedule_Result)">
+      <Parameter Name="IDs" Mode="In" Type="String" />
+      <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Created_By" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tblNotices" EntityType="DatabasefileModel.tblNotice" />
+    <EntitySet Name="tblAlbums" EntityType="DatabasefileModel.tblAlbum" />
+    <EntitySet Name="tblAlbumGroups" EntityType="DatabasefileModel.tblAlbumGroup" />
+    <FunctionImport Name="prc_GetAlbum" ReturnType="Collection(DatabasefileModel.prc_GetAlbum_Result)">
+      <Parameter Name="Group" Mode="In" Type="Int32" />
+      <Parameter Name="AfterDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="prc_GetAlbumByGroupID" ReturnType="Collection(DatabasefileModel.prc_GetAlbumByGroupID_Result)">
+      <Parameter Name="Group" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Prc_OTRequ_Reset" ReturnType="Collection(DatabasefileModel.Prc_OTRequ_Reset_Result)">
+      <Parameter Name="CompID" Mode="In" Type="Int32" />
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Department" Mode="In" Type="String" />
+      <Parameter Name="Section" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tblDeptSecs" EntityType="DatabasefileModel.tblDeptSec" />
+    <FunctionImport Name="Prc_OTRequ_Approve" ReturnType="Collection(DatabasefileModel.Prc_OTRequ_Approve_Result)">
+      <Parameter Name="CompID" Mode="In" Type="Int32" />
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Department" Mode="In" Type="String" />
+      <Parameter Name="Section" Mode="In" Type="String" />
+      <Parameter Name="OTRequ" Mode="In" Type="String" />
+      <Parameter Name="Wstatus" Mode="In" Type="String" />
+      <Parameter Name="Approved" Mode="In" Type="Boolean" />
+      <Parameter Name="IsLock" Mode="In" Type="Boolean" />
+      <Parameter Name="Updated_by" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tblUserDeptSecPermissions" EntityType="DatabasefileModel.tblUserDeptSecPermission" />
+    <FunctionImport Name="prc_GetEmpDeptSec" ReturnType="Collection(DatabasefileModel.prc_GetEmpDeptSec_Result)">
+      <Parameter Name="RegID" Mode="In" Type="Int32" />
+      <Parameter Name="Type" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="prc_EmployeeInfoDetail" ReturnType="Collection(DatabasefileModel.prc_EmployeeInfoDetail_Result)" />
+    <FunctionImport Name="prc_EmployeeInfo" ReturnType="Collection(DatabasefileModel.prc_EmployeeInfo_Result)" />
+    <FunctionImport Name="Prc_Get_OTRequ_Summary" ReturnType="Collection(DatabasefileModel.Prc_Get_OTRequ_Summary_Result)">
+      <Parameter Name="CompID" Mode="In" Type="Int32" />
+      <Parameter Name="DateFrom" Mode="In" Type="DateTime" />
+      <Parameter Name="DateTo" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="tblEmpLeaveApps" EntityType="DatabasefileModel.tblEmpLeaveApp" />
+    <FunctionImport Name="prc_EmployeeLeaveStatus" ReturnType="Collection(DatabasefileModel.prc_EmployeeLeaveStatus_Result)">
+      <Parameter Name="RegId" Mode="In" Type="String" />
+      <Parameter Name="Year" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="prc_Get_OTRequEmail" ReturnType="Collection(DatabasefileModel.prc_Get_OTRequEmail_Result)">
+      <Parameter Name="CompID" Mode="In" Type="Int32" />
+      <Parameter Name="DateFrom" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="Prc_Get_OTApprove_Summary_Info">
+      <Parameter Name="ComPID" Mode="In" Type="Int32" />
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Department" Mode="In" Type="String" />
+      <Parameter Name="Section" Mode="In" Type="String" />
+      <Parameter Name="SIGN" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Prc_Get_OTApprove_Summary">
+      <Parameter Name="ComPID" Mode="In" Type="Int32" />
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Department" Mode="In" Type="String" />
+      <Parameter Name="Section" Mode="In" Type="String" />
+      <Parameter Name="SIGN" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="tblOTStatus" EntityType="DatabasefileModel.tblOTStatus" />
+    <FunctionImport Name="Prc_Get_OTRequ_Info" ReturnType="Collection(DatabasefileModel.Prc_Get_OTRequ_Info_Result)">
+      <Parameter Name="CompID" Mode="In" Type="Int32" />
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Department" Mode="In" Type="String" />
+      <Parameter Name="Section" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tblEmpOTApprovePermission" EntityType="DatabasefileModel.tblEmpOTApprovePermission" />
+    <FunctionImport Name="prc_EmployeeAttenInfo" ReturnType="Collection(DatabasefileModel.prc_EmployeeAttenInfo_Result)">
+      <Parameter Name="Month" Mode="In" Type="Int32" />
+      <Parameter Name="Year" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="prc_EmployeeLeaveInfo" ReturnType="Collection(DatabasefileModel.prc_EmployeeLeaveInfo_Result)">
+      <Parameter Name="Month" Mode="In" Type="Int32" />
+      <Parameter Name="Year" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="TblFabricColour" EntityType="DatabasefileModel.TblFabricColour" />
+    <EntitySet Name="TblFabricContent" EntityType="DatabasefileModel.TblFabricContent" />
+    <EntitySet Name="TblFabricMill" EntityType="DatabasefileModel.TblFabricMill" />
+    <EntitySet Name="TblFabricType" EntityType="DatabasefileModel.TblFabricType" />
+    <EntitySet Name="TblFabricWave" EntityType="DatabasefileModel.TblFabricWave" />
+    <FunctionImport Name="prc_FabricInfoDetail" ReturnType="Collection(DatabasefileModel.prc_FabricInfoDetail_Result)" />
+    <EntitySet Name="tblFabricInfo" EntityType="DatabasefileModel.tblFabricInfo" />
+    <EntitySet Name="tblEmpOTRequ" EntityType="DatabasefileModel.tblEmpOTRequ" />
+  </EntityContainer>
+  <ComplexType Name="prc_EmployeeInfoByEmpCode_Result">
+    <Property Type="Int64" Name="RegId" Nullable="false" />
+    <Property Type="Byte" Name="ComID" Nullable="false" />
+    <Property Type="String" Name="EmployeeCode" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="FathersName" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="BirthDate" Nullable="true" Precision="16" />
+    <Property Type="String" Name="Religion" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="PreAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="PerAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="NID" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="District" Nullable="false" MaxLength="25" />
+    <Property Type="DateTime" Name="JoiningDate" Nullable="false" Precision="16" />
+    <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Section" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Designation" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="prc_EmployeeInfoByRegId_Result">
+    <Property Type="Int64" Name="RegId" Nullable="false" />
+    <Property Type="Byte" Name="ComID" Nullable="false" />
+    <Property Type="String" Name="EmployeeCode" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="FathersName" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="BirthDate" Nullable="true" Precision="16" />
+    <Property Type="String" Name="Religion" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="PreAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="PerAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="NID" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="District" Nullable="false" MaxLength="25" />
+    <Property Type="DateTime" Name="JoiningDate" Nullable="false" Precision="16" />
+    <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Section" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Designation" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="prc_GetTeamMember_Result">
+    <Property Type="Int64" Name="RegId" Nullable="false" />
+    <Property Type="Byte" Name="ComID" Nullable="false" />
+    <Property Type="String" Name="EmployeeCode" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="FathersName" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="BirthDate" Nullable="true" Precision="16" />
+    <Property Type="String" Name="Religion" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="PreAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="PerAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="NID" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="District" Nullable="false" MaxLength="25" />
+    <Property Type="DateTime" Name="JoiningDate" Nullable="false" Precision="16" />
+    <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Section" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Designation" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <EntityType Name="Company_Information">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Byte" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Password" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="Single" Name="Basic" />
+    <Property Type="Boolean" Name="BasicM" Nullable="false" />
+    <Property Type="Single" Name="HRent" />
+    <Property Type="Single" Name="WBASIC" />
+    <Property Type="Single" Name="WHRent" />
+    <Property Type="Boolean" Name="HRentM" Nullable="false" />
+    <Property Type="Single" Name="FoodPay" />
+    <Property Type="Boolean" Name="FoodPayM" Nullable="false" />
+    <Property Type="Single" Name="Bonus" />
+    <Property Type="Boolean" Name="BonusM" Nullable="false" />
+    <Property Type="Single" Name="PFund" />
+    <Property Type="Boolean" Name="PFundM" Nullable="false" />
+    <Property Type="Boolean" Name="NZN" Nullable="false" />
+    <Property Type="Single" Name="Medical" />
+    <Property Type="Single" Name="WMedical" />
+    <Property Type="String" Name="NameBangla" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AddressBangla" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SignedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EmpImageLocation" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ServerName" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DBName" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DBPrefix" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="IsClose" Nullable="false" />
+    <Property Type="String" Name="ReportPath" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblUser_Registration">
+    <Key>
+      <PropertyRef Name="RegId" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="RegId" Nullable="false" />
+    <Property Type="String" Name="Password" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="DeptHead" />
+    <Property Type="Int32" Name="ReportSuper" />
+    <Property Type="DateTime" Name="DateofBirth" Precision="0" />
+    <Property Type="String" Name="BloodGroup" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EmailID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MobileNoPerson" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MobileNoHome" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PhoneExt" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Picture" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Registerd" Nullable="false" />
+    <Property Type="Boolean" Name="YsnActive" Nullable="false" />
+    <Property Type="DateTime" Name="last_login_date" Precision="3" />
+    <Property Type="String" Name="last_login_Mac" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_date" Precision="3" />
+    <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Updated_date" Precision="3" />
+    <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Role" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUser_LogInfo">
+    <Key>
+      <PropertyRef Name="RegId" />
+      <PropertyRef Name="login_time" />
+    </Key>
+    <Property Type="Int32" Name="RegId" Nullable="false" />
+    <Property Type="DateTime" Name="login_time" Nullable="false" Precision="3" />
+    <Property Type="String" Name="login_Mac" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="logout__time" Precision="3" />
+  </EntityType>
+  <ComplexType Name="prc_EmployeeAttenApp_Result">
+    <Property Type="Int32" Name="RegId" Nullable="false" />
+    <Property Type="DateTime" Name="AppliedDate" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="prDate" Nullable="false" Precision="16" />
+    <Property Type="String" Name="TimeIn" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="LateHrs" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="TimeOut" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="DailyHrs" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="ValidOT" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="RestOT" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="ExtraOT" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Shift" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="TransAllow" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="String" Name="Reasons" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="Created_date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Created_By" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Updated_date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Updated_by" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="tblEmpAttenApp">
+    <Key>
+      <PropertyRef Name="RegId" />
+      <PropertyRef Name="prDate" />
+    </Key>
+    <Property Type="Int32" Name="RegId" Nullable="false" />
+    <Property Type="DateTime" Name="AppliedDate" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="prDate" Nullable="false" Precision="0" />
+    <Property Type="String" Name="TimeIn" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LateHrs" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TimeOut" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DailyHrs" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ValidOT" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RestOT" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ExtraOT" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Status" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Shift" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="TransAllow" Precision="10" Scale="2" />
+    <Property Type="String" Name="Reasons" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Process" />
+    <Property Type="DateTime" Name="Created_date" Precision="3" />
+    <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Updated_date" Precision="3" />
+    <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="prc_EmployeeBirthDay_Result">
+    <Property Type="Int32" Name="RegId" Nullable="false" />
+    <Property Type="String" Name="ComID" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="EmployeeCode" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="FathersName" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="BirthDate" Nullable="true" />
+    <Property Type="Int32" Name="DeptHead" Nullable="true" />
+    <Property Type="Int32" Name="ReportSuper" Nullable="true" />
+    <Property Type="String" Name="BloodGroup" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EmailID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MobileNoPerson" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MobileNoHome" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PhoneExt" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Religion" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="PreAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="PerAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="NID" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="District" Nullable="false" MaxLength="25" />
+    <Property Type="DateTime" Name="JoiningDate" Nullable="true" />
+    <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Section" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Designation" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="DesigAddi" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Level_No" Nullable="true" />
+    <Property Type="String" Name="Level_Name" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="prc_UserMenu_Result">
+    <Property Type="Int32" Name="ID" Nullable="true" />
+    <Property Type="String" Name="Main_Menu_Id" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Menu_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Menu_URL" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="YsnActive" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="tblMenu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Main_Menu_Id" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Menu_Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Menu_URL" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="YsnActive" />
+    <Property Type="String" Name="Menu_Icon" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblBusSchedule">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="Date" Precision="0" />
+    <Property Type="Time" Name="StartTime" Precision="7" />
+    <Property Type="String" Name="RoadName" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RoadDescription" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StartingPoint" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Destination" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="VehicleNo" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="VehicleType" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Driver" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="PassengerCapacity" />
+    <Property Type="String" Name="Wstatus" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="Boolean" Name="Publish" />
+    <Property Type="DateTime" Name="Created_date" Precision="3" />
+    <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Updated_date" Precision="3" />
+    <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="prc_CopyBusSchedule_Result">
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="String" Name="Message" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <EntityType Name="tblNotice">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="YSNActive" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="PublishDate" Precision="3" />
+    <Property Type="String" Name="URL" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="YSNActive" Nullable="false" />
+    <Property Type="DateTime" Name="Created_date" Precision="3" />
+    <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Updated_date" Precision="3" />
+    <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblAlbum">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="SnapDate" Precision="3" />
+    <Property Type="String" Name="URL" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TemplateImage" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="YSNActive" Nullable="false" />
+    <Property Type="DateTime" Name="Created_date" Nullable="false" Precision="3" />
+    <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Updated_date" Precision="3" />
+    <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblAlbumGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="GroupName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AlbumID" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SecurityCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="YSNActive" />
+    <Property Type="DateTime" Name="Created_date" Precision="3" />
+    <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Updated_date" Precision="3" />
+    <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="prc_GetAlbum_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="SnapDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="URL" Nullable="true" />
+    <Property Type="String" Name="TemplateImage" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="YSNActive" Nullable="false" />
+    <Property Type="DateTime" Name="Created_date" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Created_By" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Updated_date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Updated_by" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="prc_GetAlbumByGroupID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="SnapDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="URL" Nullable="true" />
+    <Property Type="String" Name="TemplateImage" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="YSNActive" Nullable="false" />
+    <Property Type="DateTime" Name="Created_date" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Created_By" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Updated_date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Updated_by" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Prc_OTRequ_Reset_Result">
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="String" Name="Message" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <EntityType Name="tblDeptSec">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ComID" Nullable="false" />
+    <Property Type="String" Name="DeptName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SubDeptName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="Prc_OTRequ_Approve_Result">
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="String" Name="Message" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <EntityType Name="tblUserDeptSecPermission">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="RegId" />
+      <PropertyRef Name="OTReq" />
+      <PropertyRef Name="YsnActive" />
+      <PropertyRef Name="HRApprove" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="RegId" Nullable="false" />
+    <Property Type="String" Name="OTReq" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="YsnActive" Nullable="false" />
+    <Property Type="DateTime" Name="Created_date" Precision="3" />
+    <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Updated_date" Precision="3" />
+    <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HRApprove" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="prc_GetEmpDeptSec_Result">
+    <Property Type="Int32" Name="ComID" Nullable="false" />
+    <Property Type="String" Name="DeptName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SubDeptName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="prc_EmployeeInfoDetail_Result">
+    <Property Type="Int32" Name="RegId" Nullable="false" />
+    <Property Type="String" Name="ComID" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="EmployeeCode" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="FathersName" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="BirthDate" Nullable="true" />
+    <Property Type="Int32" Name="DeptHead" Nullable="true" />
+    <Property Type="Int32" Name="ReportSuper" Nullable="true" />
+    <Property Type="String" Name="BloodGroup" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EmailID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MobileNoPerson" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MobileNoHome" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PhoneExt" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Religion" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="PreAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="PerAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="NID" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="District" Nullable="false" MaxLength="25" />
+    <Property Type="DateTime" Name="JoiningDate" Nullable="true" />
+    <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Section" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Designation" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="DesigAddi" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="WStatus" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="Level_No" Nullable="true" />
+    <Property Type="String" Name="Level_Name" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="prc_EmployeeInfo_Result">
+    <Property Type="Int64" Name="RegId" Nullable="false" />
+    <Property Type="Byte" Name="ComID" Nullable="false" />
+    <Property Type="String" Name="EmployeeCode" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="FathersName" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="BirthDate" Nullable="true" Precision="16" />
+    <Property Type="String" Name="Religion" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="PreAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="PerAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="NID" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="District" Nullable="false" MaxLength="25" />
+    <Property Type="DateTime" Name="JoiningDate" Nullable="false" Precision="16" />
+    <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Section" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Designation" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="DesigAddi" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="WStatus" Nullable="true" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="Prc_Get_OTRequ_Summary_Result">
+    <Property Type="String" Name="CompID" Nullable="false" MaxLength="5" />
+    <Property Type="DateTime" Name="DailyDate" Nullable="false" />
+    <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Section" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="OTRequ" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Reasons" Nullable="true" MaxLength="550" />
+    <Property Type="Int32" Name="TotalEmp" Nullable="true" />
+    <Property Type="String" Name="TotalOT" Nullable="true" MaxLength="8" />
+    <Property Type="Boolean" Name="Approved" Nullable="true" />
+    <Property Type="Boolean" Name="IsLock" Nullable="true" />
+    <Property Type="String" Name="Wstatus" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="tblEmpLeaveApp">
+    <Key>
+      <PropertyRef Name="RegId" />
+      <PropertyRef Name="AppliedDate" />
+    </Key>
+    <Property Type="Int32" Name="RegId" Nullable="false" />
+    <Property Type="DateTime" Name="AppliedDate" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="RequestTo" Nullable="false" />
+    <Property Type="Int32" Name="ActingPerson" Nullable="false" />
+    <Property Type="String" Name="LType" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="LDays" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="DateTime" Name="FrDate" Nullable="false" Precision="0" />
+    <Property Type="DateTime" Name="ToDate" Nullable="false" Precision="0" />
+    <Property Type="String" Name="Reasons" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StatusReasons" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Created_date" Precision="3" />
+    <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Updated_date" Precision="3" />
+    <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="prc_EmployeeLeaveStatus_Result">
+    <Property Type="Int32" Name="RegId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="RequestTo" Nullable="false" />
+    <Property Type="String" Name="RequestToName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ActingPerson" Nullable="false" />
+    <Property Type="String" Name="ActingPersonName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="AppliedDate" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="FrDate" Nullable="false" />
+    <Property Type="DateTime" Name="ToDate" Nullable="false" />
+    <Property Type="String" Name="LType" Nullable="false" MaxLength="2" />
+    <Property Type="Decimal" Name="LDays" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Reasons" Nullable="true" MaxLength="550" />
+    <Property Type="String" Name="StatusReasons" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="prc_Get_OTRequEmail_Result">
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="4" />
+    <Property Type="String" Name="Message" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="tblOTStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Sign" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="RequeType" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Sign" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="Prc_Get_OTRequ_Info_Result">
+    <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Section" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DesigAddi" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EmpCode" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="DailyDate" Nullable="false" Precision="16" />
+    <Property Type="String" Name="Shift" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="OTStart" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="WeekNo" Nullable="true" />
+    <Property Type="String" Name="TotalWeekOT" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="WeekLimit" Nullable="true" />
+    <Property Type="Int32" Name="MonthNo" Nullable="true" />
+    <Property Type="String" Name="TotalMonthOT" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="MonthLimit" Nullable="true" />
+    <Property Type="String" Name="OTRequ" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Reasons" Nullable="true" MaxLength="550" />
+    <Property Type="Boolean" Name="IsOTRequ" Nullable="true" />
+    <Property Type="Boolean" Name="Approved" Nullable="true" />
+    <Property Type="Boolean" Name="IsLock" Nullable="true" />
+    <Property Type="String" Name="Wstatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Empstatus" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="tblEmpOTApprovePermission">
+    <Key>
+      <PropertyRef Name="RegId" />
+    </Key>
+    <Property Type="Int32" Name="ID" />
+    <Property Type="Int32" Name="RegId" Nullable="false" />
+    <Property Type="Int32" Name="ComID" Nullable="false" />
+    <Property Type="String" Name="EmpInfo" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EmailID" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="PublishActive" />
+    <Property Type="Boolean" Name="YsnActive" />
+    <Property Type="DateTime" Name="Created_date" Precision="3" />
+    <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Updated_date" Precision="3" />
+    <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="prc_EmployeeAttenInfo_Result">
+    <Property Type="Int32" Name="ComID" Nullable="true" />
+    <Property Type="Int32" Name="RegId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="EmpCode" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Department" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Section" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DesigAddi" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Wstatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RequestTo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RequestToName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="RequestToEmpCode" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="RequestToDepartment" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RequestToSection" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RequestToDesigAddi" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RequestToWstatus" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="AppliedDate" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="prDate" Nullable="false" />
+    <Property Type="String" Name="Shift" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TimeIn" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="LateHrs" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="TimeOut" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="DailyHrs" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Process" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="Reasons" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="Updated_date" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="prc_EmployeeLeaveInfo_Result">
+    <Property Type="Int32" Name="ComID" Nullable="true" />
+    <Property Type="Int32" Name="RegId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="EmpCode" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Department" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Section" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DesigAddi" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Wstatus" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="RequestTo" Nullable="false" />
+    <Property Type="String" Name="RequestToName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="RequestToEmpCode" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="RequestToDepartment" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RequestToSection" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RequestToDesigAddi" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RequestToWstatus" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ActingPerson" Nullable="false" />
+    <Property Type="String" Name="ActingPersonName" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="AppliedDate" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="FrDate" Nullable="false" />
+    <Property Type="DateTime" Name="ToDate" Nullable="false" />
+    <Property Type="String" Name="LType" Nullable="false" MaxLength="2" />
+    <Property Type="Decimal" Name="LDays" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Reasons" Nullable="true" MaxLength="550" />
+    <Property Type="String" Name="StatusReasons" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="Updated_date" Nullable="true" Precision="23" />
+  </ComplexType>
+  <EntityType Name="TblFabricColour">
+    <Key>
+      <PropertyRef Name="Idno" />
+    </Key>
+    <Property Type="Int32" Name="Idno" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FabricColour" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblFabricContent">
+    <Key>
+      <PropertyRef Name="Idno" />
+    </Key>
+    <Property Type="Int32" Name="Idno" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FABRICCONTENT" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblFabricMill">
+    <Key>
+      <PropertyRef Name="Idno" />
+    </Key>
+    <Property Type="Int32" Name="Idno" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FabricMill" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblFabricType">
+    <Key>
+      <PropertyRef Name="Idno" />
+    </Key>
+    <Property Type="Int32" Name="Idno" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FabricType" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblFabricWave">
+    <Key>
+      <PropertyRef Name="Idno" />
+    </Key>
+    <Property Type="Int32" Name="Idno" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FabricWave" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="prc_FabricInfoDetail_Result">
+    <Property Type="Int32" Name="Slno" Nullable="false" />
+    <Property Type="String" Name="FabricCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PJLCode" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="MillID" Nullable="false" />
+    <Property Type="String" Name="FabricMill" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="ContentID" Nullable="false" />
+    <Property Type="String" Name="FabricContent" Nullable="true" MaxLength="250" />
+    <Property Type="Double" Name="Weight" Nullable="false" />
+    <Property Type="String" Name="WeightUnit" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="WeightType" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="FabricConst" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Width" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="WidthUnit" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ColourID" Nullable="false" />
+    <Property Type="String" Name="FabricColour" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="FabricTypeID" Nullable="false" />
+    <Property Type="String" Name="FabricType" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="FabricFinish" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="WeaveID" Nullable="false" />
+    <Property Type="String" Name="FabricWeave" Nullable="true" MaxLength="250" />
+    <Property Type="Double" Name="Price" Nullable="true" />
+    <Property Type="String" Name="PriceUnit" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PriceType" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Remarks" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="CNFPrice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Fabricwarp" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Fabricwaft" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <EntityType Name="tblFabricInfo">
+    <Key>
+      <PropertyRef Name="PJLCode" />
+    </Key>
+    <Property Type="Int32" Name="Slno" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FabricCode" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PJLCode" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="MillID" Nullable="false" />
+    <Property Type="Int32" Name="ContentID" Nullable="false" />
+    <Property Type="Double" Name="Weight" Nullable="false" />
+    <Property Type="String" Name="WeightUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WeightType" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FabricConst" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Width" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WidthUnit" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ColourID" Nullable="false" />
+    <Property Type="Int32" Name="FabricTypeID" Nullable="false" />
+    <Property Type="Int32" Name="WeaveID" Nullable="false" />
+    <Property Type="String" Name="FabricFinish" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Double" Name="Price" Nullable="false" />
+    <Property Type="String" Name="PriceUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PriceType" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remarks" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CNFPrice" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Fabricwarp" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Fabricwaft" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Created_date" Precision="3" />
+    <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Updated_date" Precision="3" />
+    <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblEmpOTRequ">
+    <Key>
+      <PropertyRef Name="ComID" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="EmpCode" />
+    </Key>
+    <Property Type="Int64" Name="ComID" Nullable="false" />
+    <Property Type="DateTime" Name="Date" Nullable="false" Precision="0" />
+    <Property Type="String" Name="EmpCode" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RequestOT" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OTRequ" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Reasons" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Approved" />
+    <Property Type="Boolean" Name="IsLock" />
+    <Property Type="String" Name="EditReason" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Created_date" Precision="3" />
+    <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Updated_date" Precision="3" />
+    <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,294 @@
+﻿@{
+    ViewBag.Title = "Bus Schedule";
+}
+<style>
+    body{
+        margin-top:80px;   
+        
+    }
+
+
+    input {
+        /*max-width:400px;*/
+    }
+    .error {
+        color: red;
+    }
+
+#rowSearchType div div{
+        background-color:#4ec9d5;  
+        color:#69a31e;     
+        border: 1px solid #aef5e6;
+        border-radius: 10px;
+        margin-top: 1px;
+        font-size: 11px;   
+}
+
+
+#rowSearchData{
+        
+        background:url( ../images/BusSchedule/bus2.png) no-repeat ;
+        background-size: 30% 30%;
+        background-position: right 30px bottom 20px;
+        
+        /* 
+
+            background-position: top left;
+background-position: 50px 30%;
+background-position: top 25%;
+background-position: right 10px bottom 20px;
+background-position: center center
+background-position: 10px 20px;
+background-position: 5em 2em;
+
+background-position: 75% 50%;
+             -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;   
+            width: 30%;
+        height: 30%;
+             padding:80px;
+             ../images/BusSchedule/bus2.png
+      ../images/BusSchedule/minibus.png
+      ../images/BusSchedule/car_compact2.png
+
+         opacity: 0.3;
+        filter: alpha(opacity=30);*/ 
+          
+}
+
+ 
+  .Bus { 
+        background: url( ../images/BusSchedule/bus2.png) no-repeat;
+        background-size: 30% 30%;
+        background-position: right 30px bottom 20px;       
+    }
+
+ .MiniBus {
+        background: url( ../images/BusSchedule/minibus.png) no-repeat;
+        background-size: 30% 30%;
+        background-position: right 30px bottom 20px;        
+    }
+
+  .MicroBus {
+        background: url( ../images/BusSchedule/car_compact2.png) no-repeat;
+        background-size: 30% 30%;
+        background-position: right 30px bottom 20px;              
+    }
+
+
+.SearchData {
+        opacity: 0.9;
+
+        margin-top:10px;
+        padding-left:10px;
+
+        font-size: 14px;  
+
+        background-color:#e3ebe5;  
+        color:#69a31e;    
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+}
+
+#rowSearchData h5{        
+        color:#e18232; 
+}
+
+
+
+
+</style>
+
+
+
+<div ng-controller="BusScheduleController"  class="container">
+
+   <div class="panel panel-info" >
+
+            <div class="panel-heading" style="min-height:80px">
+
+
+                                    <div class="col-md-4 col-sm-6" >
+             
+                                      <div class="input-daterange input-group">
+
+                                                    <span class="input-group-addon">  Date </span>
+
+                                                    <div class="input-group date"  id="ScheduleDate" ng-model="ScheduleDate"  ng-blur="search_by()" ng-model-options='{ debounce: 1000 }' date-picker>
+                                                    <input type="text" class="form-control netto-input" name="ScheduleDate"  ng-model="ScheduleDate"   ng-blur="search_by()" ng-model-options='{ debounce: 1000 }' date-picker-input>
+
+                                                    <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>                             
+                                                    </span>
+                                                    </div>
+                 
+
+                                            </div>
+
+
+                                    </div>
+
+
+
+
+                                <div class="col-md-3 col-sm-6" >
+               
+
+                                        <div class="input-daterange input-group">
+
+                                                                          
+                                            <span class="input-group-addon">  Road </span>   
+
+                                            <select  ng-model="RoadFilter" class="form-control"  ng-model-options='{ debounce: 500 }' 
+                                                 ng-options="e for e in RoadNameList" >
+            
+                                            </select>     
+                                   
+                     
+                                        </div>          
+
+                                </div>
+
+               
+                @*<input type="text" class="search-query form-control"  ng-model="search[Road]"/>*@
+
+
+                        <div class="col-md-3 col-sm-6" >
+               
+
+                                    <div class="input-daterange input-group">                            
+
+                                                                                          
+                                    <span class="input-group-addon">  Type </span>   
+
+                                    <select  ng-model="EmpTypeFilter" class="form-control"   ng-model-options='{ debounce: 500 }'  ng-options="e for e in EmpTypeList" >
+            
+                                    </select>     
+                     
+                                    </div>
+
+
+                        </div>
+
+               <div class="col-md-2 col-sm-6" >
+               
+
+                                 <input type="submit" ng-click="Reset()" class="form-control btn btn-primary"  value="Reset" />
+
+
+                        </div>
+
+          
+               
+
+                 
+            </div>
+ 
+         
+               @*<button class="btn btn-success btn-xs" ng-show="loading"><i class="fa fa-spinner fa-spin"></i> Loading</button>*@
+
+       <!-- progress bar info -->
+
+
+
+
+      
+
+
+
+   <div class="panel-body">
+
+                       
+   
+ 
+      <div class="row" > 
+
+   
+        <div ng-if="DesigShow"   class="col-xs-12" ng-repeat="(key,value) in (results_groupBy  = (BusScheduleList| filter: RoadFilter | filter: EmpTypeFilter| filter:{Publish:'True'}))|  groupBy:'RoadName'">
+      
+            
+                @*<div ng-if="DesigShow"  class="col-xs-12" ng-repeat="(key,value) in results2| filter: search |  groupBy:'Level_No'">*@
+
+            </br>
+              <label for="primary" class="btn btn-info">Road :<span class="badge">{{ key }}</span></label>
+   
+                  </br>
+
+        
+
+            <style>
+
+               
+                            </style>
+
+      
+  <div class="col-md-4"    ng-repeat="BusSchedule in value| orderBy : ['StartTime.Hours','StartTime.Minutes', 'Wstatus', 'RoadName', 'VehicleNo', 'Driver']" >
+@*
+   ../images/BusSchedule/bus2.png
+      ../images/BusSchedule/minibus.png
+      ../images/BusSchedule/car_compact2.png
+      <img ng-src="../images/BusSchedule/bus2.png"  ng-show="BusSchedule.VehicleType=='Bus'"  class="card-img-top img-rounded img-responsive" style="margin:0 auto;" alt="User Profile Image" width="150" height="80"> 
+   
+   
+       *@
+
+   
+       <div class="{{BusSchedule.VehicleType}}" >
+        <div class="SearchData">
+       
+            <h5><span style="padding-left:10px;color:red">{{BusSchedule.Date.slice(6,-2)|date:'dd-MM-yyyy'}} <i class="glyphicon glyphicon-time"></i> {{BusSchedule.StartTime.Hours}}:{{BusSchedule.StartTime.Minutes}}</span></h5>  
+       
+                    <i class="glyphicon glyphicon-education"></i><span style="padding-left:20px">{{BusSchedule.Wstatus}}</span>    
+                    <br />      
+                    <i class="glyphicon glyphicon-map-marker"></i><span style="padding-left:20px">{{BusSchedule.StartingPoint}}</span>
+                    <br />
+                    <i class="glyphicon glyphicon-tree-conifer"></i><span style="padding-left:20px">{{BusSchedule.Destination}}</span>
+                    <br />
+                    <i class="glyphicon glyphicon-road"></i><span style="padding-left:20px">{{BusSchedule.RoadDescription}}</span>      
+                    <br />  
+                    <i class="glyphicon glyphicon-barcode"></i><span style="padding-left:20px;font-weight:bold;">{{BusSchedule.VehicleNo}}</span>
+                    <br />
+                    <i class="glyphicon glyphicon-cog"></i><span style="padding-left:20px">{{BusSchedule.VehicleType}}</span>
+                    <br />
+                    <i class="glyphicon glyphicon-user"></i><span style="padding-left:20px">{{BusSchedule.Driver}}</span>
+                    <br />
+                    <i class="glyphicon glyphicon-th"></i><span style="padding-left:20px">{{BusSchedule.PassengerCapacity}}</span>
+                </div>            
+  </div>
+      </div>
+
+     </div>
+
+
+   
+        
+        
+  </div>
+
+
+ @* row end*@
+  </div>
+
+
+
+ @* panel body end*@
+  </div>
+
+
+ 
+  @* panel end*@
+</div>
+    
+    
+    
+    @*controller end *@
+     </div>
+   
+    
+
+@section Scripts{
+<script src="~/Scripts/Controllers/BusScheduleController.js"></script>
+}

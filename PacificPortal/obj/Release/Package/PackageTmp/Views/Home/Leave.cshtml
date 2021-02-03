@@ -1,0 +1,502 @@
+﻿@{
+    ViewBag.Title = "Leave Management";
+}
+<style>
+
+
+    body{
+        margin-top:80px;
+    }
+    input {
+        /*max-width:400px;*/
+    }
+    .error {
+        color: red;
+    }
+
+
+   
+
+
+</style>
+
+
+
+    <div ng-controller="LeaveController"  class="container">
+              
+           
+        <div class="panel-footer modal_custom">
+
+
+            <div class="row">
+
+
+                
+       <div class="col-md-4 col-sm-6" >
+
+                     
+
+          <div class="input-group">      
+                           
+              <span class="input-group-addon"><span class="label label-success">Leave Enjoy Detail Year Of </span></span>
+              <input    ng-model="LeaveSummary.Year"    class="form-control"  name="Year" style="color:#d71212;text-align:center;width:80px ;height:26px ;font-size:14px"; />
+
+              </div>
+
+                    
+    <table  id="Report_table"   class="table"  >
+    <thead>
+        <tr>
+            <th>Leave Type</th>
+            <th>Total</th>
+            <th>Enjoy</th>
+            <th>Balance</th>
+            
+        </tr>
+    </thead>
+    <tbody >
+         <tr ng-repeat="r in LeaveSummaryList">        
+            <td>{{r.LeaveType}}</td>
+            <td>{{r.Total}}</td>
+            <td>{{r.Enjoy}}</td>
+            <td>{{r.Balance}}</td>
+            
+        </tr>       
+        
+        <tr> 
+             <td colspan="4" style="background-color:#267626;color: #FFF;font-size: 14px;text-align:center;cursor: pointer;"  ng-click="ShowLeaveCard()">Detail Report</td> 
+        </tr> 
+
+    </tbody>
+</table>
+          
+
+            
+                    
+        
+
+                    </div> 
+
+
+
+                <div class="col-md-2 col-sm-6" >
+
+                    </div> 
+
+             <div class="col-md-4 col-sm-6" >
+
+<!-- Modal --> <!-- --------------------------Leave aPPLY --------------------------------- -->
+
+
+
+                  <span class="label label-success" style="text-align: center;">Leave Application <span class="badge"  style="background-color:#FF8C00">Apply To</span></span>
+        
+                            <br />
+                            <br />
+                            <i class="glyphicon glyphicon-user"></i><span style="padding-left:20px;color:#006DCC;font-weight: bold;"  >{{RequestEmployeeDetail.Name}}</span>
+                            <br />
+                            <i class="glyphicon glyphicon-map-marker"></i><span style="padding-left:20px"> {{RequestEmployeeDetail.Department}}, {{RequestEmployeeDetail.Section}}</span>
+                            <br />
+                            <i class="glyphicon glyphicon-barcode"></i><span style="padding-left:20px">{{RequestEmployeeDetail.EmployeeCode}}</span>
+                            <br />
+                            <i class="glyphicon glyphicon-education"></i><span style="padding-left:20px">{{RequestEmployeeDetail.Designation}}</span>
+                            <br />
+
+       
+                  <div class="form-group col-sm-12">
+                <label class="control-label col-sm-4"></label>
+                <div class="col-sm-7">
+               
+                  <input type="submit" class="btn btn-success col-md-offset-2" href="" data-toggle="modal" data-target="#ModalLeaveApp" value="Apply"  />
+
+                    @*<a ng-class="getClasses(r.Status)" href="" data-toggle="modal" data-target="#myModal" ng-click="editLeaveStatus(r)"><span>{{r.Status}}</span></a>*@</td>
+    
+                </div>
+           </div>
+
+
+          <div class="modal fade" id="ModalLeaveApp" role="dialog"  >
+            <div class="modal-dialog"  >
+                  <div class="col-sm-10 col-sm-offset-3">
+               <div class="panel panel-info" >
+                    <div class="panel-heading" style="text-align:center">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                       Apply Leave
+                    </div>
+                    <div class="modal-body"  >
+
+      
+                         <form novalidate name="f1" ng-submit="LeaveApplication(LeaveAdd)" >   
+        
+
+                              <div class="form-group">
+                             <label class="text text-info">Desk Look After: </label>
+               
+                                       @*<p>Selected state: {{ UserCode.EmployeeCode }}</p>*@                       
+                               <div custom-select="s as s.Name for s in EmployeeDetail| filter: { Name: $searchTerm }" name="ActingPerson" ng-model="ActingPerson" ng-class="submitted?'ng-dirty':''" required>
+        
+                                  <div class="row" id="custom-select">                   
+                                     <div class="col-sm-2" >{{s.EmployeeCode}}</div>
+                                     <div class="col-sm-5">{{s.Name}}</div>
+                                     <div class="col-sm-4">{{s.Designation}}</div>
+                                 </div>
+                                   
+                               </div>
+             <span class="error col-md-offset-2" ng-show="(f1.ActingPerson.$dirty || submitted) && f1.ActingPerson.$error.required">Desk Look After required!</span>
+                                   
+                     
+                                </div>
+
+
+                          
+
+                        <div class="form-group">
+                                <label class="text text-info">Leave Type : </label> 
+                                            
+                                <select  ng-model="LType" class="form-control"   name="LType"  ng-change="ChangeLeaveType()" ng-options="I.name for I in LeaveTypeList"  ng-class="submitted?'ng-dirty':''" required>
+                                    <option value="">Select...</option>
+                                </select>
+                          
+                                     <span class="error col-md-offset-2" ng-show="(f1.LType.$dirty || submitted) && f1.LType.$error.required">Leave Type required!</span>
+                                                     
+                            </div>
+                           
+                    <div   ng-show="HalfDayShow" class="checkbox checkbox-primary  checkbox-circle">
+                        <input ng-model="HalfDay" class="styled" type="checkbox"  ng-change="ChangeHalfDay()">
+                        <label for="checkbox2"  class="text text-info">
+                             Half Day  
+                        </label>
+                    </div>
+
+
+                              <div class="form-group">
+                               
+                                     <span class="error col-md-offset-2" ng-show="(f1.LType.$dirty || submitted) && f1.LType.$error.required">Leave Type required!</span>
+                                                        </div>
+
+
+                 <div class="form-group">
+                           <label class="text text-info"> Date: </label>
+                            
+                                <div class="input-daterange input-group" id="datepicker">
+                                  
+                               <div class="input-group date"  id="FrDate" ng-model="LeaveAdd.FrDate" date-picker>
+                         <input type="text" class="form-control netto-input" name="FrDate"  ng-model="LeaveAdd.FrDate" ng-blur="dayDiff(LeaveAdd.FrDate,LeaveAdd.ToDate)" date-picker-input>
+
+                         <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>                             
+                         </span>
+                                   
+                       </div>
+                                     
+                                  <span class="input-group-addon">{{LeaveAdd.LDays}} Days</span>
+                                       
+                               <div  ng-show="!HalfDay" class="input-group date" id="ToDate"  ng-model="LeaveAdd.ToDate" date-picker>
+                         <input type="text" class="form-control netto-input" name="ToDate"   ng-model="LeaveAdd.ToDate" ng-blur="dayDiff(LeaveAdd.FrDate,LeaveAdd.ToDate)"date-picker-input>
+
+
+
+                         <span class="input-group-addon">
+                           <span class="glyphicon glyphicon-calendar"></span>                            
+                         </span>
+                                   
+                       
+                                  
+                                </div>
+                            </div>
+          </div>
+           
+
+            
+
+            
+            <div class="form-group">
+                                 <label class="text text-info">Reasons : </label>
+                            
+                                   <input type="text" ng-model="LeaveRow.Reasons" class="form-control" name="Reasons"/>
+                <span class="error col-md-offset-2" ng-show="(f1.Reasons.$dirty || submitted) && f1.Reasons.$error.required">Reasons require</span>
+                                     </div>
+                         
+            
+
+                        <div class="text-center"> 
+                             <input type="submit" class="btn btn-primary" value="Submit"  />             
+                        </div>
+                
+        </form>
+                        
+                    </div>
+                    
+                </div>
+                       </div>
+            </div>
+        </div>
+
+
+ <!-- --------------------------END--------------------------------- -->
+          
+        
+
+
+
+          
+
+
+                    </div> 
+
+
+
+
+
+
+   
+                
+       <div class="col-md-12 col-sm-6" >
+
+
+                    
+
+          <span class="label label-success" style="text-align: center;">Leave Application Detail</span>
+
+
+         
+    
+        <!-- Modal --> <!-- --------------------------Leave status Update--------------------------------- -->
+        <div class="modal fade" id="ModalUpdateStatus" role="dialog"  >
+            <div class="modal-dialog">
+                 <div class="col-sm-8 col-sm-offset-3">
+               <div class="panel panel-info"  >
+                    <div class="panel-heading" style="text-align:center">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        Update Leave Status
+                    </div>
+                    <div class="modal-body"  >
+
+        <form novalidate name="f2" ng-submit="LeaveApplicationUpdate(LeaveRow)" style="padding:10px 10px 10px 30px;">          
+         
+             
+           
+
+            <table class="table">
+    <tbody>
+      <tr>           
+          <td>Date :</td>
+            <td>{{LeaveRow.FrDate.slice(6,-2)|date:'dd-MM-yyyy'}} -- {{LeaveRow.ToDate.slice(6,-2)|date:'dd-MM-yyyy'}}</td>
+           </tr>
+
+          <tr> 
+           <td>Type :</td>
+            <td>{{LeaveRow.LType}}</td>
+                         </tr>
+
+
+         <tr> 
+           <td>Days :</td>
+            <td>{{LeaveRow.LDays}}</td>
+                         </tr>
+
+        <tr> 
+
+              <td>Status :</td>
+          <td>
+           <div class="btn-group" data-toggle="buttons-radio" ng-repeat="Status in LeaveStatus">
+     <label class="btn btn-default">
+        <input type="radio" name="Status"
+             ng-model="LeaveRow.Status"
+             ng-value="Status" ng-class="submitted?'ng-dirty':''" required>
+        {{Status}}
+
+      </label>
+               @*{{LeaveRow.Status}}*@
+    </div>
+
+          <span class="error col-md-offset-2" ng-show="(f2.Status.$dirty || submitted) && f2.Status.$error.required">Status required!</span>
+                           
+
+          </td>
+                         </tr>
+
+
+       <tr> 
+           <td>Reasons</td>
+            <td> <textarea name="textarea"  ng-model="LeaveRow.StatusReasons"></textarea>
+         </td>
+                         </tr>
+
+
+
+           </tbody>
+                </table>
+
+           <div class="text-center"> 
+                        
+              
+
+               @*  Apply Date: {{LeaveRow.AppliedDate.slice(6,-2)|date:'dd-MM-yyyy'}} 
+               <br/>
+                Type: {{LeaveRow.LType}}  
+                <br/>
+                LDays: {{LeaveRow.LDays}}     
+                <br/>
+              Reasons: 
+               <br/>             
+                 <textarea name="textarea" style="width:270px;height:40px; border-style: double; " ng-model="LeaveRow.StatusReasons"></textarea>
+         *@
+            </div>
+
+
+            @*<div class="form-group">
+                 <label class="text text-info control-label ">Apply Date: </label>
+              <span style="padding-left:20px;color:#0094ff"> {{LeaveRow.AppliedDate.slice(6,-2)|date:'dd-MM-yyyy'}}</span>
+               
+            </div>
+
+            <div class="form-group">
+                <label class="text text-info control-label ">Leave Type: </label>              
+                 <span style="padding-left:20px;color:#0094ff"> {{LeaveRow.LType}}</span>
+               
+            </div>
+           
+            <div class="form-group">
+               <label class="text text-info control-label ">Leave Days: </label>
+               <span style="padding-left:20px;color:#0094ff"> {{LeaveRow.LDays}}</span>
+            </div>
+             <div class="form-group">
+               <label class="text text-info control-label ">Reasons: </label>
+                 <textarea name="textarea" style="width:270px;height:40px; border-style: double; " ng-model="LeaveRow.StatusReasons"></textarea>
+            </div>*@
+           
+
+             <div class="text-center"> 
+                             <input type="submit" class="btn btn-primary" value="{{UpdateText}}" />         
+                        </div>
+
+                
+        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        
+                    </div>
+                </div>
+                   </div>
+
+                    </div> 
+
+               </div> 
+           
+              
+             
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1primary" data-toggle="tab">My Application</a></li>
+                            <li><a href="#tab2primary" data-toggle="tab">Team Member Application <span class="badge"  style="background-color:#FF8C00"> {{(resultsTeamMemberLeave|filter:{Status:'PENDING'}).length}}</span></a></li>
+                          
+                        </ul>
+              
+
+
+
+            <div class="panel with-nav-tabs panel-info">
+                <div class="panel-body">
+
+                     <div style="overflow-y: scroll;  max-height:200px; ">
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="tab1primary">
+                            
+        
+  <table  id="Report_table"  class="table">
+    <thead>
+        <tr>
+            <th>Apply Date</th>
+             <th>LeaveType</th>
+            <th>From Date</th>
+            <th>To Date</th>           
+            <th>Leave Day</th>
+            <th>Apply To</th>
+            <th>Desk Look After</th>
+             <th>Reasons</th>
+            <th>Status</th>
+              <th></th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="r in LeaveApplyStatusList | filter: FilterMyLeave "> 
+           
+          <td>{{r.AppliedDate.slice(6,-2)|date:'dd-MM-yyyy'}}</td>
+           <td>{{r.LType}}</td>
+          <td>{{r.FrDate.slice(6,-2)|date:'dd-MM-yyyy'}}</td>
+          <td>{{r.ToDate.slice(6,-2)|date:'dd-MM-yyyy'}}</td>        
+          <td>{{r.LDays}}</td>
+          <td>{{r.RequestToName}}</td>
+          <td>{{r.ActingPersonName}}</td>
+          <td> <a href="#0" title="{{r.Reasons}}" data-toggle="tooltip" data-placement="top" tooltip> <i style="font-size:14px" class="glyphicon glyphicon-list-alt"></i></a></td>
+        
+          <td>
+              <a ng-class="getClasses(r.Status)" href="" data-toggle="modal" data-target="#ModalUpdateStatus" ng-click="editLeaveStatus(r,0)"><span>{{r.Status}}</span></a></td>
+       
+          <td> <a href="#0" title="{{r.StatusReasons}}" data-toggle="tooltip" data-placement="top" tooltip> <i style="font-size:14px" class="glyphicon glyphicon-list-alt"></i></a></td>
+        
+           </tr>
+    </tbody>
+</table>
+
+                        </div>
+                        <div class="tab-pane fade" id="tab2primary">
+                            
+        
+  <table  id="Report_table"  class="table">
+    <thead>
+        <tr>
+            
+             <th>Name</th>
+            <th>Apply Date</th>
+            <th>LeaveType</th>
+            <th>From Date</th>
+            <th>To Date</th>            
+            <th>Leave Day</th>            
+            <th>Desk Look After</th>
+              <th>Reasons</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @*<span>Total {{resultsTeamMemberLeave.length}} result(s).</span>*@
+      <tr ng-repeat="r in LeaveApplyStatusList | filter: FilterTeamMemberLeave  as resultsTeamMemberLeave"> 
+           
+          <td>{{r.Name}}</td>
+          <td>{{r.AppliedDate.slice(6,-2)|date:'dd-MM-yyyy'}}</td>
+          <td>{{r.LType}}</td>
+          <td>{{r.FrDate.slice(6,-2)|date:'dd-MM-yyyy'}}</td>
+          <td>{{r.ToDate.slice(6,-2)|date:'dd-MM-yyyy'}}</td>          
+          <td>{{r.LDays}}</td>        
+          <td>{{r.ActingPersonName}}</td>
+          <td> <a href="#0" title="{{r.Reasons}}" data-toggle="tooltip" data-placement="top" tooltip> <i style="font-size:14px" class="glyphicon glyphicon-list-alt"></i></a></td>
+        
+          <td>
+              <a ng-class="getClasses(r.Status)" href="" data-toggle="modal" data-target="#ModalUpdateStatus" ng-click="editLeaveStatus(r,1)"><span>{{r.Status}}</span></a></td>
+      <td> <a href="#0" title="{{r.StatusReasons}}" data-toggle="tooltip" data-placement="top" tooltip> <i style="font-size:14px" class="glyphicon glyphicon-list-alt"></i></a></td>
+          
+      </tr>
+    </tbody>
+</table>
+
+                        </div>
+                        
+                    </div>
+                </div>
+       
+         </div>
+
+
+                
+      </div>
+     </div>
+
+
+    </div> 
+
+@section Scripts{
+<script src="~/Scripts/Controllers/LeaveController.js"></script>
+}

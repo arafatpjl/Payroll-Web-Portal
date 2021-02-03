@@ -1,0 +1,408 @@
+﻿@{
+    ViewBag.Title = "OT Requisition";
+}
+<style>
+    body{
+        margin-top:80px;   
+    }
+
+
+    input {
+        /*max-width:400px;*/
+    }
+    .error {
+        color: red;
+    }
+
+
+</style>
+
+
+
+<div ng-controller="EmpOTRequisitionController"  class="container">
+
+   <div class="panel panel-info" >
+
+            <div class="panel-heading" style="min-height:80px">
+
+
+                                    <div class="col-md-4 col-sm-6" >
+             
+          
+                                            <div class="input-daterange input-group">
+
+                                                    <span class="input-group-addon">Unit </span>
+
+                                                     <select ng-model="Company" class="form-control"  name="ComID" ng-options="I.Name for I in CompanyList | filter:{ID:ComID}:containsComparator" ng-change="search_by()" ng-class="submitted?'ng-dirty':''" required >
+                                                        <option value="">Select Unit</option>
+                  
+                                                      </select>
+                                                
+                                            </select>  
+                                                
+
+                                            </div>
+
+
+                                    </div>
+
+
+
+                 <div class="col-md-4 col-sm-6" >
+             
+                <div class="input-daterange input-group">
+
+                        <span class="input-group-addon">Department </span>
+
+                            <select ng-model="Department" class="form-control"  name="DepartmentID" ng-options="I.DeptName  for I in DepartmentList | filter: { ComID: Company.ID } : true| unique: 'DeptName' " ng-change="search_by()" ng-class="submitted?'ng-dirty':''" required >
+                            <option value="">Select Department</option>
+                  
+                            </select>
+                                                
+                </select>  
+                                                
+
+                </div>
+
+
+        </div>
+
+                <div class="col-md-4 col-sm-6" >
+             
+          
+                <div class="input-daterange input-group">
+
+                        <span class="input-group-addon">Section </span>
+
+    <select ng-model="Section" class="form-control"  name="SectionID" ng-options="I.SubDeptName for I in SectionList  | filter: { ComID: Company.ID } : true| filter: { DeptName: Department.DeptName }: true"  ng-change="search_by()" ng-class="submitted?'ng-dirty':''" required >
+    <option value="">Select Section</option>
+                  
+    </select>
+                                                
+                </select>  
+                                                
+
+                </div>
+
+
+        </div>
+
+
+
+
+               
+
+          
+               
+                 
+            </div>
+ 
+         
+               @*<button class="btn btn-success btn-xs" ng-show="loading"><i class="fa fa-spinner fa-spin"></i> Loading</button>*@
+
+       <!-- progress bar info -->
+
+
+
+
+      
+
+
+
+   <div class="panel-body">
+
+
+
+
+        <div class="row">
+
+                                    
+
+                                </div>
+
+           </div>     
+
+                <div class="row">
+                     
+
+         <div class="col-md-12 col-sm-6" style="min-height:20px" >
+         
+                      <div class="col-md-6 col-sm-6" >
+               
+               
+
+                                      <div class="input-daterange input-group">
+
+                                                <span class="input-group-addon">
+                                                    <span class="badge" style="background-color:#69a31e;font-size:12px;font-weight:bold">
+                                          {{data.Date| date:'dd-MM-yyyy'}}
+
+                                                </span> Emp :   {{ EmpList.length}} 
+                                                </span>
+                                                <span class="input-group-addon">
+                                                <input type="text" ng-model="OTRequ" ng-blur="OTRequ =check_time(OTRequ)" class=" form-control  input-sm" name="OTRequ" placeholder = "02:00" />
+             
+                                                </span>
+                                          
+                                          <span class="input-group-addon">
+                                               <i style="font-size:10px;color:#69a31e;cursor: pointer;"   ng-click="moveData_all(1)" class="glyphicon glyphicon-plus"></i>
+                                                  </span>
+                                       </div>
+                 
+ <div style="overflow-y: scroll;  max-height:500px; ">
+               
+
+                            <table  id="Report_table"  class="table">
+    <thead>
+        <tr>
+            <th>Emp Code</th>
+             <th>Name</th> 
+            <th>Desig.</th> 
+            <th>OT Start</th>
+            <th>Week(OT)</th>           
+            <th>Month(OT)</th> 
+            <th>Today OT</th> 
+             <th></th>
+             
+        </tr>
+    </thead>
+    <tbody>
+      @*<tr ng-repeat="r in EmpOTRequisitionList | orderBy : ['StartTime.Hours','StartTime.Minutes', 'Wstatus', 'RoadName', 'VehicleNo', 'Driver'] | filter: RoadFilter | filter: EmpTypeFilter|filter: {StartTime: {Hours: 18}}:true|filter: {StartTime: {Minutes: StartTimeFilter.split(':')[1]}}:exact as results"> 
+      
+        Department, Section, DesigAddi, EmpCode, DailyDate, Shift, OTStart, WeekNo, TotalWeekOT, WeekLimit, MonthNo, TotalMonthOT, MonthLimit
+      *@
+        <tr  ng-model="available" ng-repeat="r in EmpList | orderBy :['EmpCode', 'Name']  | filter:{IsOTRequ:'False'} as results_EmpList"> 
+                      
+            <td>{{r.EmpCode}}</td>
+           <td>{{r.Name | limitTo: 10}}..</td>
+            <td>{{r.DesigAddi | limitTo: 8}}</td> 
+            <td>{{r.OTStart.slice(6,-2)|date:'hh:mm:ss a'}}</td> 
+             
+            <td ng-style="r.WeekLimit === true ? { color:'red' } : { color:'green' }">{{r.TotalWeekOT}}</td>
+            <td ng-style="r.MonthLimit === true ? { color:'red' } : { color:'green' }">{{r.TotalMonthOT}}</td>  
+            <td>{{r.OTRequ}}</td>   
+          
+     <td>
+           <i style="font-size:10px;color:#69a31e;cursor: pointer;"   ng-click="moveData(r,1)" class="glyphicon glyphicon-plus"></i>
+          </td>
+        
+          
+           </tr>
+    </tbody>
+
+
+</table>
+             
+                           </div>    
+                          <table  id="Report_table" class="table table-striped">
+
+                                <tr ng-repeat="(key, value) in results_EmpList | groupBy: 'DesigAddi'"  style="font-size:12px;color:#006DCC">
+                               
+                                         <td>
+                                        {{ key }} 
+                                        </td>
+
+                                        <td>
+                                        {{value.length}}
+                                        </td>
+
+                                </tr>
+                             </table>
+
+                          </div>     
+
+
+              <div class="col-md-6 col-sm-6" >
+
+
+             <div class="input-daterange input-group">
+
+                                                <span class="input-group-addon"> OT Requestion :
+                                                    <span class="badge" style="background-color:#69a31e;font-size:12px;font-weight:bold">
+                                           {{ results_EmpOTRequisitionList.length}} 
+
+                                                </span>
+                                              
+                                                </span>
+                                                
+                                          
+                                          <span class="input-group-addon">
+                                              
+<i style="font-size:10px;color:#d92424;cursor: pointer;"   ng-click="moveData_all(2)" class="glyphicon glyphicon-remove"></i>
+
+                                          </span>
+
+                  <span class="input-group-addon">
+                                               <i style="font-size:14px;color:#69a31e;cursor: pointer;" ng-show="SaveShow"  ng-click="OTRequ_update()" class="glyphicon glyphicon-floppy-disk"></i>
+                      Saved :
+                       <span class="badge" style="background-color:#69a31e;font-size:12px;font-weight:bold">
+                                           {{Saved}}
+
+                                                </span>
+                      
+                                                </span>
+
+                   <span class="input-group-addon">
+                                           Summary    <i style="font-size:14px;color:#69a31e;cursor: pointer;"  ng-click="GetEmpOTRequSummary()" data-toggle="modal" data-target="#Modaldata" class="glyphicon glyphicon-list"></i>
+                                                </span>
+
+                                       </div>
+
+
+
+                   <div class="input-daterange input-group">
+
+                                                <span class="input-group-addon"> Reasons :                                                    
+                                              
+                                                </span>
+                                          <input type="text" ng-model="Reasons" class=" form-control  input-sm" name="Reasons" />
+             
+                                       </div>
+                   
+                   <div style="overflow-y: scroll;  max-height:500px; ">
+
+        <table  id="Report_table"  class="table">
+    <thead>
+        <tr>
+            <th>Emp Code</th>
+             <th>Name</th> 
+            <th>Desig.</th>
+            <th>OT Start</th>
+            <th>Week(OT)</th>           
+            <th>Month(OT)</th> 
+             <th>Today OT</th> 
+             <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        
+              
+
+      @*<tr ng-repeat="r in EmpOTRequisitionList | orderBy : ['StartTime.Hours','StartTime.Minutes', 'Wstatus', 'RoadName', 'VehicleNo', 'Driver'] | filter: RoadFilter | filter: EmpTypeFilter|filter: {StartTime: {Hours: 18}}:true|filter: {StartTime: {Minutes: StartTimeFilter.split(':')[1]}}:exact as results"> 
+      
+        Department, Section, DesigAddi, EmpCode, DailyDate, Shift, OTStart, WeekNo, TotalWeekOT, WeekLimit, MonthNo, TotalMonthOT, MonthLimit
+      *@
+        <tr ng-model="selected" ng-repeat="r in EmpOTRequisitionList | orderBy :['EmpCode', 'Name']  | filter:{IsOTRequ:'True'}  as results_EmpOTRequisitionList"> 
+                     
+           <td>{{r.EmpCode}}</td>
+            <td>{{r.Name | limitTo: 10}}..</td>
+            <td>{{r.DesigAddi | limitTo: 8}}</td> 
+            <td>{{r.OTStart.slice(6,-2)|date:'hh:mm:ss a'}}</td> 
+            <td ng-style="r.WeekLimit === true ? { color:'red' } : { color:'green' }">{{r.TotalWeekOT}}</td>
+            <td ng-style="r.MonthLimit === true ? { color:'red' } : { color:'green' }">{{r.TotalMonthOT}}</td>           
+           <td>{{r.OTRequ}}</td>
+        <td>
+           <i  ng-style="r.Approved === true ? { display:'none' }: { display:'static' }" style="font-size:10px;color:#d92424;cursor: pointer;" ng-click="moveData(r,2)" class="glyphicon glyphicon-remove"></i>
+          </td>  
+          
+           </tr>
+       
+    </tbody>
+             
+</table>
+                </div>       
+                          <table  id="Report_table" class="table table-striped">
+
+                                <tr ng-repeat="(key, value) in results_EmpOTRequisitionList | groupBy: 'DesigAddi'"  style="font-size:12px;color:#006DCC">
+                               
+                                         <td>
+                                        {{ key }} 
+                                        </td>
+
+                                        <td>
+                                        {{value.length}}
+                                        </td>
+
+                                </tr>
+                             </table>
+
+                  </div>  
+
+
+
+          <div class="modal fade" id="Modaldata" role="dialog"  >
+                <div class="modal-dialog modal-lg">
+               
+               <div class="panel panel-info" >
+                    <div class="panel-heading" style="text-align:center">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                       Data : {{data.Department}} >> {{data.Section}}
+                    </div>
+                    <div class="modal-body"  >
+
+      <table  id="Report_table"  class="table">
+    <thead>
+        <tr>
+            <th>Department</th>
+             <th>Section</th>
+            <th>Emp Type</th>  
+            <th>Requ. OT</th> 
+            <th>Total Emp</th>            
+            <th>Today OT</th>
+            <th>Publish (HR) </th>
+            <th>Approved</th>            
+        </tr>
+    </thead>
+    <tbody>
+      @*<tr ng-repeat="r in EmpOTRequisitionList | orderBy : ['StartTime.Hours','StartTime.Minutes', 'Wstatus', 'RoadName', 'VehicleNo', 'Driver'] | filter: RoadFilter | filter: EmpTypeFilter|filter: {StartTime: {Hours: 18}}:true|filter: {StartTime: {Minutes: StartTimeFilter.split(':')[1]}}:exact as results"> 
+      
+        Department, Section, DesigAddi, EmpCode, DailyDate, Shift, OTStart, WeekNo, TotalWeekOT, WeekLimit, MonthNo, TotalMonthOT, MonthLimit
+      *@
+        <tr  ng-model="available" ng-repeat="r in EmpList_Summary | orderBy :['Department', 'Section']"> 
+                      
+            <td>{{r.Department}}</td>
+             <td>{{r.Section}}</td>
+             <td>{{r.Wstatus}}</td>
+             <td>{{r.OTRequ}}</td>
+           <td>{{r.TotalEmp}}</td>
+                      
+             <td><a ng-class="getClasses(r.Approved)"  ng-click="UpdateStatus2(r,r.Approved)"><span>{{r.TotalOT}}</span></a> </td>  
+
+            <td>
+            <input type="checkbox" ng-model="r.IsLock"> 
+                </td> 
+            <td>
+             @*<a ng-class="getClasses(r.Approved)"  ng-click="UpdateStatus(r,r.Approved)"><span>{{r.Approved}}</span></a>*@
+          <input type="checkbox" ng-model="r.Approved">
+                </td> 
+           </tr>
+    </tbody>
+
+
+</table>
+                        
+                        
+                    </div>
+                   
+                    
+                </div>
+                       
+            </div>
+        </div>
+
+
+
+ @* row end*@
+  </div>
+
+
+                    </div>
+ @* panel body end*@
+  </div>
+
+
+ 
+  @* panel end*@
+</div>
+    
+    
+    
+    @*controller end *@
+     </div>
+   
+    
+
+@section Scripts{
+<script src="~/Scripts/Controllers/EmpOTRequisitionController.js"></script>
+}

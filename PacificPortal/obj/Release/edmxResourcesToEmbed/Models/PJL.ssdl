@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabasefileModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DatabasefileModelStoreContainer">
+    <EntitySet Name="Company_Information" EntityType="DatabasefileModel.Store.Company_Information" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblAlbum" EntityType="DatabasefileModel.Store.tblAlbum" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblAlbumGroup" EntityType="DatabasefileModel.Store.tblAlbumGroup" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblBusSchedule" EntityType="DatabasefileModel.Store.tblBusSchedule" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblDeptSec" EntityType="DatabasefileModel.Store.tblDeptSec" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblEmpAttenApp" EntityType="DatabasefileModel.Store.tblEmpAttenApp" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblEmpLeaveApp" EntityType="DatabasefileModel.Store.tblEmpLeaveApp" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblEmpOTApprovePermission" EntityType="DatabasefileModel.Store.tblEmpOTApprovePermission" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblEmpOTRequ" EntityType="DatabasefileModel.Store.tblEmpOTRequ" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblMenu" EntityType="DatabasefileModel.Store.tblMenu" store:Type="Tables" store:Schema="dbo" store:Name="tblMenu">
+      <DefiningQuery>SELECT 
+      [tblMenu].[ID] AS [ID], 
+      [tblMenu].[Main_Menu_Id] AS [Main_Menu_Id], 
+      [tblMenu].[Menu_Name] AS [Menu_Name], 
+      [tblMenu].[Menu_URL] AS [Menu_URL], 
+      [tblMenu].[Menu_Icon] AS [Menu_Icon], 
+      [tblMenu].[YsnActive] AS [YsnActive]
+      FROM [dbo].[tblMenu] AS [tblMenu]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblNotice" EntityType="DatabasefileModel.Store.tblNotice" store:Type="Tables" store:Schema="dbo" store:Name="tblNotice">
+      <DefiningQuery>SELECT 
+      [tblNotice].[ID] AS [ID], 
+      [tblNotice].[Title] AS [Title], 
+      [tblNotice].[PublishDate] AS [PublishDate], 
+      [tblNotice].[URL] AS [URL], 
+      [tblNotice].[YSNActive] AS [YSNActive], 
+      [tblNotice].[Created_date] AS [Created_date], 
+      [tblNotice].[Created_By] AS [Created_By], 
+      [tblNotice].[Updated_date] AS [Updated_date], 
+      [tblNotice].[Updated_by] AS [Updated_by]
+      FROM [dbo].[tblNotice] AS [tblNotice]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblUser_LogInfo" EntityType="DatabasefileModel.Store.tblUser_LogInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblUser_Registration" EntityType="DatabasefileModel.Store.tblUser_Registration" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblUserDeptSecPermission" EntityType="DatabasefileModel.Store.tblUserDeptSecPermission" store:Type="Tables" store:Schema="dbo" store:Name="tblUserDeptSecPermission">
+      <DefiningQuery>SELECT 
+      [tblUserDeptSecPermission].[ID] AS [ID], 
+      [tblUserDeptSecPermission].[RegId] AS [RegId], 
+      [tblUserDeptSecPermission].[OTReq] AS [OTReq], 
+      [tblUserDeptSecPermission].[HRApprove] AS [HRApprove], 
+      [tblUserDeptSecPermission].[YsnActive] AS [YsnActive], 
+      [tblUserDeptSecPermission].[Created_date] AS [Created_date], 
+      [tblUserDeptSecPermission].[Created_By] AS [Created_By], 
+      [tblUserDeptSecPermission].[Updated_date] AS [Updated_date], 
+      [tblUserDeptSecPermission].[Updated_by] AS [Updated_by]
+      FROM [dbo].[tblUserDeptSecPermission] AS [tblUserDeptSecPermission]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <EntityType Name="Company_Information">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" MaxLength="15" />
+    <Property Name="Basic" Type="real" />
+    <Property Name="BasicM" Type="bit" Nullable="false" />
+    <Property Name="HRent" Type="real" />
+    <Property Name="WBASIC" Type="real" />
+    <Property Name="WHRent" Type="real" />
+    <Property Name="HRentM" Type="bit" Nullable="false" />
+    <Property Name="FoodPay" Type="real" />
+    <Property Name="FoodPayM" Type="bit" Nullable="false" />
+    <Property Name="Bonus" Type="real" />
+    <Property Name="BonusM" Type="bit" Nullable="false" />
+    <Property Name="PFund" Type="real" />
+    <Property Name="PFundM" Type="bit" Nullable="false" />
+    <Property Name="NZN" Type="bit" Nullable="false" />
+    <Property Name="Medical" Type="real" />
+    <Property Name="WMedical" Type="real" />
+    <Property Name="NameBangla" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddressBangla" Type="varchar" MaxLength="100" />
+    <Property Name="SignedBy" Type="varchar" MaxLength="50" />
+    <Property Name="EmpImageLocation" Type="varchar" MaxLength="100" />
+    <Property Name="ServerName" Type="varchar" MaxLength="20" />
+    <Property Name="DBName" Type="varchar" MaxLength="20" />
+    <Property Name="DBPrefix" Type="varchar" MaxLength="25" />
+    <Property Name="IsClose" Type="tinyint" Nullable="false" />
+    <Property Name="ReportPath" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblAlbum">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="SnapDate" Type="datetime" />
+    <Property Name="URL" Type="nvarchar(max)" />
+    <Property Name="TemplateImage" Type="nvarchar" MaxLength="50" />
+    <Property Name="YSNActive" Type="bit" Nullable="false" />
+    <Property Name="Created_date" Type="datetime" Nullable="false" />
+    <Property Name="Created_By" Type="varchar" MaxLength="50" />
+    <Property Name="Updated_date" Type="datetime" />
+    <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblAlbumGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AlbumID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SecurityCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="YSNActive" Type="bit" />
+    <Property Name="Created_date" Type="datetime" />
+    <Property Name="Created_By" Type="varchar" MaxLength="50" />
+    <Property Name="Updated_date" Type="datetime" />
+    <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblBusSchedule">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="date" />
+    <Property Name="StartTime" Type="time" />
+    <Property Name="RoadName" Type="nvarchar" MaxLength="500" />
+    <Property Name="RoadDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="StartingPoint" Type="nvarchar" MaxLength="50" />
+    <Property Name="Destination" Type="nvarchar" MaxLength="50" />
+    <Property Name="VehicleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="VehicleType" Type="nvarchar" MaxLength="50" />
+    <Property Name="Driver" Type="nvarchar" MaxLength="50" />
+    <Property Name="PassengerCapacity" Type="int" />
+    <Property Name="Wstatus" Type="nchar" MaxLength="10" />
+    <Property Name="Publish" Type="bit" />
+    <Property Name="Created_date" Type="datetime" />
+    <Property Name="Created_By" Type="varchar" MaxLength="50" />
+    <Property Name="Updated_date" Type="datetime" />
+    <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblDeptSec">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ComID" Type="int" Nullable="false" />
+    <Property Name="DeptName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="SubDeptName" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblEmpAttenApp">
+    <Key>
+      <PropertyRef Name="RegId" />
+      <PropertyRef Name="prDate" />
+    </Key>
+    <Property Name="RegId" Type="int" Nullable="false" />
+    <Property Name="AppliedDate" Type="datetime" Nullable="false" />
+    <Property Name="prDate" Type="date" Nullable="false" />
+    <Property Name="TimeIn" Type="varchar" MaxLength="5" />
+    <Property Name="LateHrs" Type="varchar" MaxLength="5" />
+    <Property Name="TimeOut" Type="varchar" MaxLength="5" />
+    <Property Name="DailyHrs" Type="varchar" MaxLength="5" />
+    <Property Name="ValidOT" Type="varchar" MaxLength="5" />
+    <Property Name="RestOT" Type="varchar" MaxLength="5" />
+    <Property Name="ExtraOT" Type="varchar" MaxLength="5" />
+    <Property Name="Status" Type="varchar" MaxLength="10" />
+    <Property Name="Shift" Type="varchar" MaxLength="50" />
+    <Property Name="TransAllow" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Reasons" Type="nvarchar" MaxLength="250" />
+    <Property Name="Process" Type="bit" />
+    <Property Name="Created_date" Type="datetime" />
+    <Property Name="Created_By" Type="varchar" MaxLength="50" />
+    <Property Name="Updated_date" Type="datetime" />
+    <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblEmpLeaveApp">
+    <Key>
+      <PropertyRef Name="RegId" />
+      <PropertyRef Name="AppliedDate" />
+    </Key>
+    <Property Name="RegId" Type="int" Nullable="false" />
+    <Property Name="AppliedDate" Type="datetime" Nullable="false" />
+    <Property Name="RequestTo" Type="int" Nullable="false" />
+    <Property Name="ActingPerson" Type="int" Nullable="false" />
+    <Property Name="LType" Type="nvarchar" Nullable="false" MaxLength="2" />
+    <Property Name="LDays" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="FrDate" Type="date" Nullable="false" />
+    <Property Name="ToDate" Type="date" Nullable="false" />
+    <Property Name="Reasons" Type="nvarchar" MaxLength="550" />
+    <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="StatusReasons" Type="nvarchar" MaxLength="250" />
+    <Property Name="Created_date" Type="datetime" />
+    <Property Name="Created_By" Type="varchar" MaxLength="50" />
+    <Property Name="Updated_date" Type="datetime" />
+    <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblEmpOTApprovePermission">
+    <Key>
+      <PropertyRef Name="RegId" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="RegId" Type="int" Nullable="false" />
+    <Property Name="EmpInfo" Type="nvarchar" MaxLength="500" />
+    <Property Name="EmailID" Type="varchar" MaxLength="50" />
+    <Property Name="YsnActive" Type="bit" />
+    <Property Name="Created_date" Type="datetime" />
+    <Property Name="Created_By" Type="varchar" MaxLength="50" />
+    <Property Name="Updated_date" Type="datetime" />
+    <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblEmpOTRequ">
+    <Key>
+      <PropertyRef Name="ComID" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="EmpCode" />
+    </Key>
+    <Property Name="ComID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="EmpCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="OTRequ" Type="nvarchar" MaxLength="50" />
+    <Property Name="Reasons" Type="nvarchar" MaxLength="550" />
+    <Property Name="Approved" Type="bit" />
+    <Property Name="IsLock" Type="bit" Nullable="false" />
+    <Property Name="Created_date" Type="datetime" />
+    <Property Name="Created_By" Type="varchar" MaxLength="50" />
+    <Property Name="Updated_date" Type="datetime" />
+    <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_Web_Portal.dbo.tblMenu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="tblMenu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Main_Menu_Id" Type="varchar" MaxLength="50" />
+    <Property Name="Menu_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Menu_URL" Type="varchar" MaxLength="50" />
+    <Property Name="Menu_Icon" Type="varchar" MaxLength="50" />
+    <Property Name="YsnActive" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_Web_Portal.dbo.tblNotice' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="tblNotice">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="YSNActive" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="PublishDate" Type="datetime" />
+    <Property Name="URL" Type="nvarchar(max)" />
+    <Property Name="YSNActive" Type="bit" Nullable="false" />
+    <Property Name="Created_date" Type="datetime" />
+    <Property Name="Created_By" Type="varchar" MaxLength="50" />
+    <Property Name="Updated_date" Type="datetime" />
+    <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblUser_LogInfo">
+    <Key>
+      <PropertyRef Name="RegId" />
+      <PropertyRef Name="login_time" />
+    </Key>
+    <Property Name="RegId" Type="int" Nullable="false" />
+    <Property Name="login_time" Type="datetime" Nullable="false" />
+    <Property Name="login_Mac" Type="varchar" MaxLength="200" />
+    <Property Name="logout__time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblUser_Registration">
+    <Key>
+      <PropertyRef Name="RegId" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RegId" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="500" />
+    <Property Name="DeptHead" Type="int" />
+    <Property Name="ReportSuper" Type="int" />
+    <Property Name="DateofBirth" Type="date" />
+    <Property Name="BloodGroup" Type="nvarchar" MaxLength="5" />
+    <Property Name="EmailID" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobileNoPerson" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobileNoHome" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneExt" Type="nvarchar" MaxLength="50" />
+    <Property Name="Picture" Type="nvarchar" MaxLength="50" />
+    <Property Name="Role" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Registerd" Type="bit" Nullable="false" />
+    <Property Name="YsnActive" Type="bit" Nullable="false" />
+    <Property Name="last_login_date" Type="datetime" />
+    <Property Name="last_login_Mac" Type="varchar" MaxLength="200" />
+    <Property Name="Created_date" Type="datetime" />
+    <Property Name="Created_By" Type="varchar" MaxLength="50" />
+    <Property Name="Updated_date" Type="datetime" />
+    <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_Web_Portal.dbo.tblUserDeptSecPermission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="tblUserDeptSecPermission">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="RegId" />
+      <PropertyRef Name="YsnActive" />
+      <PropertyRef Name="OTReq" />
+      <PropertyRef Name="HRApprove" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RegId" Type="int" Nullable="false" />
+    <Property Name="OTReq" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HRApprove" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="YsnActive" Type="bit" Nullable="false" />
+    <Property Name="Created_date" Type="datetime" />
+    <Property Name="Created_By" Type="varchar" MaxLength="50" />
+    <Property Name="Updated_date" Type="datetime" />
+    <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="prc_CopyBusSchedule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDs" Type="varchar" Mode="In" />
+    <Parameter Name="ToDate" Type="date" Mode="In" />
+    <Parameter Name="Created_By" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="prc_EmployeeAttenApp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RegId" Type="varchar" Mode="In" />
+    <Parameter Name="Month" Type="int" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="prc_EmployeeAttenInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Month" Type="int" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="prc_EmployeeBirthDay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="prc_EmployeeInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="prc_EmployeeInfoByEmpCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompID" Type="varchar" Mode="In" />
+    <Parameter Name="EmpCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="prc_EmployeeInfoByRegID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RegID" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="prc_EmployeeInfoDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="prc_EmployeeJobCard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RegId" Type="varchar" Mode="In" />
+    <Parameter Name="Month" Type="int" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="prc_EmployeeLeaveApplication" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RegId" Type="int" Mode="In" />
+    <Parameter Name="AppliedDate" Type="datetime" Mode="In" />
+    <Parameter Name="RequestTo" Type="int" Mode="In" />
+    <Parameter Name="ActingPerson" Type="int" Mode="In" />
+    <Parameter Name="LType" Type="varchar" Mode="In" />
+    <Parameter Name="LDays" Type="decimal" Mode="In" />
+    <Parameter Name="FrDate" Type="date" Mode="In" />
+    <Parameter Name="ToDate" Type="date" Mode="In" />
+    <Parameter Name="Reasons" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="varchar" Mode="In" />
+    <Parameter Name="Created_date" Type="datetime" Mode="In" />
+    <Parameter Name="Created_By" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="prc_EmployeeLeaveEnjoyDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RegId" Type="varchar" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="prc_EmployeeLeaveEnjoySummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RegId" Type="varchar" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="prc_EmployeeLeaveInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Month" Type="int" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="prc_EmployeeLeaveInsertMainDatabase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RegId" Type="int" Mode="In" />
+    <Parameter Name="AppliedDate" Type="datetime" Mode="In" />
+    <Parameter Name="RequestTo" Type="int" Mode="In" />
+    <Parameter Name="ActingPerson" Type="int" Mode="In" />
+    <Parameter Name="LType" Type="varchar" Mode="In" />
+    <Parameter Name="LDays" Type="decimal" Mode="In" />
+    <Parameter Name="FrDate" Type="date" Mode="In" />
+    <Parameter Name="ToDate" Type="date" Mode="In" />
+    <Parameter Name="Reasons" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="varchar" Mode="In" />
+    <Parameter Name="Created_date" Type="datetime" Mode="In" />
+    <Parameter Name="Created_By" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="prc_EmployeeLeaveStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RegId" Type="varchar" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Prc_Get_OTRequ_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompID" Type="int" Mode="In" />
+    <Parameter Name="Date" Type="date" Mode="In" />
+    <Parameter Name="Department" Type="varchar" Mode="In" />
+    <Parameter Name="Section" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Prc_Get_OTRequ_Summary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompID" Type="int" Mode="In" />
+    <Parameter Name="DateFrom" Type="date" Mode="In" />
+    <Parameter Name="DateTo" Type="date" Mode="In" />
+  </Function>
+  <Function Name="prc_Get_OTRequEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompID" Type="int" Mode="In" />
+    <Parameter Name="DateFrom" Type="date" Mode="In" />
+  </Function>
+  <Function Name="prc_GetAlbum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Group" Type="int" Mode="In" />
+    <Parameter Name="AfterDate" Type="datetime" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="prc_GetAlbumByGroupID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Group" Type="int" Mode="In" />
+  </Function>
+  <Function Name="prc_GetEmpDeptSec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RegID" Type="int" Mode="In" />
+    <Parameter Name="Type" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="prc_GetTeamMember" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RegID" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Prc_OTRequ_Approve" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompID" Type="int" Mode="In" />
+    <Parameter Name="Date" Type="date" Mode="In" />
+    <Parameter Name="Department" Type="varchar" Mode="In" />
+    <Parameter Name="Section" Type="varchar" Mode="In" />
+    <Parameter Name="OTRequ" Type="varchar" Mode="In" />
+    <Parameter Name="Wstatus" Type="varchar" Mode="In" />
+    <Parameter Name="Approved" Type="bit" Mode="In" />
+    <Parameter Name="IsLock" Type="bit" Mode="In" />
+    <Parameter Name="Updated_by" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Prc_OTRequ_Reset" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompID" Type="int" Mode="In" />
+    <Parameter Name="Date" Type="date" Mode="In" />
+    <Parameter Name="Department" Type="varchar" Mode="In" />
+    <Parameter Name="Section" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="prc_UserMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RegId" Type="varchar" Mode="In" />
+  </Function>
+</Schema>

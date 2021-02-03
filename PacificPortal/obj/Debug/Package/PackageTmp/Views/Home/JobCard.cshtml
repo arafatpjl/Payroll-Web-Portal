@@ -1,0 +1,347 @@
+﻿@{
+    ViewBag.Title = "Job Card";
+}
+<style>
+
+
+    body{
+        margin-top:80px;       
+    }
+
+
+    input {
+        /*max-width:400px;*/
+    }
+    .error {
+        color: red;
+    }
+
+
+
+
+</style>
+
+
+    <div ng-controller="JobCardController" class="container">
+
+
+             <div class="panel-footer modal_custom">
+
+
+
+                <div class="row">
+
+
+        <div class="col-md-4 col-sm-6" >
+             
+             <form novalidate name="f1" ng-submit="showJobCard(User)"> 
+
+           <div class="form-group">
+                <label class="text text-info">Year : </label>
+                <input    ng-model="User.Year"    name="Year" class="form-control "  ng-class="submitted?'ng-dirty':''" required />
+                <span  ng-show="(f1.Year.$dirty || submitted) && f1.Year.$error.required">Year required!</span>
+            </div>
+
+           <div class="form-group">
+                <label class="text text-info">Month : </label>  
+                <select ng-model="selectedmonths"  class="form-control "  name="month"  ng-change="GetMonthID(selectedmonths)"  ng-class="submitted?'ng-dirty':''" required>
+                    <option ng-repeat="item in months" value="{{item.id}}">{{item.name}}</option>
+                     <option value="">Select Month</option>
+               </select>                
+                <span  ng-show="(f1.month.$dirty || submitted) && f1.month.$error.required">Month required!</span>
+           </div>
+
+
+            <div class="form-group">
+                <label class="text text-info">Employee</label>
+               
+                         @*<p>Selected state: {{ UserCode.EmployeeCode }}</p>*@                       
+               <div custom-select="s as s.Name for s in TeamMemberList| filter: { Name: $searchTerm }"   name="uEmpcode"  ng-model="UserCode" ng-class="submitted?'ng-dirty':''" required>
+        
+                  <div class="row"  id="custom-select">                   
+                     <div class="col-sm-2">{{s.EmployeeCode}}</div>
+                     <div class="col-sm-5">{{s.Name}}</div>
+                     <div class="col-sm-4">{{s.Designation}}</div>
+                 </div>
+                                   
+              </div>
+                <span  ng-show="(f1.EmpCode.$dirty || submitted) && f1.EmpCode.$error.required">Employee Code required!</span>
+            </div>
+               
+
+              <div class="text-center"> 
+                <input type="submit" class="btn btn-primary" value="{{submitText}}" />
+            </div>
+          
+
+  </form>
+
+            
+   </div>
+
+           <div class="col-md-8 col-sm-6" >
+               
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1primary" data-toggle="tab">Job Card</a></li>
+                            <li><a href="#tab2primary" data-toggle="tab">Team Member Application <span class="badge" style="background-color:#FF8C00"> {{GetAttenApplyStatusList.length}}</span></a></li>
+                          
+                        </ul>
+              
+               <div class="panel with-nav-tabs panel-info">
+                <div class="panel-body">
+
+                     <div style="overflow-y: scroll;  max-height:400px; ">
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="tab1primary">
+                     
+  <table  id="Report_table" class="table">
+    
+           <thead>
+                <tr>
+                    <th>
+                        Date
+                    </th>
+
+                    <th>
+                        In
+                    </th>
+                    <th>
+                        Late
+                    </th>
+                    <th>
+                        Out
+                    </th>
+                    <th>
+                        DailyHrs
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Shift
+                    </th>
+                    <th>
+                        Trans. Allow
+                    </th>
+                </tr>
+            </thead>
+    <tbody>
+    <tr ng-repeat="r in GetJobCardDetail" >
+           
+
+            <td>{{r.prDate.slice(6,-2)|date:'dd-MM-yyyy'}}</td> 
+            <td>{{r.TimeIn}}</td> 
+            <td>{{r.LateHrs}}</td>                     
+            <td>{{r.TimeOut}}</td>
+            <td>{{r.DailyHrs}}</td>
+
+            <td>
+              <a ng-class="getClasses(r.Status)" href="" data-toggle="modal" data-target="#ModalUpdateStatus" ng-click="editAttenStatus(r,0)"><span>{{r.Status}}</span></a>
+            </td>
+       
+            <td>{{r.Shift}}</td>
+            <td>{{r.TransAllow}}</td>
+
+
+         
+          </tr>
+    </tbody>
+</table>
+
+                      
+                        </div>
+                        <div class="tab-pane fade" id="tab2primary">
+                             <table id="Report_table" class="table">
+    
+           <thead>
+                <tr>
+
+                    <th>
+                        Name
+                    </th>
+
+                    <th>
+                        Date
+                    </th>
+
+                    <th>
+                        In
+                    </th>
+                    
+                    <th>
+                        Out
+                    </th>
+                    <th>
+                        Shift
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                     <th>
+                        Reasons
+                    </th>
+                    <th>
+                        
+                    </th>
+                     <th>
+                        
+                    </th>
+                   
+                </tr>
+            </thead>
+    <tbody>
+    <tr ng-repeat="r in GetAttenApplyStatusList" >
+            <td>{{r.Name}}</td> 
+            <td>{{r.prDate.slice(6,-2)|date:'dd-MM-yyyy'}}</td> 
+            <td>{{r.TimeIn}}</td>                    
+            <td>{{r.TimeOut}}</td>  
+         <td>{{r.Shift}}</td>   
+        <td>{{r.Status}}</td>     
+        <td> <a href="#0" title="{{r.Reasons}}" data-toggle="tooltip" data-placement="top" tooltip> <i style="font-size:14px" class="glyphicon glyphicon-list-alt"></i></a></td>
+          
+            <td>
+            <a class="Approve" href=""  ng-click="EmpAttenApprove(r)"><span>Approve</span></a>
+            </td>       
+           <td>
+            <a class="Decline" href=""  ng-click="EmpAttenDecline(r)"><span>Decline</span></a>
+            </td>       
+           
+            
+         
+          </tr>
+    </tbody>
+</table>
+
+        
+                        </div>
+                        
+                    </div>
+                </div>
+       
+         </div>
+
+
+                
+      </div>
+
+               
+            
+        
+
+   </div>
+
+   
+
+                    
+
+               <!-- Modal --> <!-- --------------------------Attendence status Update--------------------------------- -->
+        <div class="modal fade" id="ModalUpdateStatus" role="dialog"  >
+            <div class="modal-dialog">
+                 <div class="col-sm-8 col-sm-offset-3">
+               <div class="panel panel-info"  >
+                    <div class="panel-heading" style="text-align:center">
+                        <button type="button" class="close" data-dismiss="modal" ng-click="PopupClose()">&times;</button>
+                        Update Attendence 
+                    </div>
+                    <div class="modal-body"  >
+
+        <form novalidate name="f2" ng-submit="AttendenceUpdate(AttenRow)" style="padding:10px 10px 10px 30px;">          
+
+             
+            
+
+            <table class="table">
+    <tbody>
+
+
+      @*<tr>   
+            <td>Name :</td>
+            <td>{{AttenRow.Name}} </td>
+           </tr>*@
+        
+               
+          <td>Date :</td>
+            <td>{{AttenRow.prDate.slice(6,-2)|date:'dd-MM-yyyy'}} </td>
+           </tr>
+
+          <tr> 
+           <td>In :</td>
+            <td>
+                
+                  <input type="text" ng-disabled="isDisabled" ng-model="AttenRow.TimeIn" ng-blur="AttenRow.TimeIn =check_time(AttenRow.TimeIn,'08:00')" class=" form-control  input-sm" name="TimeOut" placeholder = "08:00" />
+             
+
+
+            </td>
+
+                         </tr>
+
+
+         <tr> 
+           <td>Out :</td>
+        
+              <td>
+
+                   <input type="text" ng-disabled="isDisabled2" ng-model="AttenRow.TimeOut" ng-blur="AttenRow.TimeOut =check_time(AttenRow.TimeOut,'18:30')" class=" form-control  input-sm" name="TimeOut" placeholder = "18:30" />
+             
+            </td>
+
+                         </tr>
+
+
+        
+
+       <tr> 
+           <td>Reasons</td>
+            
+            <td> 
+
+                <textarea name="Reasons" class="form-control netto-input"  ng-model="AttenRow.Reasons" required autofocus /> </textarea>
+                <span class="error col-md-offset-2" ng-show="(f2.Reasons.$dirty || f2_submitted) && f2.Reasons.$error.required">Missing Reasons require</span>
+
+         </td>
+                         </tr>
+
+
+
+           </tbody>
+                </table>
+
+           <div class="text-center"> 
+                        
+              
+
+             <div class="text-center"> 
+                             <input type="submit" class="btn btn-primary" value="Update" />         
+                        </div>
+
+                
+        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        
+                    </div>
+                </div>
+                   </div>
+
+                    </div> 
+
+               </div> 
+
+   
+
+ </div>
+
+
+
+ </div>
+       
+     
+    </div>
+      
+
+@section Scripts{
+<script src="~/Scripts/Controllers/JobCardController.js"></script>
+}

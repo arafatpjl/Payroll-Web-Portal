@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fb18dec1a9c042938a7f295df04202a5" Name="Diagram1" ZoomLevel="56">
+        <EntityTypeShape EntityType="DatabasefileModel.Company_Information" Width="1.5" PointX="4.125" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblUser_Registration" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblUser_LogInfo" Width="1.5" PointX="5.875" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblEmpAttenApp" Width="1.5" PointX="7.75" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblMenu" Width="1.5" PointX="9.625" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblBusSchedule" Width="1.5" PointX="11.375" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblNotice" Width="1.5" PointX="13" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblAlbum" Width="1.5" PointX="14.625" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblAlbumGroup" Width="1.5" PointX="16.25" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblDeptSec" Width="1.5" PointX="6.3762641280778984" PointY="29.510659157070638" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblUserDeptSecPermission" Width="1.5" PointX="2.25" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblEmpOTRequ" Width="1.5" PointX="8.9547761552756544" PointY="12.36886178533028" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblEmpOTApprovePermission" Width="1.5" PointX="3.18850733860792" PointY="12.7930912286011" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblEmpLeaveApp" Width="1.5" PointX="0.91337403325055444" PointY="8.3324975261150378" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

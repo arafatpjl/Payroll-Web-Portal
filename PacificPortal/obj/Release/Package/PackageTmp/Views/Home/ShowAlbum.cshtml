@@ -1,0 +1,141 @@
+﻿
+@{
+    ViewBag.Title = "View Albums";
+}
+<style>
+    
+
+    body {
+        margin-top: 80px;
+        font-size: 12px;
+         
+    }
+
+
+    input {
+        /*max-width:400px;*/
+    }
+
+    .error {
+        color: red;
+    }
+   
+
+    h4 {
+    margin: 20px 10px 10px;
+}
+p {
+    margin: 10px;
+}
+
+#carousel-example-generic {
+    margin: 20px auto;
+    /*width: 400px;*/
+}
+
+#carousel-custom {
+    margin: 20px auto;
+    /*width: 400px;*/
+}
+#carousel-custom .carousel-indicators {
+    margin: 10px 0 0;
+    overflow: auto;
+    position: static;
+    text-align: left;
+    white-space: nowrap;
+    width: 100%;
+}
+#carousel-custom .carousel-indicators li {
+    background-color: transparent;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    display: inline-block;
+    height: auto;
+    margin: 0 !important;
+    width: auto;
+}
+#carousel-custom .carousel-indicators li img {
+    display: block;
+    opacity: 0.5;
+}
+#carousel-custom .carousel-indicators li.active img {
+    opacity: 1;
+}
+#carousel-custom .carousel-indicators li:hover img {
+    opacity: 0.75;
+}
+#carousel-custom .carousel-outer {
+    position: relative;
+}
+
+</style>
+
+
+
+<div ng-controller="AlbumController"  class="container" >
+   <div class="panel panel-info"  style="overflow-y: scroll;  max-height:550px; margin-top:50px">
+      <div class="panel-body">
+          <div class="row"> 
+             <div  class="col-xs-3" data-toggle="modal" data-target="#myModal" ng-click="GetSelecetedAlbumImageID(Album_Image.AlbumID)" ng-repeat="Album_Image in PublishedAlbum_List| orderBy:'Album_Name'" >     
+                <img check-image ng-src="../UploadedFiles/{{Album_Image.FilePath}}" class="card-img-top  img-responsive" style="margin: 0 auto;max-height:200px; max-width:250px; min-width:250px; min-height:200px; margin-top:10px;" >
+                <h5><span style="padding-left:10px;">{{Album_Image.Album_Name}}</span><span style="padding-left:20px">{{Album_Image.TotalPic}} Photos</span></h5>   
+             </div> 
+         </div>
+      </div>
+
+       
+
+ @* panel body end*@
+  </div>
+
+   <div class="modal " id="myModal">
+           <div class="modal-dialog model-lg">
+               <div class="modal-content">
+
+                   <!-- Modal body -->
+                   <div class="modal-body">
+                       <button type="button" class="close" data-dismiss="modal">&times;</button>
+                       <div id='carousel-custom' class='carousel slide' data-ride='carousel'>
+                           <div class='carousel-outer'>
+                               <!-- Wrapper for slides -->
+                               <div class='carousel-inner'>
+                                   @*ng-class="{{$index ===0 ? 'item active' : 'item'}}"*@
+                                   <div class="item" ng-class="{active:!$index}" ng-repeat="Album_Image in SelecetedImage| orderBy:'FileName'">
+
+                                       <a href="../UploadedFiles/{{Album_Image.FilePath}}" target="_blank"> 
+                                        <img ng-src="../UploadedFiles/{{Album_Image.FilePath}}" alt="Album Image" style="width: 1000px; height: 400px">
+                                       </a>
+                                   </div>
+                               </div>
+
+                               <!-- Controls -->
+                               <a class='left carousel-control' href='#carousel-custom' data-slide='prev'>
+                                   <span class='glyphicon glyphicon-chevron-left'></span>
+                               </a>
+                               <a class='right carousel-control' href='#carousel-custom' data-slide='next'>
+                                   <span class='glyphicon glyphicon-chevron-right'></span>
+                               </a>
+                           </div>
+
+                           <!-- Indicators -->
+                           <ol class='carousel-indicators mCustomScrollbar'>
+                               <li data-target='#carousel-custom' data-slide-to="{{$index}}" class="active" ng-repeat="Album_Image in SelecetedImage| orderBy:'FileName'">
+                                   <img ng-src="../UploadedFiles/{{Album_Image.FilePath}}" style="width: 200px; height: 100px">
+                               </li>
+                           </ol>
+                       </div>
+                        <p align="center" style="color:red;"> <b>{{Description}}</b> </p>
+                   </div>
+
+                   <!-- Modal footer -->
+                   <div class="modal-footer">
+                   </div>
+
+               </div>
+           </div>
+       </div>
+</div>
+
+@section Scripts{
+<script src="~/Scripts/Controllers/AlbumController.js"></script>
+}

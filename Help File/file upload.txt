@@ -1,0 +1,132 @@
+//$scope.images = [];
+    //$scope.processFiles = function (files) {
+    //    angular.forEach(files, function (flowFile, i) {
+    //        $scope.images[i] = {};
+    //        var fileReader = new FileReader();
+    //        var image = new Image();
+    //        fileReader.onload = function (event) {
+    //            var uri = event.target.result;
+    //            image.src = uri;
+    //            image.onload = function () {
+    //                $scope.images[i].width = this.width;
+    //                $scope.images[i].height = this.height;
+    //                // update scope to display dimension 
+    //                $scope.$apply();
+    //            };
+    //            $scope.images[i].uri = uri;
+    //        };
+    //        fileReader.readAsDataURL(flowFile.file);
+    //    });
+    //};
+
+
+
+
+    //<span class="text">Base64 image displayed with "ng-src"</span> <img class="preview" ng-src="{{images[$index].uri}}"/>
+    //  <span>Width:{{images[$index].width}}
+    //Height:{{images[$index].height}}<span>
+
+    $scope.images = [];
+    var file;
+    $scope.progress = 0;
+    var filesLoaded = 0;
+
+    var files2;
+
+
+
+    $scope.advstatus = false;
+
+
+    $scope.uploadFile = function (event) {
+
+
+        $scope.advstatus = true;
+        $scope.$apply();
+
+
+        var files = event.target.files;
+
+        files2 = files;
+       
+
+        angular.forEach(files, function (flowFile, i) {
+           
+            //alert(flowFile.size/(1024*1024));
+
+           var flowFile_size= flowFile.size/(1024*1024);
+
+           if (flowFile_size > 2)
+           {
+               //alert('Please select File size < 2 MB');               
+               //return;
+           }
+
+            var fileReader = new FileReader();
+            var image = new Image();
+
+        
+
+            fileReader.onload = function (event) {
+
+                var uri = event.target.result;
+                image.src = uri;
+                image.onload = function () {
+
+                    //alert(this.width + " " + this.height);    
+
+
+                    //filesLoaded++;
+                    //if (filesLoaded === files.length) {
+                    //    console.log('Files already loaded');
+                    //    $scope.progress = 100;
+                    //    // Do some stuff when all files are loaded...
+                    //}
+                    //else {
+                    //    console.log((100 * filesLoaded / files.length) + '% loaded');
+                    //    $scope.progress = 100 * (filesLoaded / files.length);
+                    //    $scope.$apply(); // Is it mandatory?
+                    //}
+                
+
+                    $scope.$apply();
+                };
+
+
+                fileReader.onloadend = function (e) {
+                    $scope.advstatus = false;
+                   
+                    $scope.$apply();
+                    //alert($scope.progress);
+                }
+
+               
+                $scope.images[i].uri = uri;
+            };
+            fileReader.readAsDataURL(flowFile);
+        });
+
+
+
+        var Form_Data = new FormData();
+
+
+        angular.forEach(files, function (file) {
+            Form_Data.append('file', file);
+        });
+
+
+        UserProfileService.UpdateProfilePic(Form_Data).then(function (d) {
+
+            if (d == 'Success') {
+                alert('You have successfully Updated');
+            }
+            else {
+                alert(d);
+            }
+
+        });
+       
+    }
+
+  
