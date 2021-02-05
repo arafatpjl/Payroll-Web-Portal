@@ -1,0 +1,252 @@
+﻿@{
+    ViewBag.Title = "Registration";
+}
+
+<style>
+    body{
+        margin-top:10px;
+    }
+    input {
+        /*max-width:400px;*/
+    }
+    .error {
+        color: red;
+    }
+    
+
+</style>
+
+
+
+
+@* <script>
+
+     $window.scrollTo(0, 0);
+
+ </script>*@
+
+
+
+    <div ng-controller="RegistationController"  style="padding-top:20px"  class="container">
+
+
+              
+        <div class="col-sm-6 col-sm-offset-3">
+                
+<div class="panel panel-info"  style="margin-top:10px;max-width:600px;">
+            <div class="panel-heading">
+              <h4>Sign Up !
+      <small>Already have an account? <a>@Html.ActionLink("Sign In", "Index")</a></small>
+   </h4>
+    
+            </div>
+
+    <br/>
+
+      <form novalidate name="f1" ng-submit="SaveData(User)"  class="form-horizontal" >
+
+
+
+           <div class="form-group">
+                <label class="text text-info control-label col-sm-4">Unit Name : </label>
+               <div class="col-sm-7">
+                <select  ng-model="Company" class=" form-control  input-sm"   name="ComID" ng-change="GetCompID()" ng-options="I.Name for I in CompanyList" ng-class="submitted?'ng-dirty':''" required  >
+                    <option value="">Select...</option>
+                </select>
+                     <span class="error col-md-offset-2" ng-show="(f1.ComID.$dirty || submitted) && f1.ComID.$error.required">Unit required!</span>
+                </div>
+           </div>
+
+
+
+             <div class="form-group">
+                <label class="text text-info control-label col-sm-4" for="Empcode">Employee Name: </label>
+                <div class="col-sm-7">
+                       @*<p>Selected state: {{ UserCode.EmployeeCode }}</p>*@                       
+               <div custom-select="s as s.Name for s in EmployeeDetail_Reg| filter: { Name: $searchTerm }" name="uEmpcode" ng-model="UserCode" ng-class="submitted?'ng-dirty':''" required>
+        
+                  <div class="row"  id="custom-select">                   
+                     <div class="col-sm-3">{{s.EmployeeCode}}</div>
+                     <div class="col-sm-5">{{s.Name}}</div>
+                     <div class="col-sm-4">{{s.Designation}}</div>
+                 </div>
+                                   
+              </div>
+                     <span class="label label-success" style="text-align: center;">Login ID :  {{UserCode.EmployeeCode}}</span>
+
+                <span class="error col-md-offset-2" ng-show="(f1.uEmpcode.$dirty || submitted) && f1.uEmpcode.$error.required">Employee Required!</span>
+
+                </div>
+               </div>
+        
+                    
+           <div class="form-group">
+                <label class="text text-info control-label col-sm-4" for="Empcode">Reporting Supervisor: </label>
+                <div class="col-sm-7">
+                                @*<p>Selected state: {{ ReportSuper.EmployeeCode }}</p>*@            
+               <div custom-select="s as s.Name for s in EmployeeDetail| filter: { Name: $searchTerm }" name="uRepEmpcode" ng-model="ReportSuper" ng-class="submitted?'ng-dirty':''" required>
+        
+                  <div class="row"  id="custom-select">
+                     <div class="col-sm-3">{{s.EmployeeCode}}</div>
+                     <div class="col-sm-5">{{s.Name}}</div>
+                     <div class="col-sm-4">{{s.Designation}}</div>
+                 </div>
+                                   
+              </div>
+
+                <span class="error col-md-offset-2" ng-show="(f1.uRepEmpcode.$dirty || submitted) && f1.uRepEmpcode.$error.required">Reporting Boss Required</span>
+
+                </div>
+               </div>
+
+           
+
+          
+
+               <div class="form-group">
+                <label class="text text-info control-label col-sm-4" for="Empcode">Department Head: </label>
+                <div class="col-sm-7">
+                                @*<p>Selected state: {{ DeptHead.EmployeeCode }}</p>*@            
+               <div custom-select="i as i.Name for i in EmployeeDetail| filter: { Name: $searchTerm }"  name="uDepEmpcode" ng-model="DeptHead" ng-class="submitted?'ng-dirty':''" required>
+        
+                  <div class="row"  id="custom-select">
+                     <div class="col-sm-3">{{i.EmployeeCode}}</div>
+                     <div class="col-sm-5">{{i.Name}}</div>
+                     <div class="col-sm-4">{{i.Designation}}</div>
+                 </div>
+                                   
+              </div>
+
+                <span class="error col-md-offset-2" ng-show="(f1.uDepEmpcode.$dirty || submitted) && f1.uDepEmpcode.$error.required">Department Head Required</span>
+
+                </div>
+               </div>
+          
+
+            <div class="form-group">
+                <label class="text text-info control-label col-sm-4" for="DBirth">Date Of Birth: </label>
+                <div class="col-sm-7">
+               <div class="input-group date" id="birthdate"   ng-model="User.DateofBirth" date-picker>
+         <input type="text" name="uDateofBirth" class="form-control   input-sm"  date-picker-input ng-model="User.DateofBirth" data-date-view-mode="years"  ng-class="submitted?'ng-dirty':''" required >
+
+         <span class="input-group-addon">
+           <span class="glyphicon glyphicon-calendar"></span>
+         </span>
+       </div>
+                <span class="error col-md-offset-2" ng-show="(f1.uDateofBirth.$dirty || submitted) && f1.uDateofBirth.$error.required">Birth Date required!</span>
+            </div>
+                   
+            </div>
+
+           
+           
+              <div class="form-group">
+               <label class="text text-info control-label col-sm-4"> Blood Group : </label> 
+                   <div class="col-sm-7">
+                  <select ng-model="BloodGroup"  class="form-control"    ng-options="I.name for I in []| BloodGroupList"  name="uBloodGroup" ng-class="submitted?'ng-dirty':''" required></select>
+
+                    <span class="error col-md-offset-2" ng-show="(f1.uBloodGroup.$dirty || submitted) && f1.uBloodGroup.$error.required">Blood Group required!</span>
+                  </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="text text-info control-label col-sm-4">Mobile No: </label>
+                <div class="col-sm-7">
+                <input type="text" ng-model="User.MobileNoPerson" class=" form-control  input-sm" name="uMobileNo" placeholder = "Enter Mobile No" ng-class="submitted?'ng-dirty':''" required autofocus />
+               
+                    <span class="error col-md-offset-2" ng-show="(f1.uMobileNo.$dirty || submitted) && f1.uMobileNo.$error.required">Mobile No required!</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="text text-info control-label col-sm-4">Office Ext: </label>
+                <div class="col-sm-7">
+                <input type="text" ng-model="User.PhoneExt" class=" form-control  input-sm" name="uPhoneExt" placeholder = "PABX-100, IP-1000" ng-class="submitted?'ng-dirty':''" required autofocus />
+                <span class="error col-md-offset-2" ng-show="(f1.uPhoneExt.$dirty || submitted) && f1.uPhoneExt.$error.required">Office Phone required!</span>
+
+                </div>
+             </div>
+
+
+          <div class="form-group">
+                         <label class="text text-info control-label col-sm-4">Email ID :</label>
+                      <div class="col-sm-7">
+                          <input type="email" class=" form-control  input-sm"  name="uEmailID" ng-model="User.EmailID" ng-pattern="/^[A-Za-z0-9._%+-]+@("@")pacificjeans.com$/"  placeholder = "email (Group mail only)" ng-class="submitted?'ng-dirty':''" required />
+                           
+                          <span class="error col-md-offset-2" ng-show="(f1.uEmailID.$dirty || submitted)  && (f1.uEmailID.$error.pattern || f1.uEmailID.$error.required)" >Invalid (hris@pacificjeans.com)</span>
+                             
+                           </div>
+            </div>
+
+
+                  @*<div class="form-group">
+                         <label class="text text-info control-label col-sm-4">Email ID :</label>
+                      <div class="col-sm-7">
+                          <div class="input-group">  
+                              
+                                    
+                            <input type="text" ng-model="User.EmailID" class=" form-control  input-sm" name="uEmailID" placeholder = "Only Group mail (ID) only" ng-class="submitted?'ng-dirty':''" required  />
+                
+                            <span class="input-group-addon" style="font-size:11px">{{group_email}}</span>
+
+                               </div>
+                                <span class="error col-md-offset-2" ng-show="(f1.uEmailID.$dirty || submitted) && f1.uEmailID.$error.required">Email required</span>
+             
+                         
+                           </div>
+            </div>*@
+
+
+
+
+          
+
+            @*<div class="form-group">
+                <label class="text text-info control-label col-sm-4">Email ID : </label>
+                <div class="col-sm-7">
+                <input type="email" ng-model="User.EmailID" class=" form-control  input-sm" name="uEmailID" placeholder = "Enter Email ID Like abc@Pacificjeans.com" ng-class="submitted?'ng-dirty':''" required  />
+                  
+                <span class="error col-md-offset-2" ng-show="(f1.uEmailID.$dirty || submitted) && f1.uEmailID.$error.required">Email required</span>
+                <span class="error col-md-offset-2" ng-show="(f1.uEmailID.$dirty || submitted) && f1.uEmailID.$error.email">Email ID not valid!</span>
+            </div>
+             </div>*@
+          
+            <div class="form-group">
+                <label class="text text-info control-label col-sm-4">Password     : </label>
+                <div class="col-sm-7">
+                <input type="password" ng-model="User.Password" class=" form-control  input-sm" name="uPassword" placeholder = "Enter Password" ng-class="submitted?'ng-dirty':''" required />
+                 <span class="error col-md-offset-2" ng-show="(f1.uPassword.$dirty || submitted) && f1.uPassword.$error.required">Password required!</span>
+
+                </div>
+                          
+            </div>
+            <div class="form-group">
+                <label class="text text-info control-label col-sm-4">Confirm Password : </label>
+                <div class="col-sm-7">
+                <input type="password" ng-model="uCPassword" class=" form-control  input-sm" name="CPassword"  compare-to="User.Password" placeholder = "Enter Confirm Password" ng-class="submitted?'ng-dirty':''"  required/>
+                 <span class="error col-md-offset-2" ng-show="(f1.uPassword.$dirty || submitted) && f1.CPassword.$error.compareTo">Confirm Password required!</span>
+
+                </div>
+          </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-4"></label>
+                <div class="col-sm-7">
+                <input type="submit" class="btn btn-primary col-md-offset-2" value="{{submitText}}" />
+                    </div>
+            </div>
+
+  </form>
+    </div>
+    
+      
+    
+
+    </div> 
+       
+
+@section Scripts{
+<script src="~/Scripts/Controllers/RegistrationController.js"></script>
+}
