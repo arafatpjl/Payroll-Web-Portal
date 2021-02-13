@@ -1,0 +1,137 @@
+﻿@{
+    ViewBag.Title = "Employee Birthday";
+}
+<style>
+    body{
+        margin-top:80px;   
+         font-size: 12px;    
+    }
+
+
+    input {
+        /*max-width:400px;*/
+    }
+    .error {
+        color: red;
+    }
+
+#heading{             
+        min-height: 150px;
+        background: url('../images/bd_7_2.gif');        
+        /*background-repeat: no-repeat;
+        background-size:100% auto;*/        
+}
+
+#rowSearchType div div{
+        background-color:#4ec9d5;  
+        color:#daf2f1;     
+        border: 1px solid #aef5e6;
+        border-radius: 10px;
+        margin-top: 1px;
+        min-width: 250px;
+         font-size: 14px;   
+}
+
+
+#rowSearchData{
+        border: 2px solid #aef5e6;
+        border-radius: 20px;
+        margin-top: 5px;
+        min-width: 250px;      
+        /*background: url('../images/bd_7.gif');*/        
+        background-repeat: no-repeat;
+        background-size:100% auto; 
+       
+}
+
+
+#rowSearchData h5{        
+        color:#091f72; 
+          font-size: 11px; 
+           
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /*display: inline-block;*/
+        max-width: 100%;  
+}
+
+
+</style>
+
+
+
+<div ng-controller="EmpBirthdayController"  class="container">
+
+   <div class="panel panel-info" >
+
+            <div class="panel-heading"   id="heading" >
+
+
+            </div>
+ 
+         
+
+
+   <div class="panel-body">
+
+
+     
+    
+      <div class="row" > 
+
+   
+        
+  <div class="col-xs-3" id="rowSearchData"   ng-repeat="EmployeeInfo in EmployeeInfoList| orderBy:'Name'" >
+   @*entrepreneurs*@
+      @*<img data-toggle="modal" data-target="{{'#' + EmployeeInfo.RegId+'ModalShowImageSlide'}}"   ng-src="../images/album/blank-picture.png"  class="card-img-top img-rounded img-responsive" style="margin:0 auto;" alt="User Profile Image" width="256" height="256">*@ 
+        <img check-image ng-src="../images/users/{{EmployeeInfo.RegId}}.png"  class="card-img-top img-circle img-responsive" style="margin:0 auto;" alt="User Profile Image" width="150" height="150"> 
+     
+           <h5><span style="padding-left:10px;">{{EmployeeInfo.Name}}</span></h5>   
+                            <i class="glyphicon glyphicon-home"></i><span style="padding-left:20px">{{EmployeeInfo.ComID}}</span>      
+                              <br />               @*, {{EmployeeInfo.Section}}*@
+                            <i class="glyphicon glyphicon-map-marker"></i><span style="padding-left:20px">{{EmployeeInfo.Department}}</span>
+                             <br />
+                            <i class="glyphicon glyphicon-user"></i><span style="padding-left:20px">{{EmployeeInfo.EmployeeCode}}</span>
+                            <br />
+                            <i class="glyphicon glyphicon-education"></i><span style="padding-left:20px">{{EmployeeInfo.Designation}}</span>
+                            <br />
+                            <i class="glyphicon glyphicon-phone"></i><span style="padding-left:20px">{{EmployeeInfo.MobileNoPerson}}</span>
+                             <br />
+                            <i class="glyphicon glyphicon-phone-alt"></i><span style="padding-left:20px">{{EmployeeInfo.PhoneExt}}</span>
+                             <br />
+                            <i class="glyphicon glyphicon-plus"></i><span style="padding-left:20px">{{EmployeeInfo.JoiningDate.slice(6,-2)|date:'dd-MM-yyyy'}}</span>
+                   <br />
+                            <i class="glyphicon glyphicon-envelope" style="color:#ffd800;cursor: pointer; "  ng-click="mailtoPerson(EmployeeInfo.EmailID)"></i><span style="padding-left:20px">{{EmployeeInfo.EmailID}}</span>
+            
+
+  </div>
+
+  
+        
+  </div>
+
+
+ @* row end*@
+  </div>
+
+
+
+ @* panel body end*@
+  </div>
+
+
+ 
+  @* panel end*@
+</div>
+    
+    
+    
+    @*controller end *@
+     </div>
+   
+    
+
+@section Scripts{
+<script src="~/Scripts/Controllers/EmpBirthdayController.js"></script>
+}
