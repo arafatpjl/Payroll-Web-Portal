@@ -1,0 +1,463 @@
+﻿@{
+    ViewBag.Title = "My Profile";
+}
+<style>
+       body{
+        margin-top:80px;       
+    }
+
+
+    input {
+        /*max-width:400px;*/
+    }
+    .error {
+        color: red;
+    }
+
+    #wgtmsr
+    {
+      width:200px;   
+    }
+</style>
+
+
+<div ng-controller="FabricController" class="container">
+
+    <div class="panel-footer modal_custom">
+
+        <div class="row">
+
+            <form novalidate name="f1" ng-submit="SaveData(Fabric)" >
+
+                <div class="col-md-4 col-sm-4">
+
+                    <div class="form-group">
+                        <label class="text text-info">Fabric Code: </label>
+                        <input type="text" class=" form-control" name="uFabricCode" ng-model="Fabric.FabricCode" placeholder="Enter Fabric Code" ng-class="submitted?'ng-dirty':''" required />
+                        <span class="error col-md-offset-2" ng-show="(f1.uFabricCode.$dirty || submitted) && f1.uFabricCode.$error.required">Fabric Code required!</span>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text text-info">PJL Code</label>
+
+                        <input type="text" class=" form-control" name="uPjlCode" ng-model="Fabric.PJLCode" placeholder="Enter PJL Code" ng-class="submitted?'ng-dirty':''" required />
+                        <span class="error col-md-offset-2" ng-show="(f1.uPjlCode.$dirty || submitted) && f1.uPjlCode.$error.required">PJL Code required!</span>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text text-info">Fabric. Mill : </label>
+
+                        <div class="input-group">
+                            <div custom-select="i as i.FabricMill for i in FabricMillList| filter: { FabricMill: $searchTerm }" ng-change="GetFabricMillID()" name="FMillID" ng-model="FabricMill" ng-class="submitted?'ng-dirty':''" required>
+
+                                <div class="row" id="custom-select">
+
+                                    <div class="col-sm-12">{{i.FabricMill}}</div>
+
+                                </div>
+
+                            </div>
+                            <span class="input-group-addon">
+                                <button type="button" data-toggle="modal" data-target="#ModelFabricMill">ADD</button>
+
+                            </span>
+                        </div>
+                        <span class="error col-md-offset-2" ng-show="(f1.FMillID.$dirty || submitted) && f1.FMillID.$error.required">Fabric Mill required!</span>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text text-info">Fabric Content : </label>
+
+                        <div class="input-group">
+                            <div custom-select="i as i.FABRICCONTENT for i in FabricContentList| filter: { FABRICCONTENT: $searchTerm }" ng-change="GetFabricContentID()" name="FcontentID" ng-model="FabricContent" ng-class="submitted?'ng-dirty':''" required>
+
+                                <div class="row" id="custom-select">
+
+                                    <div class="col-sm-8">{{i.FABRICCONTENT}}</div>
+
+                                </div>
+
+                            </div>
+                            <span class="input-group-addon">
+                                <button type="button" data-toggle="modal" data-target="#ModelFabricContent">ADD</button>
+
+                            </span>
+                        </div>
+                        <span class="error col-md-offset-2" ng-show="(f1.FcontentID.$dirty || submitted) && f1.FcontentID.$error.required">Fabric Content required!</span>
+
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label class="text text-info">Weight </label>
+                            <input type="text" ng-model="Fabric.Weight" class="form-control " name="uWeight" placeholder="Enter Weight" ng-class="submitted?'ng-dirty':''" required autofocus />
+                            <span class="error col-md-offset-2" ng-show="(f1.uWeight.$dirty || submitted) && f1.uWeight.$error.required">Weight required!</span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="text text-info">Unit </label>
+                            <select ng-model="WeightUnit" class="form-control" ng-options="I.name for I in  WeightUnitList" name="uWeightUnit" ng-class="submitted?'ng-dirty':''" required></select>
+                            <span class="error col-md-offset-2" ng-show="(f1.uWeightUnit.$dirty || submitted) && f1.uWeightUnit.$error.required">Unit required!</span>
+                        </div>
+                       @* <div class="form-group col-md-5">
+                            <label class="text text-info">Weight Type: </label>
+                            <input type="text" ng-model="Fabric.FabricConst" class="form-control " name="uFconst" placeholder="Enter Office Phone No" ng-class="submitted?'ng-dirty':''" required autofocus />
+                            <span class="error col-md-offset-2" ng-show="(f1.uFconst.$dirty || submitted) && f1.uFconst.$error.required">Fabric Const required!</span>
+
+                        </div>*@
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text text-info">Weight Type: </label>
+                        <input type="text" ng-model="Fabric.WeightType" class="form-control " name="uFType" placeholder="Enter Weight Type" ng-class="submitted?'ng-dirty':''" required autofocus />
+                        <span class="error col-md-offset-2" ng-show="(f1.uFType.$dirty || submitted) && f1.uFType.$error.required">Fabric Const required!</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="text text-info">Fabric Const: </label>
+                        <input type="text" ng-model="Fabric.FabricConst" class="form-control " name="uFconst" placeholder="Enter Fabric Const" ng-class="submitted?'ng-dirty':''" required autofocus />
+                        <span class="error col-md-offset-2" ng-show="(f1.uFconst.$dirty || submitted) && f1.uFconst.$error.required">Fabric Const required!</span>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 col-sm-4">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label class="text text-info">Width </label>
+                            <input type="text" ng-model="Fabric.Width" class="form-control " name="uWidth" placeholder="Enter Width" ng-class="submitted?'ng-dirty':''" required autofocus />
+                            <span class="error col-md-offset-2" ng-show="(f1.uWidth.$dirty || submitted) && f1.uWidth.$error.required">Fabric Width required!</span>
+
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="text text-info">Unit </label>
+                            <select ng-model="WidthUnit" class="form-control" ng-options="I.name for I in  WidthUnitList" name="uWidthUnit" ng-class="submitted?'ng-dirty':''" required></select>
+                            <span class="error col-md-offset-2" ng-show="(f1.uWidthUnit.$dirty || submitted) && f1.uWidthUnit.$error.required">Fabric Unit required!</span>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text text-info">Colour : </label>
+
+                        <div class="input-group">
+                            <div custom-select="i as i.FabricColour for i in FabricColourList| filter: { FabricColour: $searchTerm }" ng-change="GetFabricColourID()" name="uColour" ng-model="FabricColour" ng-class="submitted?'ng-dirty':''" required>
+
+                                <div class="row" id="custom-select">
+
+                                    <div class="col-sm-12">{{i.FabricColour}}</div>
+
+                                </div>
+
+                            </div>
+                            <span class="input-group-addon">
+                                <button type="button" data-toggle="modal" data-target="#ModelColour">ADD</button>
+
+                            </span>
+                        </div>
+                        <span class="error col-md-offset-2" ng-show="(f1.uColour.$dirty || submitted) && f1.uColour.$error.required">Fabric Colour required!</span>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text text-info">Fabric Type: </label>
+
+                        <div class="input-group">
+                            <div custom-select="i as i.FabricType for i in FabricTypeList| filter: { FabricType: $searchTerm }" ng-change="GetFabricTypeID()" name="uType" ng-model="FabricType" ng-class="submitted?'ng-dirty':''" required>
+
+                                <div class="row" id="custom-select">
+
+                                    <div class="col-sm-12">{{i.FabricType}}</div>
+
+                                </div>
+
+                            </div>
+                            <span class="input-group-addon">
+                                <button type="button" data-toggle="modal" data-target="#ModelFabricType">ADD</button>
+
+                            </span>
+                        </div>
+                        <span class="error col-md-offset-2" ng-show="(f1.uType.$dirty || submitted) && f1.uType.$error.required">Fabric Type required!</span>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="text text-info">Fabric Finish : </label>
+                        <input type="text" ng-model="Fabric.FabricFinish" class="form-control " name="ufFinish" placeholder="Enter Fabric Finish" ng-class="submitted?'ng-dirty':''" required autofocus />
+                        <span class="error col-md-offset-2" ng-show="(f1.ufFinish.$dirty || submitted) && f1.ufFinish.$error.required">Fabric Finish required!</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text text-info">Weave : </label>
+
+                        <div class="input-group">
+                            <div custom-select="i as i.FabricWave for i in FabricWaveList| filter: { FabricWave: $searchTerm }" ng-change="GetFabricWeaveID()" name="uFWave" ng-model="FabricWeave" ng-class="submitted?'ng-dirty':''" required>
+
+                                <div class="row" id="custom-select">
+
+                                    <div class="col-sm-12">{{i.FabricWave}}</div>
+
+                                </div>
+
+                            </div>
+                            <span class="input-group-addon">
+                                <button type="button" data-toggle="modal" data-target="#ModelWeabe">ADD</button>
+
+                            </span>
+                        </div>
+                        <span class="error col-md-offset-2" ng-show="(f1.uFWave.$dirty || submitted) && f1.uFWave.$error.required">Fabric Wave required!</span>
+
+                    </div>
+
+                  @*  <div class="form-group">
+                        <label class="text text-info">Price     : </label>
+                        <input type="text" class=" form-control" name="uPrice" ng-model="Fabric.Price" placeholder="Enter Price" ng-class="submitted?'ng-dirty':''" required />
+
+                        <span class="error col-md-offset-2" ng-show="(f1.uPrice.$dirty || submitted) && f1.uPrice.$error.required">Fabric Wave required!</span>
+
+                    </div>*@
+
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label class="text text-info">Price </label>
+                            <input type="text" class=" form-control" name="uPrice" ng-model="Fabric.Price" placeholder="Enter Price" ng-class="submitted?'ng-dirty':''" required />
+                            <span class="error col-md-offset-2" ng-show="(f1.uPrice.$dirty || submitted) && f1.uPrice.$error.required">Fabric Price required!</span>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="text text-info">Unit </label>
+                            <select ng-model="PriceUnit" class="form-control" ng-options="I.name for I in  PriceUnitList" name="uPriceUnit" ng-class="submitted?'ng-dirty':''" required></select>
+                            <span class="error col-md-offset-2" ng-show="(f1.uPriceUnit.$dirty || submitted) && f1.uPriceUnit.$error.required">Unit required!</span>
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text text-info">Price Type : </label>
+                        <input type="text" ng-model="Fabric.PriceType" class="form-control " name="uPriceType" ng-class="submitted?'ng-dirty':''" required autofocus />
+                        <span class="error col-md-offset-2" ng-show="(f1.ufFinish.$dirty || submitted) && f1.ufFinish.$error.required">Fabric Finish required!</span>
+                    </div>
+
+
+
+
+                </div>
+
+                <div class="col-md-4 col-sm-4">
+
+                    <div class="form-group">
+                        <label class="text text-info">Remarks     : </label>
+                        <input type="text" class=" form-control" name="uRemarks" ng-model="Fabric.Remarks" placeholder="Enter Remarks" ng-class="submitted?'ng-dirty':''" required />
+
+                       <span class="error col-md-offset-2" ng-show="(f1.uRemarks.$dirty || submitted) && f1.uRemarks.$error.required">Remarks required!</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="text text-info">CNF/Fob price     : </label>
+                        <input type="text" class=" form-control" name="uCNF" ng-model="Fabric.CNFPrice" placeholder="Enter CNF/Fob price" ng-class="submitted?'ng-dirty':''" required />
+
+                        <span class="error col-md-offset-2" ng-show="(f1.uCNF.$dirty || submitted) && f1.uCNF.$error.required">CNF/Fob price required!</span>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text text-info">Shrinkage (Warp)     : </label>
+                        <input type="text" class=" form-control" name="uWarp" ng-model="Fabric.Fabricwarp" placeholder="Enter Fabric Warp" ng-class="submitted?'ng-dirty':''" required />
+
+                        <span class="error col-md-offset-2" ng-show="(f1.uYard.$dirty || submitted) && f1.uYard.$error.required">Fabric yard required!</span>
+
+                    </div>
+
+                     <div class="form-group">
+                        <label class="text text-info">Shrinkage (Waft)     : </label>
+                        <input type="text" class=" form-control" name="uWaft" ng-model="Fabric.Fabricwaft" placeholder="Enter Fabric Waft" ng-class="submitted?'ng-dirty':''" required />
+
+                        <span class="error col-md-offset-2" ng-show="(f1.uYard.$dirty || submitted) && f1.uYard.$error.required">Fabric yard required!</span>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text text-info"></label>
+                        <input type="submit" class="btn btn-primary col-md-offset-2" value="{{submitText}}" />
+
+                    </div>
+
+                </div>
+                 </form>
+
+                @*==============================================  All Model *@
+            <form novalidate name="f2" ng-submit="SavenewMill(New)" style="padding: 10px 10px 10px 30px;">
+
+                <div class="modal fade" id="ModelFabricMill" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="col-sm-10 col-sm-offset-3">
+                            <div class="panel panel-info">
+
+                                <div class="panel-heading" style="text-align: center">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    Fabric Mill Entry
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label class="text text-info">Fabric Mill : </label>
+
+                                        <input type="text" ng-model="New.FabricMill" class="form-control" name="Mill" placeholder="Enter New Mill" ng-class="submitted2?'ng-dirty':''" required />
+                                        <span class="error col-md-offset-2" ng-show="(f2.Mill.$dirty || submitted2) && f2.Mill.$error.required">Mill require</span>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="text-center">
+                                        <input type="submit" class="btn btn-primary col-md-offset-2" value="{{submitText2}}" />
+                                        @*<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>*@
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form novalidate name="f3" ng-submit="SavenewContent(New)" style="padding: 10px 10px 10px 30px;">
+                <div class="modal fade" id="ModelFabricContent" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="col-sm-10 col-sm-offset-3">
+                            <div class="panel panel-info">
+
+                                <div class="panel-heading" style="text-align: center">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    Fabric Content Entry
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label class="text text-info">Fabric Content : </label>
+
+                                        <input type="text" ng-model="New.FABRICCONTENT" class="form-control" name="Content" placeholder="Enter New Content" ng-class="submitted3?'ng-dirty':''" required />
+                                        <span class="error col-md-offset-2" ng-show="(f3.Content.$dirty || submitted3) && f3.Content.$error.required">Content require</span>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="text-center">
+                                        <input type="submit" class="btn btn-primary col-md-offset-2" value="{{submitText3}}" />
+                                        @*<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>*@
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form novalidate name="f4" ng-submit="SavenewColour(New)" style="padding: 10px 10px 10px 30px;">
+                <div class="modal fade" id="ModelColour" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="col-sm-10 col-sm-offset-3">
+                            <div class="panel panel-info">
+
+                                <div class="panel-heading" style="text-align: center">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    Colour Entry
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label class="text text-info">Colour Name : </label>
+
+                                        <input type="text" ng-model="New.FabricColour" class="form-control" name="Colour" placeholder="Enter New Colour" ng-class="submitted4?'ng-dirty':''" required />
+                                        <span class="error col-md-offset-2" ng-show="(f4.Colour.$dirty || submitted4) && f4.Colour.$error.required">Colour require</span>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="text-center">
+                                       <input type="submit" class="btn btn-primary col-md-offset-2" value="{{submitText4}}" />
+                                        @*<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>*@
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                </form>
+            <form novalidate name="f5" ng-submit="SavenewType(New)" style="padding: 10px 10px 10px 30px;">
+                <div class="modal fade" id="ModelFabricType" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="col-sm-10 col-sm-offset-3">
+                            <div class="panel panel-info">
+
+                                <div class="panel-heading" style="text-align: center">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    Fabric Type Entry
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label class="text text-info">Fabric Type : </label>
+
+                                        <input type="text" ng-model="New.FabricType" class="form-control" name="Type" placeholder="Enter New Type" ng-class="submitted5?'ng-dirty':''" required/>
+                                        <span class="error col-md-offset-2" ng-show="(f5.Type.$dirty || submitted5) && f5.Type.$error.required">Type require</span>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="text-center">
+                                        <input type="submit" class="btn btn-primary col-md-offset-2" value="{{submitText5}}" />
+                                        @*<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>*@
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                </form>
+              <form novalidate name="f6" ng-submit="SavenewWeave(New)" style="padding: 10px 10px 10px 30px;">
+
+                <div class="modal fade" id="ModelWeabe" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="col-sm-10 col-sm-offset-3">
+                            <div class="panel panel-info">
+
+                                <div class="panel-heading" style="text-align: center">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    Weave Entry
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label class="text text-info">Weave Name : </label>
+
+                                        <input type="text" ng-model="New.FabricWave" class="form-control" name="Weave" placeholder="Enter New Weave" ng-class="submitted6?'ng-dirty':''" required/>
+                                        <span class="error col-md-offset-2" ng-show="(f6.Weave.$dirty || submitted6) && f6.Weave.$error.required">Weave require</span>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="text-center">
+                                        <input type="submit" class="btn btn-primary col-md-offset-2" value="{{submitText6}}" />
+                                        @*<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>*@
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+           </form>
+
+        </div>
+
+    </div>
+</div>
+
+@section Scripts{
+<script src="~/Scripts/Controllers/FabricController.js"></script>
+}
