@@ -1,0 +1,210 @@
+﻿@{
+    ViewBag.Title = "Job Card Detail";
+}
+
+
+
+<style>
+    html {
+        /*width: 21cm;
+        height: 29.7cm;
+        overflow: scroll;*/
+        }
+
+      body {
+            background: rgb(204,204,204);
+            }
+
+page[size="A4"] {
+  background: white;
+  width: 21cm;
+  height: 29.7cm;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+   padding-left:10px;
+}
+@@media print {
+  body, page[size="A4"] {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+
+
+    #Report_table {
+        font-size: 11px;
+/*text-align:center;*/
+/*white-space: nowrap;*/ 
+    }
+
+#Report_table >tbody>tr>td{
+  height:20px;
+  padding:0px;
+  border-top: 0px;
+
+  padding-left:5px;
+}
+
+
+
+
+.row.vdivide [class*='col-']:not(:last-child):after {
+  background: #e0e0e0;
+  width: 1px;
+  content: "";
+  display:block;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  right: 0;
+  min-height: 70px;
+ 
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+    display: none !important;
+}
+
+</style>
+
+
+
+    <div ng-controller="JobCardDetailController" style="height:23cm; width:100%; overflow:auto;"  ng-cloak>
+               
+          <page size="A4">
+
+                
+           <div class="row vdivide" >
+                    <div class="text-center" >
+
+                  <h4> JOB CARD FOR THE MONTH OF {{monthName}}-{{JobCardParameter.Year}} </h4>
+                    </div>
+          </div>
+
+        <hr>
+
+
+          <div class="row vdivide">
+            <div class="col-sm-6" >
+
+                 <p> EMP CODE :  <span><strong>{{EmployeeDetail.EmployeeCode}}</strong> </span> </p>
+                                <p> Name : <span><strong>{{EmployeeDetail.Name}}</strong> </span> </p>
+                                <p> Department :  <span><strong>{{EmployeeDetail.Department}}</strong> </span> </p>
+                                <p> Section : <span><strong>{{EmployeeDetail.Section}}</strong> </span> </p>
+                                <p> Designation :  <span><strong>{{EmployeeDetail.Designation}}</strong> </span> </p> 
+
+            </div>
+            <div class="col-sm-6 text-center">
+
+                 <span class="label label-info">Job Card Summary</span>
+
+                             <table  id="Report_table" class="table table-striped">
+
+                                <tr ng-repeat="(key, value) in GetJobCardDetail | groupBy: 'Status'" >
+                               
+                                         <td>
+                                        {{ key }} 
+                                        </td>
+
+                                        <td>
+                                        {{value.length}}
+                                        </td>
+
+                                </tr>
+                </table>
+            </div>
+          </div>
+
+
+
+
+
+  <div class="row vdivide">
+    
+       <div class="col-sm-12" >
+            <span class="label label-info">Job Card</span>
+                          
+
+
+        <table  id="Report_table" class="table table-striped">
+
+           <thead>
+                <tr>
+                    <th>
+                        Date
+                    </th>
+
+                    <th>
+                        In
+                    </th>
+                    <th>
+                        Late
+                    </th>
+                    <th>
+                        Out
+                    </th>
+                    <th>
+                        DailyHrs
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Shift
+                    </th>
+                    <th>
+                        Trans. Allow
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+              
+                <tr ng-repeat="i in GetJobCardDetail" >
+                     <td>{{i.prDate.slice(6,-2)|date:'dd-MM-yyyy'}}</td> 
+                    <td>{{i.TimeIn}}</td> 
+                     <td>{{i.LateHrs}}</td>                     
+                    <td>{{i.TimeOut}}</td>
+                    <td>{{i.DailyHrs}}</td>
+                    <td>{{i.Status}}</td>
+                    <td>{{i.Shift}}</td>
+                     <td>{{i.TransAllow}}</td>
+                </tr>
+            </tbody>
+        </table>
+  </div>
+        </div>
+<hr>
+
+
+
+                
+                  <div role="separator" class="divider"></div>
+                    <div class="col-xs-3">
+
+                    </div>
+
+                </div>
+
+
+                    
+
+            
+
+
+
+
+           
+          
+
+
+        </page>
+
+
+    </div>
+    
+      
+
+@section Scripts{
+<script src="~/Scripts/Controllers/JobCardDetailController.js"></script>
+}
