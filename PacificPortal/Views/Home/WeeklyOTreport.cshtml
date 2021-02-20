@@ -1,0 +1,205 @@
+﻿@{
+    ViewBag.Title = "Weekly OT Report";
+}
+<style>
+
+
+    body{
+        margin-top:80px;       
+    }
+
+
+    input {
+        /*max-width:400px;*/
+    }
+    .error {
+        color: red;
+    }
+
+
+
+
+</style>
+
+
+    <div ng-controller="WeeklyOTReportController" class="container">
+
+
+             <div class="panel-footer modal_custom">
+
+
+
+                <div class="row">
+
+
+        <div class="col-md-4 col-sm-6" >
+             
+             <form novalidate name="f1" ng-submit="showOTCard(data)"> 
+
+             <div class="form-group">
+                <div class="input-daterange input-group">
+
+                   <span class="input-group-addon">From Date :</span>
+
+                      <div class="input-group date"  id="FromDate" ng-model="FromDate"  ng-blur="Weekly_Summary_search()" ng-model-options='{ debounce: 1000 }' date-picker>
+                           <input type="text" class="form-control" name="FromDate"  ng-model="FromDate"   ng-blur="Weekly_Summary_search()" ng-change="Weekly_Summary_search()" ng-model-options='{ debounce: 1000 }' date-picker-input>
+                             <span class="input-group-addon">
+                             <span class="glyphicon glyphicon-calendar"></span>                             
+                             </span>
+                       </div>
+                </div>
+            </div>
+
+                 <div class="form-group">
+                     <div class="input-daterange input-group">
+
+                         <span class="input-group-addon">To  Date :</span>
+
+                         <div class="input-group date" id="ToDate" ng-model="ToDate" ng-blur="Weekly_Summary_search()" ng-model-options='{ debounce: 1000 }' date-picker>
+                             <input type="text" class="form-control" name="ToDate" ng-model="ToDate" ng-blur="Weekly_Summary_search()" ng-change="Weekly_Summary_search()" ng-model-options='{ debounce: 1000 }' date-picker-input>
+                             <span class="input-group-addon">
+                                 <span class="glyphicon glyphicon-calendar"></span>
+                             </span>
+                         </div>
+                     </div>
+
+                 </div>
+
+
+           <div class="form-group">
+                <label class="text text-info">Unit : </label>
+                 <select ng-model="Company" class="form-control"  name="ComID" ng-options="I.Name for I in CompanyList | filter:{ID:ComID}:containsComparator" ng-change="Weekly_Summary_search()" ng-class="submitted?'ng-dirty':''" required >
+                   <option value="">Select Unit</option>
+                </select>
+            </div>
+
+          
+
+
+      
+
+                 
+           <div class="text-center"> 
+                 <input type="submit" class="btn btn-primary" value="{{submitText}}" />
+            </div>
+
+
+                
+               
+
+             @* <div class="text-center"> 
+                <input type="submit" class="btn btn-primary" value="{{submitText}}" />
+            </div>*@
+          
+
+  </form>
+
+            
+   </div>
+
+           <div class="col-md-8 col-sm-6" >
+               
+                      
+              
+               <div class="panel with-nav-tabs panel-info">
+                <div class="panel-body">
+
+                     <div style="overflow-y: scroll;  max-height:400px; ">
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="tab1primary">
+                     
+  <table  id="Report_table" class="table">
+    
+           <thead>
+        <tr>
+            <th>Department</th>
+            <th>Emp</th>
+            <th>Emp(60)</th> 
+            
+            <th>Emp(66)</th> 
+                    
+            <th>Emp(72)</th>
+           
+            <th>Emp(80)</th> 
+                       
+            <th>Emp(100)</th>
+            
+            <th>Emp(100+)</th> 
+                      
+            <th>Emp(Friday)</th>
+           
+            <th>AVGBuyerwork</th>            
+            <th>AVGwork</th>
+            <th>MaxWork</th>
+                        
+        </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="r in EmpOTWeeklySummaryList| orderBy :['DEPARTMENT'] as results_ApproveSummaryList " >
+           
+
+             <td>{{r.DEPARTMENT}}</td>
+             <td>{{r.EMP}}</td>
+             <td>{{r.EMP60}}</td>
+             @*<td>{{r.Percantage60}}</td>*@
+             <td>{{r.EMP66}}</td>
+             @*<td>{{r.Percantage66}}</td>*@
+             <td>{{r.EMP72}}</td>
+             @*<td>{{r.Percantage72}}</td>*@
+             <td>{{r.EMP80}}</td>
+             @*<td>{{r.Percantage80}}</td>*@
+             <td>{{r.EMP100}}</td>
+             @*<td>{{r.Percantage100}}</td>*@
+             <td>{{r.EMP100Plus}}</td>
+             @*<td>{{r.Percantage100Plus}}</td>*@
+             <td>{{r.Friday_Work}}</td>
+             @*<td>{{r.PercantageFwork}}</td>*@
+             <td>{{r.AVGBuyerWorkHr}}</td>
+             <td>{{r.AVGWorkHr}}</td>
+             <td>{{r.MaxWorkHr}}</td>
+          
+
+             
+
+           
+
+
+         
+          </tr>
+    </tbody>
+</table>
+
+                      
+                        </div>
+                     
+                        
+                    </div>
+                </div>
+       
+         </div>
+
+
+                
+      </div>
+
+               
+        
+        
+
+   </div>
+
+ 
+
+
+
+
+ </div>
+       
+     
+    </div>
+      
+
+@section Scripts{
+<script src="~/Scripts/Controllers/WeeklyOTReportController.js"></script>
+}
