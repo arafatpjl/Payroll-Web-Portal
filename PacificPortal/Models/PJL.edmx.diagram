@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fb18dec1a9c042938a7f295df04202a5" Name="Diagram1" ZoomLevel="54">
+        <EntityTypeShape EntityType="DatabasefileModel.Company_Information" Width="1.5" PointX="4.125" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblUser_Registration" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblUser_LogInfo" Width="1.5" PointX="5.875" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblEmpAttenApp" Width="1.5" PointX="7.75" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblMenu" Width="1.5" PointX="9.625" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblBusSchedule" Width="1.5" PointX="11.375" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblNotice" Width="1.5" PointX="13" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblAlbum" Width="1.5" PointX="14.625" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblAlbumGroup" Width="1.5" PointX="16.25" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblDeptSec" Width="1.5" PointX="1" PointY="10.875" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblUserDeptSecPermission" Width="1.5" PointX="2.25" PointY="0.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblEmpLeaveApp" Width="1.5" PointX="0.5" PointY="6.125" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblOTStatus" Width="1.5" PointX="4.75" PointY="7.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblEmpOTApprovePermission" Width="1.5" PointX="3.125" PointY="11" />
+        <EntityTypeShape EntityType="DatabasefileModel.TblFabricColour" Width="1.5" PointX="12.375" PointY="6.625" />
+        <EntityTypeShape EntityType="DatabasefileModel.TblFabricContent" Width="1.5" PointX="10.625" PointY="8.375" />
+        <EntityTypeShape EntityType="DatabasefileModel.TblFabricMill" Width="1.5" PointX="14.625" PointY="6.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.TblFabricType" Width="1.5" PointX="13.875" PointY="4.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.TblFabricWave" Width="1.5" PointX="10.375" PointY="6.5" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblFabricInfo" Width="1.5" PointX="7.75" PointY="5.875" />
+        <EntityTypeShape EntityType="DatabasefileModel.tblEmpOTRequ" Width="1.5" PointX="0.58165720877314786" PointY="31.119214355535441" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
