@@ -1,0 +1,2162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DatabasefileModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DatabasefileModelStoreContainer">
+          <EntitySet Name="Company_Information" EntityType="DatabasefileModel.Store.Company_Information" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblAlbum" EntityType="DatabasefileModel.Store.tblAlbum" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblAlbumGroup" EntityType="DatabasefileModel.Store.tblAlbumGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblBusSchedule" EntityType="DatabasefileModel.Store.tblBusSchedule" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblDeptSec" EntityType="DatabasefileModel.Store.tblDeptSec" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblEmpAttenApp" EntityType="DatabasefileModel.Store.tblEmpAttenApp" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblEmpLeaveApp" EntityType="DatabasefileModel.Store.tblEmpLeaveApp" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblEmpOTApprovePermission" EntityType="DatabasefileModel.Store.tblEmpOTApprovePermission" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblEmpOTRequ" EntityType="DatabasefileModel.Store.tblEmpOTRequ" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblFabricColour" EntityType="DatabasefileModel.Store.TblFabricColour" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblFabricContent" EntityType="DatabasefileModel.Store.TblFabricContent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblFabricInfo" EntityType="DatabasefileModel.Store.tblFabricInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblFabricMill" EntityType="DatabasefileModel.Store.TblFabricMill" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblFabricType" EntityType="DatabasefileModel.Store.TblFabricType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblFabricWave" EntityType="DatabasefileModel.Store.TblFabricWave" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblMenu" EntityType="DatabasefileModel.Store.tblMenu" store:Type="Tables" store:Schema="dbo" store:Name="tblMenu">
+            <DefiningQuery>SELECT 
+      [tblMenu].[ID] AS [ID], 
+      [tblMenu].[Main_Menu_Id] AS [Main_Menu_Id], 
+      [tblMenu].[Menu_Name] AS [Menu_Name], 
+      [tblMenu].[Menu_URL] AS [Menu_URL], 
+      [tblMenu].[Menu_Icon] AS [Menu_Icon], 
+      [tblMenu].[YsnActive] AS [YsnActive]
+      FROM [dbo].[tblMenu] AS [tblMenu]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblNotice" EntityType="DatabasefileModel.Store.tblNotice" store:Type="Tables" store:Schema="dbo" store:Name="tblNotice">
+            <DefiningQuery>SELECT 
+      [tblNotice].[ID] AS [ID], 
+      [tblNotice].[Title] AS [Title], 
+      [tblNotice].[PublishDate] AS [PublishDate], 
+      [tblNotice].[URL] AS [URL], 
+      [tblNotice].[YSNActive] AS [YSNActive], 
+      [tblNotice].[Created_date] AS [Created_date], 
+      [tblNotice].[Created_By] AS [Created_By], 
+      [tblNotice].[Updated_date] AS [Updated_date], 
+      [tblNotice].[Updated_by] AS [Updated_by]
+      FROM [dbo].[tblNotice] AS [tblNotice]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblOTStatus" EntityType="DatabasefileModel.Store.tblOTStatus" store:Type="Tables" store:Schema="dbo" store:Name="tblOTStatus">
+            <DefiningQuery>SELECT 
+      [tblOTStatus].[ID] AS [ID], 
+      [tblOTStatus].[RequeType] AS [RequeType], 
+      [tblOTStatus].[Sign] AS [Sign]
+      FROM [dbo].[tblOTStatus] AS [tblOTStatus]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblUser_LogInfo" EntityType="DatabasefileModel.Store.tblUser_LogInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblUser_Registration" EntityType="DatabasefileModel.Store.tblUser_Registration" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblUserDeptSecPermission" EntityType="DatabasefileModel.Store.tblUserDeptSecPermission" store:Type="Tables" store:Schema="dbo" store:Name="tblUserDeptSecPermission">
+            <DefiningQuery>SELECT 
+      [tblUserDeptSecPermission].[ID] AS [ID], 
+      [tblUserDeptSecPermission].[RegId] AS [RegId], 
+      [tblUserDeptSecPermission].[OTReq] AS [OTReq], 
+      [tblUserDeptSecPermission].[HRApprove] AS [HRApprove], 
+      [tblUserDeptSecPermission].[YsnActive] AS [YsnActive], 
+      [tblUserDeptSecPermission].[Created_date] AS [Created_date], 
+      [tblUserDeptSecPermission].[Created_By] AS [Created_By], 
+      [tblUserDeptSecPermission].[Updated_date] AS [Updated_date], 
+      [tblUserDeptSecPermission].[Updated_by] AS [Updated_by]
+      FROM [dbo].[tblUserDeptSecPermission] AS [tblUserDeptSecPermission]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <EntityType Name="Company_Information">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="tinyint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="15" />
+          <Property Name="Basic" Type="real" />
+          <Property Name="BasicM" Type="bit" Nullable="false" />
+          <Property Name="HRent" Type="real" />
+          <Property Name="WBASIC" Type="real" />
+          <Property Name="WHRent" Type="real" />
+          <Property Name="HRentM" Type="bit" Nullable="false" />
+          <Property Name="FoodPay" Type="real" />
+          <Property Name="FoodPayM" Type="bit" Nullable="false" />
+          <Property Name="Bonus" Type="real" />
+          <Property Name="BonusM" Type="bit" Nullable="false" />
+          <Property Name="PFund" Type="real" />
+          <Property Name="PFundM" Type="bit" Nullable="false" />
+          <Property Name="NZN" Type="bit" Nullable="false" />
+          <Property Name="Medical" Type="real" />
+          <Property Name="WMedical" Type="real" />
+          <Property Name="NameBangla" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddressBangla" Type="varchar" MaxLength="100" />
+          <Property Name="SignedBy" Type="varchar" MaxLength="50" />
+          <Property Name="EmpImageLocation" Type="varchar" MaxLength="100" />
+          <Property Name="ServerName" Type="varchar" MaxLength="20" />
+          <Property Name="DBName" Type="varchar" MaxLength="20" />
+          <Property Name="DBPrefix" Type="varchar" MaxLength="25" />
+          <Property Name="IsClose" Type="tinyint" Nullable="false" />
+          <Property Name="ReportPath" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblAlbum">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="SnapDate" Type="datetime" />
+          <Property Name="URL" Type="nvarchar(max)" />
+          <Property Name="TemplateImage" Type="nvarchar" MaxLength="50" />
+          <Property Name="YSNActive" Type="bit" Nullable="false" />
+          <Property Name="Created_date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblAlbumGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AlbumID" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SecurityCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="YSNActive" Type="bit" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Created_By" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblBusSchedule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="date" />
+          <Property Name="StartTime" Type="time" />
+          <Property Name="RoadName" Type="nvarchar" MaxLength="500" />
+          <Property Name="RoadDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="StartingPoint" Type="nvarchar" MaxLength="50" />
+          <Property Name="Destination" Type="nvarchar" MaxLength="50" />
+          <Property Name="VehicleNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="VehicleType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Driver" Type="nvarchar" MaxLength="50" />
+          <Property Name="PassengerCapacity" Type="int" />
+          <Property Name="Wstatus" Type="nchar" MaxLength="10" />
+          <Property Name="Publish" Type="bit" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Created_By" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblDeptSec">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ComID" Type="int" Nullable="false" />
+          <Property Name="DeptName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SubDeptName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblEmpAttenApp">
+          <Key>
+            <PropertyRef Name="RegId" />
+            <PropertyRef Name="prDate" />
+          </Key>
+          <Property Name="RegId" Type="int" Nullable="false" />
+          <Property Name="AppliedDate" Type="datetime" Nullable="false" />
+          <Property Name="prDate" Type="date" Nullable="false" />
+          <Property Name="TimeIn" Type="varchar" MaxLength="5" />
+          <Property Name="LateHrs" Type="varchar" MaxLength="5" />
+          <Property Name="TimeOut" Type="varchar" MaxLength="5" />
+          <Property Name="DailyHrs" Type="varchar" MaxLength="5" />
+          <Property Name="ValidOT" Type="varchar" MaxLength="5" />
+          <Property Name="RestOT" Type="varchar" MaxLength="5" />
+          <Property Name="ExtraOT" Type="varchar" MaxLength="5" />
+          <Property Name="Status" Type="varchar" MaxLength="10" />
+          <Property Name="Shift" Type="varchar" MaxLength="50" />
+          <Property Name="TransAllow" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Reasons" Type="nvarchar" MaxLength="250" />
+          <Property Name="Process" Type="bit" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Created_By" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblEmpLeaveApp">
+          <Key>
+            <PropertyRef Name="RegId" />
+            <PropertyRef Name="AppliedDate" />
+          </Key>
+          <Property Name="RegId" Type="int" Nullable="false" />
+          <Property Name="AppliedDate" Type="datetime" Nullable="false" />
+          <Property Name="RequestTo" Type="int" Nullable="false" />
+          <Property Name="ActingPerson" Type="int" Nullable="false" />
+          <Property Name="LType" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="LDays" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="FrDate" Type="date" Nullable="false" />
+          <Property Name="ToDate" Type="date" Nullable="false" />
+          <Property Name="Reasons" Type="nvarchar" MaxLength="550" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="StatusReasons" Type="nvarchar" MaxLength="250" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Created_By" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblEmpOTApprovePermission">
+          <Key>
+            <PropertyRef Name="RegId" />
+          </Key>
+          <Property Name="ID" Type="int" />
+          <Property Name="RegId" Type="int" Nullable="false" />
+          <Property Name="ComID" Type="int" Nullable="false" />
+          <Property Name="EmpInfo" Type="nvarchar" MaxLength="500" />
+          <Property Name="EmailID" Type="varchar" MaxLength="50" />
+          <Property Name="PublishActive" Type="bit" />
+          <Property Name="YsnActive" Type="bit" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Created_By" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblEmpOTRequ">
+          <Key>
+            <PropertyRef Name="ComID" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="EmpCode" />
+          </Key>
+          <Property Name="ComID" Type="bigint" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="EmpCode" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="RequestOT" Type="nvarchar" MaxLength="10" />
+          <Property Name="OTRequ" Type="nvarchar" MaxLength="10" />
+          <Property Name="Reasons" Type="nvarchar" MaxLength="550" />
+          <Property Name="Approved" Type="bit" />
+          <Property Name="IsLock" Type="bit" />
+          <Property Name="EditReason" Type="nvarchar" MaxLength="550" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Created_By" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblFabricColour">
+          <Key>
+            <PropertyRef Name="Idno" />
+          </Key>
+          <Property Name="Idno" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FabricColour" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="TblFabricContent">
+          <Key>
+            <PropertyRef Name="Idno" />
+          </Key>
+          <Property Name="Idno" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FABRICCONTENT" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tblFabricInfo">
+          <Key>
+            <PropertyRef Name="PJLCode" />
+          </Key>
+          <Property Name="Slno" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FabricCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="PJLCode" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="MillID" Type="int" Nullable="false" />
+          <Property Name="ContentID" Type="int" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+          <Property Name="WeightUnit" Type="nvarchar" MaxLength="50" />
+          <Property Name="WeightType" Type="nvarchar" MaxLength="250" />
+          <Property Name="FabricConst" Type="nvarchar" MaxLength="255" />
+          <Property Name="Width" Type="nvarchar" MaxLength="250" />
+          <Property Name="WidthUnit" Type="nvarchar" MaxLength="250" />
+          <Property Name="ColourID" Type="int" Nullable="false" />
+          <Property Name="FabricTypeID" Type="int" Nullable="false" />
+          <Property Name="WeaveID" Type="int" Nullable="false" />
+          <Property Name="FabricFinish" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="PriceUnit" Type="nvarchar" MaxLength="50" />
+          <Property Name="PriceType" Type="nvarchar" MaxLength="250" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+          <Property Name="CNFPrice" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fabricwarp" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fabricwaft" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Created_By" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblFabricMill">
+          <Key>
+            <PropertyRef Name="Idno" />
+          </Key>
+          <Property Name="Idno" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FabricMill" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="TblFabricType">
+          <Key>
+            <PropertyRef Name="Idno" />
+          </Key>
+          <Property Name="Idno" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FabricType" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="TblFabricWave">
+          <Key>
+            <PropertyRef Name="Idno" />
+          </Key>
+          <Property Name="Idno" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FabricWave" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_Web_Portal.dbo.tblMenu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="tblMenu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Main_Menu_Id" Type="varchar" MaxLength="50" />
+          <Property Name="Menu_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Menu_URL" Type="varchar" MaxLength="50" />
+          <Property Name="Menu_Icon" Type="varchar" MaxLength="50" />
+          <Property Name="YsnActive" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_Web_Portal.dbo.tblNotice' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="tblNotice">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="YSNActive" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="PublishDate" Type="datetime" />
+          <Property Name="URL" Type="nvarchar(max)" />
+          <Property Name="YSNActive" Type="bit" Nullable="false" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Created_By" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_Web_Portal.dbo.tblOTStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="tblOTStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Sign" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RequeType" Type="varchar" MaxLength="250" />
+          <Property Name="Sign" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblUser_LogInfo">
+          <Key>
+            <PropertyRef Name="RegId" />
+            <PropertyRef Name="login_time" />
+          </Key>
+          <Property Name="RegId" Type="int" Nullable="false" />
+          <Property Name="login_time" Type="datetime" Nullable="false" />
+          <Property Name="login_Mac" Type="varchar" MaxLength="200" />
+          <Property Name="logout__time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblUser_Registration">
+          <Key>
+            <PropertyRef Name="RegId" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RegId" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="500" />
+          <Property Name="DeptHead" Type="int" />
+          <Property Name="ReportSuper" Type="int" />
+          <Property Name="DateofBirth" Type="date" />
+          <Property Name="BloodGroup" Type="nvarchar" MaxLength="5" />
+          <Property Name="EmailID" Type="nvarchar" MaxLength="50" />
+          <Property Name="MobileNoPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="MobileNoHome" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneExt" Type="nvarchar" MaxLength="50" />
+          <Property Name="Picture" Type="nvarchar" MaxLength="50" />
+          <Property Name="Role" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Registerd" Type="bit" Nullable="false" />
+          <Property Name="YsnActive" Type="bit" Nullable="false" />
+          <Property Name="last_login_date" Type="datetime" />
+          <Property Name="last_login_Mac" Type="varchar" MaxLength="200" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Created_By" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_Web_Portal.dbo.tblUserDeptSecPermission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="tblUserDeptSecPermission">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="RegId" />
+            <PropertyRef Name="YsnActive" />
+            <PropertyRef Name="OTReq" />
+            <PropertyRef Name="HRApprove" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RegId" Type="int" Nullable="false" />
+          <Property Name="OTReq" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="HRApprove" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="YsnActive" Type="bit" Nullable="false" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Created_By" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="prc_CopyBusSchedule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDs" Type="varchar" Mode="In" />
+          <Parameter Name="ToDate" Type="date" Mode="In" />
+          <Parameter Name="Created_By" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="prc_EmployeeAttenApp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RegId" Type="varchar" Mode="In" />
+          <Parameter Name="Month" Type="int" Mode="In" />
+          <Parameter Name="Year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="prc_EmployeeAttenInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Month" Type="int" Mode="In" />
+          <Parameter Name="Year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="prc_EmployeeBirthDay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="prc_EmployeeInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="prc_EmployeeInfoByEmpCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompID" Type="varchar" Mode="In" />
+          <Parameter Name="EmpCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="prc_EmployeeInfoByRegID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RegID" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="prc_EmployeeInfoDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="prc_EmployeeJobCard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RegId" Type="varchar" Mode="In" />
+          <Parameter Name="Month" Type="int" Mode="In" />
+          <Parameter Name="Year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="prc_EmployeeLeaveApplication" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RegId" Type="int" Mode="In" />
+          <Parameter Name="AppliedDate" Type="datetime" Mode="In" />
+          <Parameter Name="RequestTo" Type="int" Mode="In" />
+          <Parameter Name="ActingPerson" Type="int" Mode="In" />
+          <Parameter Name="LType" Type="varchar" Mode="In" />
+          <Parameter Name="LDays" Type="decimal" Mode="In" />
+          <Parameter Name="FrDate" Type="date" Mode="In" />
+          <Parameter Name="ToDate" Type="date" Mode="In" />
+          <Parameter Name="Reasons" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="Created_date" Type="datetime" Mode="In" />
+          <Parameter Name="Created_By" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="prc_EmployeeLeaveEnjoyDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RegId" Type="varchar" Mode="In" />
+          <Parameter Name="Year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="prc_EmployeeLeaveEnjoySummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RegId" Type="varchar" Mode="In" />
+          <Parameter Name="Year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="prc_EmployeeLeaveInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Month" Type="int" Mode="In" />
+          <Parameter Name="Year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="prc_EmployeeLeaveInsertMainDatabase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RegId" Type="bigint" Mode="In" />
+          <Parameter Name="AppliedDate" Type="datetime" Mode="In" />
+          <Parameter Name="RequestTo" Type="int" Mode="In" />
+          <Parameter Name="ActingPerson" Type="int" Mode="In" />
+          <Parameter Name="LType" Type="varchar" Mode="In" />
+          <Parameter Name="LDays" Type="decimal" Mode="In" />
+          <Parameter Name="FrDate" Type="date" Mode="In" />
+          <Parameter Name="ToDate" Type="date" Mode="In" />
+          <Parameter Name="Reasons" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="Created_date" Type="datetime" Mode="In" />
+          <Parameter Name="Created_By" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="prc_EmployeeLeaveStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RegId" Type="varchar" Mode="In" />
+          <Parameter Name="Year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="prc_FabricInfoDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Prc_Get_OTApprove_Summary_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ComPID" Type="int" Mode="In" />
+          <Parameter Name="Date" Type="date" Mode="In" />
+          <Parameter Name="Department" Type="varchar" Mode="In" />
+          <Parameter Name="SIGN" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Prc_Get_OTRequ_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompID" Type="int" Mode="In" />
+          <Parameter Name="Date" Type="date" Mode="In" />
+          <Parameter Name="Department" Type="varchar" Mode="In" />
+          <Parameter Name="Section" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Prc_Get_OTRequ_Summary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompID" Type="int" Mode="In" />
+          <Parameter Name="DateFrom" Type="date" Mode="In" />
+          <Parameter Name="DateTo" Type="date" Mode="In" />
+        </Function>
+        <Function Name="prc_Get_OTRequEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompID" Type="int" Mode="In" />
+          <Parameter Name="DateFrom" Type="date" Mode="In" />
+        </Function>
+        <Function Name="prc_GetAlbum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Group" Type="int" Mode="In" />
+          <Parameter Name="AfterDate" Type="datetime" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="prc_GetAlbumByGroupID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Group" Type="int" Mode="In" />
+        </Function>
+        <Function Name="prc_GetEmpDeptSec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RegID" Type="int" Mode="In" />
+          <Parameter Name="Type" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="prc_GetTeamMember" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RegID" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Prc_OTRequ_Approve" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompID" Type="int" Mode="In" />
+          <Parameter Name="Date" Type="date" Mode="In" />
+          <Parameter Name="Department" Type="varchar" Mode="In" />
+          <Parameter Name="Section" Type="varchar" Mode="In" />
+          <Parameter Name="OTRequ" Type="varchar" Mode="In" />
+          <Parameter Name="Wstatus" Type="varchar" Mode="In" />
+          <Parameter Name="Approved" Type="bit" Mode="In" />
+          <Parameter Name="IsLock" Type="bit" Mode="In" />
+          <Parameter Name="Updated_by" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Prc_OTRequ_Reset" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompID" Type="int" Mode="In" />
+          <Parameter Name="Date" Type="date" Mode="In" />
+          <Parameter Name="Department" Type="varchar" Mode="In" />
+          <Parameter Name="Section" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="prc_UserMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RegId" Type="varchar" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabasefileModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="prc_EmployeeJobCard">
+            <Parameter Name="RegId" Mode="In" Type="String" />
+            <Parameter Name="Month" Mode="In" Type="Int32" />
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="prc_EmployeeInfoByEmpCode" ReturnType="Collection(DatabasefileModel.prc_EmployeeInfoByEmpCode_Result)">
+            <Parameter Name="CompID" Mode="In" Type="String" />
+            <Parameter Name="EmpCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="prc_EmployeeInfoByRegId" ReturnType="Collection(DatabasefileModel.prc_EmployeeInfoByRegId_Result)">
+            <Parameter Name="RegId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="prc_GetTeamMember" ReturnType="Collection(DatabasefileModel.prc_GetTeamMember_Result)">
+          <Parameter Name="RegID" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Company_Information" EntityType="DatabasefileModel.Company_Information" />
+          <FunctionImport Name="prc_EmployeeLeaveEnjoyDetail">
+            <Parameter Name="RegId" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="prc_EmployeeLeaveEnjoySummary">
+            <Parameter Name="RegId" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tblUser_Registration" EntityType="DatabasefileModel.tblUser_Registration" />
+          <FunctionImport Name="prc_EmployeeLeaveApplication">
+            <Parameter Name="RegId" Mode="In" Type="Int32" />
+            <Parameter Name="AppliedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="RequestTo" Mode="In" Type="Int32" />
+            <Parameter Name="ActingPerson" Mode="In" Type="Int32" />
+            <Parameter Name="LType" Mode="In" Type="String" />
+            <Parameter Name="LDays" Mode="In" Type="Decimal" />
+            <Parameter Name="FrDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Reasons" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="Created_date" Mode="In" Type="DateTime" />
+            <Parameter Name="Created_By" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tblUser_LogInfo" EntityType="DatabasefileModel.tblUser_LogInfo" />
+          <FunctionImport Name="prc_EmployeeLeaveInsertMainDatabase">
+            <Parameter Name="RegId" Mode="In" Type="Int64" />
+            <Parameter Name="AppliedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="RequestTo" Mode="In" Type="Int32" />
+            <Parameter Name="ActingPerson" Mode="In" Type="Int32" />
+            <Parameter Name="LType" Mode="In" Type="String" />
+            <Parameter Name="LDays" Mode="In" Type="Decimal" />
+            <Parameter Name="FrDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Reasons" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="Created_date" Mode="In" Type="DateTime" />
+            <Parameter Name="Created_By" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="prc_EmployeeAttenApp" ReturnType="Collection(DatabasefileModel.prc_EmployeeAttenApp_Result)">
+            <Parameter Name="RegId" Mode="In" Type="String" />
+            <Parameter Name="Month" Mode="In" Type="Int32" />
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tblEmpAttenApps" EntityType="DatabasefileModel.tblEmpAttenApp" />
+          <FunctionImport Name="prc_EmployeeBirthDay" ReturnType="Collection(DatabasefileModel.prc_EmployeeBirthDay_Result)" />
+          <FunctionImport Name="prc_UserMenu" ReturnType="Collection(DatabasefileModel.prc_UserMenu_Result)">
+          <Parameter Name="RegId" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tblMenus" EntityType="DatabasefileModel.tblMenu" />
+          <EntitySet Name="tblBusSchedules" EntityType="DatabasefileModel.tblBusSchedule" />
+          <FunctionImport Name="prc_CopyBusSchedule" ReturnType="Collection(DatabasefileModel.prc_CopyBusSchedule_Result)">
+            <Parameter Name="IDs" Mode="In" Type="String" />
+            <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Created_By" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tblNotices" EntityType="DatabasefileModel.tblNotice" />
+          <EntitySet Name="tblAlbums" EntityType="DatabasefileModel.tblAlbum" />
+          <EntitySet Name="tblAlbumGroups" EntityType="DatabasefileModel.tblAlbumGroup" />
+          <FunctionImport Name="prc_GetAlbum" ReturnType="Collection(DatabasefileModel.prc_GetAlbum_Result)">
+            <Parameter Name="Group" Mode="In" Type="Int32" />
+            <Parameter Name="AfterDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="prc_GetAlbumByGroupID" ReturnType="Collection(DatabasefileModel.prc_GetAlbumByGroupID_Result)">
+          <Parameter Name="Group" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Prc_OTRequ_Reset" ReturnType="Collection(DatabasefileModel.Prc_OTRequ_Reset_Result)">
+            <Parameter Name="CompID" Mode="In" Type="Int32" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Department" Mode="In" Type="String" />
+            <Parameter Name="Section" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tblDeptSecs" EntityType="DatabasefileModel.tblDeptSec" />
+          <FunctionImport Name="Prc_OTRequ_Approve" ReturnType="Collection(DatabasefileModel.Prc_OTRequ_Approve_Result)">
+            <Parameter Name="CompID" Mode="In" Type="Int32" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Department" Mode="In" Type="String" />
+            <Parameter Name="Section" Mode="In" Type="String" />
+            <Parameter Name="OTRequ" Mode="In" Type="String" />
+            <Parameter Name="Wstatus" Mode="In" Type="String" />
+            <Parameter Name="Approved" Mode="In" Type="Boolean" />
+            <Parameter Name="IsLock" Mode="In" Type="Boolean" />
+            <Parameter Name="Updated_by" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tblUserDeptSecPermissions" EntityType="DatabasefileModel.tblUserDeptSecPermission" />
+          <FunctionImport Name="prc_GetEmpDeptSec" ReturnType="Collection(DatabasefileModel.prc_GetEmpDeptSec_Result)">
+            <Parameter Name="RegID" Mode="In" Type="Int32" />
+            <Parameter Name="Type" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="prc_EmployeeInfoDetail" ReturnType="Collection(DatabasefileModel.prc_EmployeeInfoDetail_Result)" />
+          <FunctionImport Name="prc_EmployeeInfo" ReturnType="Collection(DatabasefileModel.prc_EmployeeInfo_Result)" />
+          <FunctionImport Name="Prc_Get_OTRequ_Summary" ReturnType="Collection(DatabasefileModel.Prc_Get_OTRequ_Summary_Result)">
+            <Parameter Name="CompID" Mode="In" Type="Int32" />
+            <Parameter Name="DateFrom" Mode="In" Type="DateTime" />
+            <Parameter Name="DateTo" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="tblEmpLeaveApps" EntityType="DatabasefileModel.tblEmpLeaveApp" />
+          <FunctionImport Name="prc_EmployeeLeaveStatus" ReturnType="Collection(DatabasefileModel.prc_EmployeeLeaveStatus_Result)">
+            <Parameter Name="RegId" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="prc_Get_OTRequEmail" ReturnType="Collection(DatabasefileModel.prc_Get_OTRequEmail_Result)">
+            <Parameter Name="CompID" Mode="In" Type="Int32" />
+            <Parameter Name="DateFrom" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Prc_Get_OTApprove_Summary_Info">
+            <Parameter Name="ComPID" Mode="In" Type="Int32" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Department" Mode="In" Type="String" />
+            <Parameter Name="Section" Mode="In" Type="String" />
+            <Parameter Name="SIGN" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Prc_Get_OTApprove_Summary">
+            <Parameter Name="ComPID" Mode="In" Type="Int32" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Department" Mode="In" Type="String" />
+            <Parameter Name="Section" Mode="In" Type="String" />
+            <Parameter Name="SIGN" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tblOTStatus" EntityType="DatabasefileModel.tblOTStatus" />
+          <FunctionImport Name="Prc_Get_OTRequ_Info" ReturnType="Collection(DatabasefileModel.Prc_Get_OTRequ_Info_Result)">
+            <Parameter Name="CompID" Mode="In" Type="Int32" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Department" Mode="In" Type="String" />
+            <Parameter Name="Section" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tblEmpOTApprovePermission" EntityType="DatabasefileModel.tblEmpOTApprovePermission" />
+          <FunctionImport Name="prc_EmployeeAttenInfo" ReturnType="Collection(DatabasefileModel.prc_EmployeeAttenInfo_Result)">
+            <Parameter Name="Month" Mode="In" Type="Int32" />
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="prc_EmployeeLeaveInfo" ReturnType="Collection(DatabasefileModel.prc_EmployeeLeaveInfo_Result)">
+            <Parameter Name="Month" Mode="In" Type="Int32" />
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="TblFabricColour" EntityType="DatabasefileModel.TblFabricColour" />
+          <EntitySet Name="TblFabricContent" EntityType="DatabasefileModel.TblFabricContent" />
+          <EntitySet Name="TblFabricMill" EntityType="DatabasefileModel.TblFabricMill" />
+          <EntitySet Name="TblFabricType" EntityType="DatabasefileModel.TblFabricType" />
+          <EntitySet Name="TblFabricWave" EntityType="DatabasefileModel.TblFabricWave" />
+          <FunctionImport Name="prc_FabricInfoDetail" ReturnType="Collection(DatabasefileModel.prc_FabricInfoDetail_Result)" />
+          <EntitySet Name="tblFabricInfo" EntityType="DatabasefileModel.tblFabricInfo" />
+          <EntitySet Name="tblEmpOTRequ" EntityType="DatabasefileModel.tblEmpOTRequ" />
+        </EntityContainer>
+        <ComplexType Name="prc_EmployeeInfoByEmpCode_Result">
+          <Property Type="Int64" Name="RegId" Nullable="false" />
+          <Property Type="Byte" Name="ComID" Nullable="false" />
+          <Property Type="String" Name="EmployeeCode" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="FathersName" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="BirthDate" Nullable="true" Precision="16" />
+          <Property Type="String" Name="Religion" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="PreAddress" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="PerAddress" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="NID" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="District" Nullable="false" MaxLength="25" />
+          <Property Type="DateTime" Name="JoiningDate" Nullable="false" Precision="16" />
+          <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Section" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Designation" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="prc_EmployeeInfoByRegId_Result">
+          <Property Type="Int64" Name="RegId" Nullable="false" />
+          <Property Type="Byte" Name="ComID" Nullable="false" />
+          <Property Type="String" Name="EmployeeCode" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="FathersName" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="BirthDate" Nullable="true" Precision="16" />
+          <Property Type="String" Name="Religion" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="PreAddress" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="PerAddress" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="NID" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="District" Nullable="false" MaxLength="25" />
+          <Property Type="DateTime" Name="JoiningDate" Nullable="false" Precision="16" />
+          <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Section" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Designation" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="prc_GetTeamMember_Result">
+          <Property Type="Int64" Name="RegId" Nullable="false" />
+          <Property Type="Byte" Name="ComID" Nullable="false" />
+          <Property Type="String" Name="EmployeeCode" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="FathersName" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="BirthDate" Nullable="true" Precision="16" />
+          <Property Type="String" Name="Religion" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="PreAddress" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="PerAddress" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="NID" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="District" Nullable="false" MaxLength="25" />
+          <Property Type="DateTime" Name="JoiningDate" Nullable="false" Precision="16" />
+          <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Section" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Designation" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="Company_Information">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Byte" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="Single" Name="Basic" />
+          <Property Type="Boolean" Name="BasicM" Nullable="false" />
+          <Property Type="Single" Name="HRent" />
+          <Property Type="Single" Name="WBASIC" />
+          <Property Type="Single" Name="WHRent" />
+          <Property Type="Boolean" Name="HRentM" Nullable="false" />
+          <Property Type="Single" Name="FoodPay" />
+          <Property Type="Boolean" Name="FoodPayM" Nullable="false" />
+          <Property Type="Single" Name="Bonus" />
+          <Property Type="Boolean" Name="BonusM" Nullable="false" />
+          <Property Type="Single" Name="PFund" />
+          <Property Type="Boolean" Name="PFundM" Nullable="false" />
+          <Property Type="Boolean" Name="NZN" Nullable="false" />
+          <Property Type="Single" Name="Medical" />
+          <Property Type="Single" Name="WMedical" />
+          <Property Type="String" Name="NameBangla" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AddressBangla" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SignedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmpImageLocation" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ServerName" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DBName" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DBPrefix" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="IsClose" Nullable="false" />
+          <Property Type="String" Name="ReportPath" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblUser_Registration">
+          <Key>
+            <PropertyRef Name="RegId" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="RegId" Nullable="false" />
+          <Property Type="String" Name="Password" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="DeptHead" />
+          <Property Type="Int32" Name="ReportSuper" />
+          <Property Type="DateTime" Name="DateofBirth" Precision="0" />
+          <Property Type="String" Name="BloodGroup" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmailID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MobileNoPerson" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MobileNoHome" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneExt" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Picture" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Registerd" Nullable="false" />
+          <Property Type="Boolean" Name="YsnActive" Nullable="false" />
+          <Property Type="DateTime" Name="last_login_date" Precision="3" />
+          <Property Type="String" Name="last_login_Mac" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_date" Precision="3" />
+          <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Updated_date" Precision="3" />
+          <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Role" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblUser_LogInfo">
+          <Key>
+            <PropertyRef Name="RegId" />
+            <PropertyRef Name="login_time" />
+          </Key>
+          <Property Type="Int32" Name="RegId" Nullable="false" />
+          <Property Type="DateTime" Name="login_time" Nullable="false" Precision="3" />
+          <Property Type="String" Name="login_Mac" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="logout__time" Precision="3" />
+        </EntityType>
+        <ComplexType Name="prc_EmployeeAttenApp_Result">
+          <Property Type="Int32" Name="RegId" Nullable="false" />
+          <Property Type="DateTime" Name="AppliedDate" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="prDate" Nullable="false" Precision="16" />
+          <Property Type="String" Name="TimeIn" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="LateHrs" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="TimeOut" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="DailyHrs" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="ValidOT" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="RestOT" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="ExtraOT" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Shift" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="TransAllow" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="String" Name="Reasons" Nullable="true" MaxLength="250" />
+          <Property Type="DateTime" Name="Created_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Created_By" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Updated_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Updated_by" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="tblEmpAttenApp">
+          <Key>
+            <PropertyRef Name="RegId" />
+            <PropertyRef Name="prDate" />
+          </Key>
+          <Property Type="Int32" Name="RegId" Nullable="false" />
+          <Property Type="DateTime" Name="AppliedDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="prDate" Nullable="false" Precision="0" />
+          <Property Type="String" Name="TimeIn" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LateHrs" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TimeOut" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DailyHrs" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ValidOT" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="RestOT" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ExtraOT" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Status" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Shift" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="TransAllow" Precision="10" Scale="2" />
+          <Property Type="String" Name="Reasons" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Process" />
+          <Property Type="DateTime" Name="Created_date" Precision="3" />
+          <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Updated_date" Precision="3" />
+          <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="prc_EmployeeBirthDay_Result">
+          <Property Type="Int32" Name="RegId" Nullable="false" />
+          <Property Type="String" Name="ComID" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="EmployeeCode" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="FathersName" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="BirthDate" Nullable="true" />
+          <Property Type="Int32" Name="DeptHead" Nullable="true" />
+          <Property Type="Int32" Name="ReportSuper" Nullable="true" />
+          <Property Type="String" Name="BloodGroup" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MobileNoPerson" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MobileNoHome" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PhoneExt" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Religion" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="PreAddress" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="PerAddress" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="NID" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="District" Nullable="false" MaxLength="25" />
+          <Property Type="DateTime" Name="JoiningDate" Nullable="true" />
+          <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Section" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Designation" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="DesigAddi" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Level_No" Nullable="true" />
+          <Property Type="String" Name="Level_Name" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="prc_UserMenu_Result">
+          <Property Type="Int32" Name="ID" Nullable="true" />
+          <Property Type="String" Name="Main_Menu_Id" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Menu_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Menu_URL" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="YsnActive" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="tblMenu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Main_Menu_Id" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Menu_Name" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Menu_URL" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="YsnActive" />
+          <Property Type="String" Name="Menu_Icon" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblBusSchedule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Date" Precision="0" />
+          <Property Type="Time" Name="StartTime" Precision="7" />
+          <Property Type="String" Name="RoadName" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RoadDescription" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StartingPoint" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Destination" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="VehicleNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="VehicleType" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Driver" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PassengerCapacity" />
+          <Property Type="String" Name="Wstatus" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="Boolean" Name="Publish" />
+          <Property Type="DateTime" Name="Created_date" Precision="3" />
+          <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Updated_date" Precision="3" />
+          <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="prc_CopyBusSchedule_Result">
+          <Property Type="Boolean" Name="Status" Nullable="true" />
+          <Property Type="String" Name="Message" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <EntityType Name="tblNotice">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="YSNActive" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="PublishDate" Precision="3" />
+          <Property Type="String" Name="URL" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="YSNActive" Nullable="false" />
+          <Property Type="DateTime" Name="Created_date" Precision="3" />
+          <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Updated_date" Precision="3" />
+          <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblAlbum">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="SnapDate" Precision="3" />
+          <Property Type="String" Name="URL" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TemplateImage" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="YSNActive" Nullable="false" />
+          <Property Type="DateTime" Name="Created_date" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Updated_date" Precision="3" />
+          <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblAlbumGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="GroupName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AlbumID" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="YSNActive" />
+          <Property Type="DateTime" Name="Created_date" Precision="3" />
+          <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Updated_date" Precision="3" />
+          <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="prc_GetAlbum_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="SnapDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="URL" Nullable="true" />
+          <Property Type="String" Name="TemplateImage" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="YSNActive" Nullable="false" />
+          <Property Type="DateTime" Name="Created_date" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Created_By" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Updated_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Updated_by" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="prc_GetAlbumByGroupID_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="SnapDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="URL" Nullable="true" />
+          <Property Type="String" Name="TemplateImage" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="YSNActive" Nullable="false" />
+          <Property Type="DateTime" Name="Created_date" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Created_By" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Updated_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Updated_by" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Prc_OTRequ_Reset_Result">
+          <Property Type="Boolean" Name="Status" Nullable="true" />
+          <Property Type="String" Name="Message" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <EntityType Name="tblDeptSec">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ComID" Nullable="false" />
+          <Property Type="String" Name="DeptName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SubDeptName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="Prc_OTRequ_Approve_Result">
+          <Property Type="Boolean" Name="Status" Nullable="true" />
+          <Property Type="String" Name="Message" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <EntityType Name="tblUserDeptSecPermission">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="RegId" />
+            <PropertyRef Name="OTReq" />
+            <PropertyRef Name="YsnActive" />
+            <PropertyRef Name="HRApprove" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="RegId" Nullable="false" />
+          <Property Type="String" Name="OTReq" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="YsnActive" Nullable="false" />
+          <Property Type="DateTime" Name="Created_date" Precision="3" />
+          <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Updated_date" Precision="3" />
+          <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="HRApprove" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="prc_GetEmpDeptSec_Result">
+          <Property Type="Int32" Name="ComID" Nullable="false" />
+          <Property Type="String" Name="DeptName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SubDeptName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="prc_EmployeeInfoDetail_Result">
+          <Property Type="Int32" Name="RegId" Nullable="false" />
+          <Property Type="String" Name="ComID" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="EmployeeCode" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="FathersName" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="BirthDate" Nullable="true" />
+          <Property Type="Int32" Name="DeptHead" Nullable="true" />
+          <Property Type="Int32" Name="ReportSuper" Nullable="true" />
+          <Property Type="String" Name="BloodGroup" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MobileNoPerson" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MobileNoHome" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PhoneExt" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Religion" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="PreAddress" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="PerAddress" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="NID" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="District" Nullable="false" MaxLength="25" />
+          <Property Type="DateTime" Name="JoiningDate" Nullable="true" />
+          <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Section" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Designation" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="DesigAddi" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="WStatus" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Level_No" Nullable="true" />
+          <Property Type="String" Name="Level_Name" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="prc_EmployeeInfo_Result">
+          <Property Type="Int64" Name="RegId" Nullable="false" />
+          <Property Type="Byte" Name="ComID" Nullable="false" />
+          <Property Type="String" Name="EmployeeCode" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="FathersName" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="BirthDate" Nullable="true" Precision="16" />
+          <Property Type="String" Name="Religion" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="PreAddress" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="PerAddress" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="NID" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="District" Nullable="false" MaxLength="25" />
+          <Property Type="DateTime" Name="JoiningDate" Nullable="false" Precision="16" />
+          <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Section" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Designation" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="DesigAddi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="WStatus" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="Prc_Get_OTRequ_Summary_Result">
+          <Property Type="String" Name="CompID" Nullable="false" MaxLength="5" />
+          <Property Type="DateTime" Name="DailyDate" Nullable="false" />
+          <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Section" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="OTRequ" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Reasons" Nullable="true" MaxLength="550" />
+          <Property Type="Int32" Name="TotalEmp" Nullable="true" />
+          <Property Type="String" Name="TotalOT" Nullable="true" MaxLength="8" />
+          <Property Type="Boolean" Name="Approved" Nullable="true" />
+          <Property Type="Boolean" Name="IsLock" Nullable="true" />
+          <Property Type="String" Name="Wstatus" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="tblEmpLeaveApp">
+          <Key>
+            <PropertyRef Name="RegId" />
+            <PropertyRef Name="AppliedDate" />
+          </Key>
+          <Property Type="Int32" Name="RegId" Nullable="false" />
+          <Property Type="DateTime" Name="AppliedDate" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="RequestTo" Nullable="false" />
+          <Property Type="Int32" Name="ActingPerson" Nullable="false" />
+          <Property Type="String" Name="LType" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="LDays" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="DateTime" Name="FrDate" Nullable="false" Precision="0" />
+          <Property Type="DateTime" Name="ToDate" Nullable="false" Precision="0" />
+          <Property Type="String" Name="Reasons" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StatusReasons" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created_date" Precision="3" />
+          <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Updated_date" Precision="3" />
+          <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="prc_EmployeeLeaveStatus_Result">
+          <Property Type="Int32" Name="RegId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="RequestTo" Nullable="false" />
+          <Property Type="String" Name="RequestToName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="ActingPerson" Nullable="false" />
+          <Property Type="String" Name="ActingPersonName" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="AppliedDate" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="FrDate" Nullable="false" />
+          <Property Type="DateTime" Name="ToDate" Nullable="false" />
+          <Property Type="String" Name="LType" Nullable="false" MaxLength="2" />
+          <Property Type="Decimal" Name="LDays" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Reasons" Nullable="true" MaxLength="550" />
+          <Property Type="String" Name="StatusReasons" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="prc_Get_OTRequEmail_Result">
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="Message" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="tblOTStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Sign" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="RequeType" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="Sign" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="Prc_Get_OTRequ_Info_Result">
+          <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Section" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DesigAddi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmpCode" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="DailyDate" Nullable="false" Precision="16" />
+          <Property Type="String" Name="Shift" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="OTStart" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="WeekNo" Nullable="true" />
+          <Property Type="String" Name="TotalWeekOT" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="WeekLimit" Nullable="true" />
+          <Property Type="Int32" Name="MonthNo" Nullable="true" />
+          <Property Type="String" Name="TotalMonthOT" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="MonthLimit" Nullable="true" />
+          <Property Type="String" Name="OTRequ" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Reasons" Nullable="true" MaxLength="550" />
+          <Property Type="Boolean" Name="IsOTRequ" Nullable="true" />
+          <Property Type="Boolean" Name="Approved" Nullable="true" />
+          <Property Type="Boolean" Name="IsLock" Nullable="true" />
+          <Property Type="String" Name="Wstatus" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Empstatus" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="tblEmpOTApprovePermission">
+          <Key>
+            <PropertyRef Name="RegId" />
+          </Key>
+          <Property Type="Int32" Name="ID" />
+          <Property Type="Int32" Name="RegId" Nullable="false" />
+          <Property Type="Int32" Name="ComID" Nullable="false" />
+          <Property Type="String" Name="EmpInfo" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmailID" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="PublishActive" />
+          <Property Type="Boolean" Name="YsnActive" />
+          <Property Type="DateTime" Name="Created_date" Precision="3" />
+          <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Updated_date" Precision="3" />
+          <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="prc_EmployeeAttenInfo_Result">
+          <Property Type="Int32" Name="ComID" Nullable="true" />
+          <Property Type="Int32" Name="RegId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="EmpCode" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Department" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Section" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DesigAddi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Wstatus" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RequestTo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RequestToName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="RequestToEmpCode" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="RequestToDepartment" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RequestToSection" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RequestToDesigAddi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RequestToWstatus" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="AppliedDate" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="prDate" Nullable="false" />
+          <Property Type="String" Name="Shift" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TimeIn" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="LateHrs" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="TimeOut" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="DailyHrs" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Process" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Reasons" Nullable="true" MaxLength="250" />
+          <Property Type="DateTime" Name="Updated_date" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="prc_EmployeeLeaveInfo_Result">
+          <Property Type="Int32" Name="ComID" Nullable="true" />
+          <Property Type="Int32" Name="RegId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="EmpCode" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Department" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Section" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DesigAddi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Wstatus" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="RequestTo" Nullable="false" />
+          <Property Type="String" Name="RequestToName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="RequestToEmpCode" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="RequestToDepartment" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RequestToSection" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RequestToDesigAddi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RequestToWstatus" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="ActingPerson" Nullable="false" />
+          <Property Type="String" Name="ActingPersonName" Nullable="true" MaxLength="250" />
+          <Property Type="DateTime" Name="AppliedDate" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="FrDate" Nullable="false" />
+          <Property Type="DateTime" Name="ToDate" Nullable="false" />
+          <Property Type="String" Name="LType" Nullable="false" MaxLength="2" />
+          <Property Type="Decimal" Name="LDays" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Reasons" Nullable="true" MaxLength="550" />
+          <Property Type="String" Name="StatusReasons" Nullable="true" MaxLength="250" />
+          <Property Type="DateTime" Name="Updated_date" Nullable="true" Precision="23" />
+        </ComplexType>
+        <EntityType Name="TblFabricColour">
+          <Key>
+            <PropertyRef Name="Idno" />
+          </Key>
+          <Property Type="Int32" Name="Idno" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FabricColour" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblFabricContent">
+          <Key>
+            <PropertyRef Name="Idno" />
+          </Key>
+          <Property Type="Int32" Name="Idno" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FABRICCONTENT" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblFabricMill">
+          <Key>
+            <PropertyRef Name="Idno" />
+          </Key>
+          <Property Type="Int32" Name="Idno" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FabricMill" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblFabricType">
+          <Key>
+            <PropertyRef Name="Idno" />
+          </Key>
+          <Property Type="Int32" Name="Idno" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FabricType" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblFabricWave">
+          <Key>
+            <PropertyRef Name="Idno" />
+          </Key>
+          <Property Type="Int32" Name="Idno" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FabricWave" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="prc_FabricInfoDetail_Result">
+          <Property Type="Int32" Name="Slno" Nullable="false" />
+          <Property Type="String" Name="FabricCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PJLCode" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="MillID" Nullable="false" />
+          <Property Type="String" Name="FabricMill" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="ContentID" Nullable="false" />
+          <Property Type="String" Name="FabricContent" Nullable="true" MaxLength="250" />
+          <Property Type="Double" Name="Weight" Nullable="false" />
+          <Property Type="String" Name="WeightUnit" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="WeightType" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="FabricConst" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Width" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="WidthUnit" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="ColourID" Nullable="false" />
+          <Property Type="String" Name="FabricColour" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="FabricTypeID" Nullable="false" />
+          <Property Type="String" Name="FabricType" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="FabricFinish" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="WeaveID" Nullable="false" />
+          <Property Type="String" Name="FabricWeave" Nullable="true" MaxLength="250" />
+          <Property Type="Double" Name="Price" Nullable="true" />
+          <Property Type="String" Name="PriceUnit" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PriceType" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Remarks" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="CNFPrice" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Fabricwarp" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Fabricwaft" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <EntityType Name="tblFabricInfo">
+          <Key>
+            <PropertyRef Name="PJLCode" />
+          </Key>
+          <Property Type="Int32" Name="Slno" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FabricCode" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PJLCode" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="MillID" Nullable="false" />
+          <Property Type="Int32" Name="ContentID" Nullable="false" />
+          <Property Type="Double" Name="Weight" Nullable="false" />
+          <Property Type="String" Name="WeightUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="WeightType" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FabricConst" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Width" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="WidthUnit" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ColourID" Nullable="false" />
+          <Property Type="Int32" Name="FabricTypeID" Nullable="false" />
+          <Property Type="Int32" Name="WeaveID" Nullable="false" />
+          <Property Type="String" Name="FabricFinish" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Price" Nullable="false" />
+          <Property Type="String" Name="PriceUnit" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PriceType" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remarks" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CNFPrice" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Fabricwarp" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Fabricwaft" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created_date" Precision="3" />
+          <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Updated_date" Precision="3" />
+          <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblEmpOTRequ">
+          <Key>
+            <PropertyRef Name="ComID" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="EmpCode" />
+          </Key>
+          <Property Type="Int64" Name="ComID" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="0" />
+          <Property Type="String" Name="EmpCode" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RequestOT" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OTRequ" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Reasons" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Approved" />
+          <Property Type="Boolean" Name="IsLock" />
+          <Property Type="String" Name="EditReason" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created_date" Precision="3" />
+          <Property Type="String" Name="Created_By" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Updated_date" Precision="3" />
+          <Property Type="String" Name="Updated_by" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabasefileModelStoreContainer" CdmEntityContainer="Entities">
+          <FunctionImportMapping FunctionImportName="prc_EmployeeJobCard" FunctionName="DatabasefileModel.Store.prc_EmployeeJobCard" />
+          <FunctionImportMapping FunctionImportName="prc_EmployeeInfoByEmpCode" FunctionName="DatabasefileModel.Store.prc_EmployeeInfoByEmpCode">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.prc_EmployeeInfoByEmpCode_Result">
+                <ScalarProperty Name="RegId" ColumnName="RegId" />
+                <ScalarProperty Name="ComID" ColumnName="ComID" />
+                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FathersName" ColumnName="FathersName" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="PreAddress" ColumnName="PreAddress" />
+                <ScalarProperty Name="PerAddress" ColumnName="PerAddress" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="prc_GetTeamMember" FunctionName="DatabasefileModel.Store.prc_GetTeamMember">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.prc_GetTeamMember_Result">
+                <ScalarProperty Name="RegId" ColumnName="RegId" />
+                <ScalarProperty Name="ComID" ColumnName="ComID" />
+                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FathersName" ColumnName="FathersName" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="PreAddress" ColumnName="PreAddress" />
+                <ScalarProperty Name="PerAddress" ColumnName="PerAddress" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Company_Information">
+            <EntityTypeMapping TypeName="DatabasefileModel.Company_Information">
+              <MappingFragment StoreEntitySet="Company_Information">
+                <ScalarProperty Name="ReportPath" ColumnName="ReportPath" />
+                <ScalarProperty Name="IsClose" ColumnName="IsClose" />
+                <ScalarProperty Name="DBPrefix" ColumnName="DBPrefix" />
+                <ScalarProperty Name="DBName" ColumnName="DBName" />
+                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+                <ScalarProperty Name="EmpImageLocation" ColumnName="EmpImageLocation" />
+                <ScalarProperty Name="SignedBy" ColumnName="SignedBy" />
+                <ScalarProperty Name="AddressBangla" ColumnName="AddressBangla" />
+                <ScalarProperty Name="NameBangla" ColumnName="NameBangla" />
+                <ScalarProperty Name="WMedical" ColumnName="WMedical" />
+                <ScalarProperty Name="Medical" ColumnName="Medical" />
+                <ScalarProperty Name="NZN" ColumnName="NZN" />
+                <ScalarProperty Name="PFundM" ColumnName="PFundM" />
+                <ScalarProperty Name="PFund" ColumnName="PFund" />
+                <ScalarProperty Name="BonusM" ColumnName="BonusM" />
+                <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+                <ScalarProperty Name="FoodPayM" ColumnName="FoodPayM" />
+                <ScalarProperty Name="FoodPay" ColumnName="FoodPay" />
+                <ScalarProperty Name="HRentM" ColumnName="HRentM" />
+                <ScalarProperty Name="WHRent" ColumnName="WHRent" />
+                <ScalarProperty Name="WBASIC" ColumnName="WBASIC" />
+                <ScalarProperty Name="HRent" ColumnName="HRent" />
+                <ScalarProperty Name="BasicM" ColumnName="BasicM" />
+                <ScalarProperty Name="Basic" ColumnName="Basic" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="prc_EmployeeLeaveEnjoyDetail" FunctionName="DatabasefileModel.Store.prc_EmployeeLeaveEnjoyDetail" />
+          <FunctionImportMapping FunctionImportName="prc_EmployeeLeaveEnjoySummary" FunctionName="DatabasefileModel.Store.prc_EmployeeLeaveEnjoySummary" />
+          <EntitySetMapping Name="tblUser_Registration">
+            <EntityTypeMapping TypeName="DatabasefileModel.tblUser_Registration">
+              <MappingFragment StoreEntitySet="tblUser_Registration">
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="last_login_Mac" ColumnName="last_login_Mac" />
+                <ScalarProperty Name="last_login_date" ColumnName="last_login_date" />
+                <ScalarProperty Name="YsnActive" ColumnName="YsnActive" />
+                <ScalarProperty Name="Registerd" ColumnName="Registerd" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="PhoneExt" ColumnName="PhoneExt" />
+                <ScalarProperty Name="MobileNoHome" ColumnName="MobileNoHome" />
+                <ScalarProperty Name="MobileNoPerson" ColumnName="MobileNoPerson" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+                <ScalarProperty Name="ReportSuper" ColumnName="ReportSuper" />
+                <ScalarProperty Name="DeptHead" ColumnName="DeptHead" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RegId" ColumnName="RegId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="prc_EmployeeLeaveApplication" FunctionName="DatabasefileModel.Store.prc_EmployeeLeaveApplication" />
+          <EntitySetMapping Name="tblUser_LogInfo">
+            <EntityTypeMapping TypeName="DatabasefileModel.tblUser_LogInfo">
+              <MappingFragment StoreEntitySet="tblUser_LogInfo">
+                <ScalarProperty Name="logout__time" ColumnName="logout__time" />
+                <ScalarProperty Name="login_Mac" ColumnName="login_Mac" />
+                <ScalarProperty Name="login_time" ColumnName="login_time" />
+                <ScalarProperty Name="RegId" ColumnName="RegId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="prc_EmployeeLeaveInsertMainDatabase" FunctionName="DatabasefileModel.Store.prc_EmployeeLeaveInsertMainDatabase" />
+          <FunctionImportMapping FunctionImportName="prc_EmployeeAttenApp" FunctionName="DatabasefileModel.Store.prc_EmployeeAttenApp">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.prc_EmployeeAttenApp_Result">
+                <ScalarProperty Name="RegId" ColumnName="RegId" />
+                <ScalarProperty Name="AppliedDate" ColumnName="AppliedDate" />
+                <ScalarProperty Name="prDate" ColumnName="prDate" />
+                <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+                <ScalarProperty Name="LateHrs" ColumnName="LateHrs" />
+                <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
+                <ScalarProperty Name="DailyHrs" ColumnName="DailyHrs" />
+                <ScalarProperty Name="ValidOT" ColumnName="ValidOT" />
+                <ScalarProperty Name="RestOT" ColumnName="RestOT" />
+                <ScalarProperty Name="ExtraOT" ColumnName="ExtraOT" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Shift" ColumnName="Shift" />
+                <ScalarProperty Name="TransAllow" ColumnName="TransAllow" />
+                <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tblEmpAttenApps">
+            <EntityTypeMapping TypeName="DatabasefileModel.tblEmpAttenApp">
+              <MappingFragment StoreEntitySet="tblEmpAttenApp">
+                <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Process" ColumnName="Process" />
+                <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+                <ScalarProperty Name="TransAllow" ColumnName="TransAllow" />
+                <ScalarProperty Name="Shift" ColumnName="Shift" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ExtraOT" ColumnName="ExtraOT" />
+                <ScalarProperty Name="RestOT" ColumnName="RestOT" />
+                <ScalarProperty Name="ValidOT" ColumnName="ValidOT" />
+                <ScalarProperty Name="DailyHrs" ColumnName="DailyHrs" />
+                <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
+                <ScalarProperty Name="LateHrs" ColumnName="LateHrs" />
+                <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+                <ScalarProperty Name="prDate" ColumnName="prDate" />
+                <ScalarProperty Name="AppliedDate" ColumnName="AppliedDate" />
+                <ScalarProperty Name="RegId" ColumnName="RegId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="prc_EmployeeBirthDay" FunctionName="DatabasefileModel.Store.prc_EmployeeBirthDay">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.prc_EmployeeBirthDay_Result">
+                <ScalarProperty Name="RegId" ColumnName="RegId" />
+                <ScalarProperty Name="ComID" ColumnName="ComID" />
+                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FathersName" ColumnName="FathersName" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="DeptHead" ColumnName="DeptHead" />
+                <ScalarProperty Name="ReportSuper" ColumnName="ReportSuper" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="MobileNoPerson" ColumnName="MobileNoPerson" />
+                <ScalarProperty Name="MobileNoHome" ColumnName="MobileNoHome" />
+                <ScalarProperty Name="PhoneExt" ColumnName="PhoneExt" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="PreAddress" ColumnName="PreAddress" />
+                <ScalarProperty Name="PerAddress" ColumnName="PerAddress" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="DesigAddi" ColumnName="DesigAddi" />
+                <ScalarProperty Name="Level_No" ColumnName="Level_No" />
+                <ScalarProperty Name="Level_Name" ColumnName="Level_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="prc_UserMenu" FunctionName="DatabasefileModel.Store.prc_UserMenu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.prc_UserMenu_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Main_Menu_Id" ColumnName="Main_Menu_Id" />
+                <ScalarProperty Name="Menu_Name" ColumnName="Menu_Name" />
+                <ScalarProperty Name="Menu_URL" ColumnName="Menu_URL" />
+                <ScalarProperty Name="YsnActive" ColumnName="YsnActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tblMenus">
+            <EntityTypeMapping TypeName="DatabasefileModel.tblMenu">
+              <MappingFragment StoreEntitySet="tblMenu">
+                <ScalarProperty Name="Menu_Icon" ColumnName="Menu_Icon" />
+                <ScalarProperty Name="YsnActive" ColumnName="YsnActive" />
+                <ScalarProperty Name="Menu_URL" ColumnName="Menu_URL" />
+                <ScalarProperty Name="Menu_Name" ColumnName="Menu_Name" />
+                <ScalarProperty Name="Main_Menu_Id" ColumnName="Main_Menu_Id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblBusSchedules">
+            <EntityTypeMapping TypeName="DatabasefileModel.tblBusSchedule">
+              <MappingFragment StoreEntitySet="tblBusSchedule">
+                <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Publish" ColumnName="Publish" />
+                <ScalarProperty Name="Wstatus" ColumnName="Wstatus" />
+                <ScalarProperty Name="PassengerCapacity" ColumnName="PassengerCapacity" />
+                <ScalarProperty Name="Driver" ColumnName="Driver" />
+                <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+                <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="StartingPoint" ColumnName="StartingPoint" />
+                <ScalarProperty Name="RoadDescription" ColumnName="RoadDescription" />
+                <ScalarProperty Name="RoadName" ColumnName="RoadName" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="prc_CopyBusSchedule" FunctionName="DatabasefileModel.Store.prc_CopyBusSchedule">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.prc_CopyBusSchedule_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tblNotices">
+            <EntityTypeMapping TypeName="DatabasefileModel.tblNotice">
+              <MappingFragment StoreEntitySet="tblNotice">
+                <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="YSNActive" ColumnName="YSNActive" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAlbums">
+            <EntityTypeMapping TypeName="DatabasefileModel.tblAlbum">
+              <MappingFragment StoreEntitySet="tblAlbum">
+                <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="YSNActive" ColumnName="YSNActive" />
+                <ScalarProperty Name="TemplateImage" ColumnName="TemplateImage" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="SnapDate" ColumnName="SnapDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAlbumGroups">
+            <EntityTypeMapping TypeName="DatabasefileModel.tblAlbumGroup">
+              <MappingFragment StoreEntitySet="tblAlbumGroup">
+                <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="YSNActive" ColumnName="YSNActive" />
+                <ScalarProperty Name="SecurityCode" ColumnName="SecurityCode" />
+                <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="prc_GetAlbum" FunctionName="DatabasefileModel.Store.prc_GetAlbum">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.prc_GetAlbum_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SnapDate" ColumnName="SnapDate" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="TemplateImage" ColumnName="TemplateImage" />
+                <ScalarProperty Name="YSNActive" ColumnName="YSNActive" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="prc_GetAlbumByGroupID" FunctionName="DatabasefileModel.Store.prc_GetAlbumByGroupID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.prc_GetAlbumByGroupID_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SnapDate" ColumnName="SnapDate" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="TemplateImage" ColumnName="TemplateImage" />
+                <ScalarProperty Name="YSNActive" ColumnName="YSNActive" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Prc_OTRequ_Reset" FunctionName="DatabasefileModel.Store.Prc_OTRequ_Reset">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.Prc_OTRequ_Reset_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tblDeptSecs">
+            <EntityTypeMapping TypeName="DatabasefileModel.tblDeptSec">
+              <MappingFragment StoreEntitySet="tblDeptSec">
+                <ScalarProperty Name="SubDeptName" ColumnName="SubDeptName" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+                <ScalarProperty Name="ComID" ColumnName="ComID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Prc_OTRequ_Approve" FunctionName="DatabasefileModel.Store.Prc_OTRequ_Approve">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.Prc_OTRequ_Approve_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tblUserDeptSecPermissions">
+            <EntityTypeMapping TypeName="DatabasefileModel.tblUserDeptSecPermission">
+              <MappingFragment StoreEntitySet="tblUserDeptSecPermission">
+                <ScalarProperty Name="HRApprove" ColumnName="HRApprove" />
+                <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="YsnActive" ColumnName="YsnActive" />
+                <ScalarProperty Name="OTReq" ColumnName="OTReq" />
+                <ScalarProperty Name="RegId" ColumnName="RegId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="prc_GetEmpDeptSec" FunctionName="DatabasefileModel.Store.prc_GetEmpDeptSec">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.prc_GetEmpDeptSec_Result">
+                <ScalarProperty Name="ComID" ColumnName="ComID" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+                <ScalarProperty Name="SubDeptName" ColumnName="SubDeptName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="prc_EmployeeInfoDetail" FunctionName="DatabasefileModel.Store.prc_EmployeeInfoDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.prc_EmployeeInfoDetail_Result">
+                <ScalarProperty Name="RegId" ColumnName="RegId" />
+                <ScalarProperty Name="ComID" ColumnName="ComID" />
+                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FathersName" ColumnName="FathersName" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="DeptHead" ColumnName="DeptHead" />
+                <ScalarProperty Name="ReportSuper" ColumnName="ReportSuper" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="MobileNoPerson" ColumnName="MobileNoPerson" />
+                <ScalarProperty Name="MobileNoHome" ColumnName="MobileNoHome" />
+                <ScalarProperty Name="PhoneExt" ColumnName="PhoneExt" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="PreAddress" ColumnName="PreAddress" />
+                <ScalarProperty Name="PerAddress" ColumnName="PerAddress" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="DesigAddi" ColumnName="DesigAddi" />
+                <ScalarProperty Name="WStatus" ColumnName="WStatus" />
+                <ScalarProperty Name="Level_No" ColumnName="Level_No" />
+                <ScalarProperty Name="Level_Name" ColumnName="Level_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="prc_EmployeeInfo" FunctionName="DatabasefileModel.Store.prc_EmployeeInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.prc_EmployeeInfo_Result">
+                <ScalarProperty Name="RegId" ColumnName="RegId" />
+                <ScalarProperty Name="ComID" ColumnName="ComID" />
+                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FathersName" ColumnName="FathersName" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="PreAddress" ColumnName="PreAddress" />
+                <ScalarProperty Name="PerAddress" ColumnName="PerAddress" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="DesigAddi" ColumnName="DesigAddi" />
+                <ScalarProperty Name="WStatus" ColumnName="WStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Prc_Get_OTRequ_Summary" FunctionName="DatabasefileModel.Store.Prc_Get_OTRequ_Summary">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.Prc_Get_OTRequ_Summary_Result">
+                <ScalarProperty Name="CompID" ColumnName="CompID" />
+                <ScalarProperty Name="DailyDate" ColumnName="DailyDate" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="OTRequ" ColumnName="OTRequ" />
+                <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+                <ScalarProperty Name="TotalEmp" ColumnName="TotalEmp" />
+                <ScalarProperty Name="TotalOT" ColumnName="TotalOT" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="IsLock" ColumnName="IsLock" />
+                <ScalarProperty Name="Wstatus" ColumnName="Wstatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tblEmpLeaveApps">
+            <EntityTypeMapping TypeName="DatabasefileModel.tblEmpLeaveApp">
+              <MappingFragment StoreEntitySet="tblEmpLeaveApp">
+                <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="StatusReasons" ColumnName="StatusReasons" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FrDate" ColumnName="FrDate" />
+                <ScalarProperty Name="LDays" ColumnName="LDays" />
+                <ScalarProperty Name="LType" ColumnName="LType" />
+                <ScalarProperty Name="ActingPerson" ColumnName="ActingPerson" />
+                <ScalarProperty Name="RequestTo" ColumnName="RequestTo" />
+                <ScalarProperty Name="AppliedDate" ColumnName="AppliedDate" />
+                <ScalarProperty Name="RegId" ColumnName="RegId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="prc_EmployeeLeaveStatus" FunctionName="DatabasefileModel.Store.prc_EmployeeLeaveStatus">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.prc_EmployeeLeaveStatus_Result">
+                <ScalarProperty Name="RegId" ColumnName="RegId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RequestTo" ColumnName="RequestTo" />
+                <ScalarProperty Name="RequestToName" ColumnName="RequestToName" />
+                <ScalarProperty Name="ActingPerson" ColumnName="ActingPerson" />
+                <ScalarProperty Name="ActingPersonName" ColumnName="ActingPersonName" />
+                <ScalarProperty Name="AppliedDate" ColumnName="AppliedDate" />
+                <ScalarProperty Name="FrDate" ColumnName="FrDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="LType" ColumnName="LType" />
+                <ScalarProperty Name="LDays" ColumnName="LDays" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+                <ScalarProperty Name="StatusReasons" ColumnName="StatusReasons" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="prc_Get_OTRequEmail" FunctionName="DatabasefileModel.Store.prc_Get_OTRequEmail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.prc_Get_OTRequEmail_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tblOTStatus">
+            <EntityTypeMapping TypeName="DatabasefileModel.tblOTStatus">
+              <MappingFragment StoreEntitySet="tblOTStatus">
+                <ScalarProperty Name="Sign" ColumnName="Sign" />
+                <ScalarProperty Name="RequeType" ColumnName="RequeType" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Prc_Get_OTRequ_Info" FunctionName="DatabasefileModel.Store.Prc_Get_OTRequ_Info">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.Prc_Get_OTRequ_Info_Result">
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="DesigAddi" ColumnName="DesigAddi" />
+                <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DailyDate" ColumnName="DailyDate" />
+                <ScalarProperty Name="Shift" ColumnName="Shift" />
+                <ScalarProperty Name="OTStart" ColumnName="OTStart" />
+                <ScalarProperty Name="WeekNo" ColumnName="WeekNo" />
+                <ScalarProperty Name="TotalWeekOT" ColumnName="TotalWeekOT" />
+                <ScalarProperty Name="WeekLimit" ColumnName="WeekLimit" />
+                <ScalarProperty Name="MonthNo" ColumnName="MonthNo" />
+                <ScalarProperty Name="TotalMonthOT" ColumnName="TotalMonthOT" />
+                <ScalarProperty Name="MonthLimit" ColumnName="MonthLimit" />
+                <ScalarProperty Name="OTRequ" ColumnName="OTRequ" />
+                <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+                <ScalarProperty Name="IsOTRequ" ColumnName="IsOTRequ" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="IsLock" ColumnName="IsLock" />
+                <ScalarProperty Name="Wstatus" ColumnName="Wstatus" />
+                <ScalarProperty Name="Empstatus" ColumnName="Empstatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tblEmpOTApprovePermission">
+            <EntityTypeMapping TypeName="DatabasefileModel.tblEmpOTApprovePermission">
+              <MappingFragment StoreEntitySet="tblEmpOTApprovePermission">
+                <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="YsnActive" ColumnName="YsnActive" />
+                <ScalarProperty Name="PublishActive" ColumnName="PublishActive" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="EmpInfo" ColumnName="EmpInfo" />
+                <ScalarProperty Name="ComID" ColumnName="ComID" />
+                <ScalarProperty Name="RegId" ColumnName="RegId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="prc_EmployeeAttenInfo" FunctionName="DatabasefileModel.Store.prc_EmployeeAttenInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.prc_EmployeeAttenInfo_Result">
+                <ScalarProperty Name="ComID" ColumnName="ComID" />
+                <ScalarProperty Name="RegId" ColumnName="RegId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="DesigAddi" ColumnName="DesigAddi" />
+                <ScalarProperty Name="Wstatus" ColumnName="Wstatus" />
+                <ScalarProperty Name="RequestTo" ColumnName="RequestTo" />
+                <ScalarProperty Name="RequestToName" ColumnName="RequestToName" />
+                <ScalarProperty Name="RequestToEmpCode" ColumnName="RequestToEmpCode" />
+                <ScalarProperty Name="RequestToDepartment" ColumnName="RequestToDepartment" />
+                <ScalarProperty Name="RequestToSection" ColumnName="RequestToSection" />
+                <ScalarProperty Name="RequestToDesigAddi" ColumnName="RequestToDesigAddi" />
+                <ScalarProperty Name="RequestToWstatus" ColumnName="RequestToWstatus" />
+                <ScalarProperty Name="AppliedDate" ColumnName="AppliedDate" />
+                <ScalarProperty Name="prDate" ColumnName="prDate" />
+                <ScalarProperty Name="Shift" ColumnName="Shift" />
+                <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+                <ScalarProperty Name="LateHrs" ColumnName="LateHrs" />
+                <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
+                <ScalarProperty Name="DailyHrs" ColumnName="DailyHrs" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Process" ColumnName="Process" />
+                <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="prc_EmployeeLeaveInfo" FunctionName="DatabasefileModel.Store.prc_EmployeeLeaveInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.prc_EmployeeLeaveInfo_Result">
+                <ScalarProperty Name="ComID" ColumnName="ComID" />
+                <ScalarProperty Name="RegId" ColumnName="RegId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="DesigAddi" ColumnName="DesigAddi" />
+                <ScalarProperty Name="Wstatus" ColumnName="Wstatus" />
+                <ScalarProperty Name="RequestTo" ColumnName="RequestTo" />
+                <ScalarProperty Name="RequestToName" ColumnName="RequestToName" />
+                <ScalarProperty Name="RequestToEmpCode" ColumnName="RequestToEmpCode" />
+                <ScalarProperty Name="RequestToDepartment" ColumnName="RequestToDepartment" />
+                <ScalarProperty Name="RequestToSection" ColumnName="RequestToSection" />
+                <ScalarProperty Name="RequestToDesigAddi" ColumnName="RequestToDesigAddi" />
+                <ScalarProperty Name="RequestToWstatus" ColumnName="RequestToWstatus" />
+                <ScalarProperty Name="ActingPerson" ColumnName="ActingPerson" />
+                <ScalarProperty Name="ActingPersonName" ColumnName="ActingPersonName" />
+                <ScalarProperty Name="AppliedDate" ColumnName="AppliedDate" />
+                <ScalarProperty Name="FrDate" ColumnName="FrDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="LType" ColumnName="LType" />
+                <ScalarProperty Name="LDays" ColumnName="LDays" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+                <ScalarProperty Name="StatusReasons" ColumnName="StatusReasons" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="TblFabricColour">
+            <EntityTypeMapping TypeName="DatabasefileModel.TblFabricColour">
+              <MappingFragment StoreEntitySet="TblFabricColour">
+                <ScalarProperty Name="FabricColour" ColumnName="FabricColour" />
+                <ScalarProperty Name="Idno" ColumnName="Idno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblFabricContent">
+            <EntityTypeMapping TypeName="DatabasefileModel.TblFabricContent">
+              <MappingFragment StoreEntitySet="TblFabricContent">
+                <ScalarProperty Name="FABRICCONTENT" ColumnName="FABRICCONTENT" />
+                <ScalarProperty Name="Idno" ColumnName="Idno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblFabricMill">
+            <EntityTypeMapping TypeName="DatabasefileModel.TblFabricMill">
+              <MappingFragment StoreEntitySet="TblFabricMill">
+                <ScalarProperty Name="FabricMill" ColumnName="FabricMill" />
+                <ScalarProperty Name="Idno" ColumnName="Idno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblFabricType">
+            <EntityTypeMapping TypeName="DatabasefileModel.TblFabricType">
+              <MappingFragment StoreEntitySet="TblFabricType">
+                <ScalarProperty Name="FabricType" ColumnName="FabricType" />
+                <ScalarProperty Name="Idno" ColumnName="Idno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblFabricWave">
+            <EntityTypeMapping TypeName="DatabasefileModel.TblFabricWave">
+              <MappingFragment StoreEntitySet="TblFabricWave">
+                <ScalarProperty Name="FabricWave" ColumnName="FabricWave" />
+                <ScalarProperty Name="Idno" ColumnName="Idno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="prc_FabricInfoDetail" FunctionName="DatabasefileModel.Store.prc_FabricInfoDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DatabasefileModel.prc_FabricInfoDetail_Result">
+                <ScalarProperty Name="Slno" ColumnName="Slno" />
+                <ScalarProperty Name="FabricCode" ColumnName="FabricCode" />
+                <ScalarProperty Name="PJLCode" ColumnName="PJLCode" />
+                <ScalarProperty Name="MillID" ColumnName="MillID" />
+                <ScalarProperty Name="FabricMill" ColumnName="FabricMill" />
+                <ScalarProperty Name="ContentID" ColumnName="ContentID" />
+                <ScalarProperty Name="FabricContent" ColumnName="FabricContent" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="WeightUnit" ColumnName="WeightUnit" />
+                <ScalarProperty Name="WeightType" ColumnName="WeightType" />
+                <ScalarProperty Name="FabricConst" ColumnName="FabricConst" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="WidthUnit" ColumnName="WidthUnit" />
+                <ScalarProperty Name="ColourID" ColumnName="ColourID" />
+                <ScalarProperty Name="FabricColour" ColumnName="FabricColour" />
+                <ScalarProperty Name="FabricTypeID" ColumnName="FabricTypeID" />
+                <ScalarProperty Name="FabricType" ColumnName="FabricType" />
+                <ScalarProperty Name="FabricFinish" ColumnName="FabricFinish" />
+                <ScalarProperty Name="WeaveID" ColumnName="WeaveID" />
+                <ScalarProperty Name="FabricWeave" ColumnName="FabricWeave" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PriceUnit" ColumnName="PriceUnit" />
+                <ScalarProperty Name="PriceType" ColumnName="PriceType" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CNFPrice" ColumnName="CNFPrice" />
+                <ScalarProperty Name="Fabricwarp" ColumnName="Fabricwarp" />
+                <ScalarProperty Name="Fabricwaft" ColumnName="Fabricwaft" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tblFabricInfo">
+            <EntityTypeMapping TypeName="DatabasefileModel.tblFabricInfo">
+              <MappingFragment StoreEntitySet="tblFabricInfo">
+                <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Fabricwaft" ColumnName="Fabricwaft" />
+                <ScalarProperty Name="Fabricwarp" ColumnName="Fabricwarp" />
+                <ScalarProperty Name="CNFPrice" ColumnName="CNFPrice" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="PriceType" ColumnName="PriceType" />
+                <ScalarProperty Name="PriceUnit" ColumnName="PriceUnit" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="FabricFinish" ColumnName="FabricFinish" />
+                <ScalarProperty Name="WeaveID" ColumnName="WeaveID" />
+                <ScalarProperty Name="FabricTypeID" ColumnName="FabricTypeID" />
+                <ScalarProperty Name="ColourID" ColumnName="ColourID" />
+                <ScalarProperty Name="WidthUnit" ColumnName="WidthUnit" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="FabricConst" ColumnName="FabricConst" />
+                <ScalarProperty Name="WeightType" ColumnName="WeightType" />
+                <ScalarProperty Name="WeightUnit" ColumnName="WeightUnit" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="ContentID" ColumnName="ContentID" />
+                <ScalarProperty Name="MillID" ColumnName="MillID" />
+                <ScalarProperty Name="PJLCode" ColumnName="PJLCode" />
+                <ScalarProperty Name="FabricCode" ColumnName="FabricCode" />
+                <ScalarProperty Name="Slno" ColumnName="Slno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEmpOTRequ">
+            <EntityTypeMapping TypeName="DatabasefileModel.tblEmpOTRequ">
+              <MappingFragment StoreEntitySet="tblEmpOTRequ">
+                <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="EditReason" ColumnName="EditReason" />
+                <ScalarProperty Name="IsLock" ColumnName="IsLock" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="Reasons" ColumnName="Reasons" />
+                <ScalarProperty Name="OTRequ" ColumnName="OTRequ" />
+                <ScalarProperty Name="RequestOT" ColumnName="RequestOT" />
+                <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ComID" ColumnName="ComID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
